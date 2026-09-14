@@ -1,549 +1,533 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>MohsFlow | Portfolio</title>
-
-<meta name="description" content="MohsFlow - Portfolio personal y proyectos digitales">
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #080b14;
-        color: #ffffff;
-        line-height: 1.6;
-    }
-
-    /* ---------- MENÚ ---------- */
-
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 18px 7%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background: rgba(8, 11, 20, 0.85);
-        backdrop-filter: blur(12px);
-
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-
-        z-index: 1000;
-    }
-
-    .logo {
-        font-size: 24px;
-        font-weight: 800;
-        letter-spacing: -1px;
-    }
-
-    .logo span {
-        color: #38bdf8;
-    }
-
-    nav ul {
-        display: flex;
-        gap: 25px;
-        list-style: none;
-    }
-
-    nav a {
-        color: #dbeafe;
-        text-decoration: none;
-        font-size: 15px;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: #38bdf8;
-    }
-
-    /* ---------- PORTADA ---------- */
-
-    .hero {
-        min-height: 100vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        text-align: center;
-
-        padding: 120px 20px 80px;
-
-        background:
-            radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 35%),
-            radial-gradient(circle at bottom right, rgba(99,102,241,0.18), transparent 35%),
-            #080b14;
-    }
-
-    .hero-content {
-        max-width: 850px;
-    }
-
-    .hero h1 {
-        font-size: clamp(50px, 9vw, 95px);
-        line-height: 1;
-        margin-bottom: 25px;
-        letter-spacing: -4px;
-    }
-
-    .hero h1 span {
-        color: #38bdf8;
-    }
-
-    .hero p {
-        color: #a5b4fc;
-        font-size: 20px;
-        max-width: 650px;
-        margin: 0 auto 35px;
-    }
-
-    .button {
-        display: inline-block;
-
-        padding: 14px 28px;
-
-        border-radius: 50px;
-
-        background: #38bdf8;
-        color: #06111a;
-
-        text-decoration: none;
-
-        font-weight: 700;
-
-        transition: 0.3s;
-    }
-
-    .button:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 15px 35px rgba(56,189,248,0.25);
-    }
-
-    .button-secondary {
-        background: transparent;
-        color: #ffffff;
-        border: 1px solid #334155;
-        margin-left: 10px;
-    }
-
-    .button-secondary:hover {
-        border-color: #38bdf8;
-    }
-
-    /* ---------- SECCIONES ---------- */
-
-    section {
-        padding: 110px 7%;
-    }
-
-    .section-title {
-        text-align: center;
-        font-size: 42px;
-        margin-bottom: 15px;
-    }
-
-    .section-subtitle {
-        text-align: center;
-        color: #94a3b8;
-        max-width: 600px;
-        margin: 0 auto 55px;
-    }
-
-    /* ---------- SOBRE MÍ ---------- */
-
-    .about {
-        max-width: 900px;
-        margin: auto;
-        text-align: center;
-    }
-
-    .about p {
-        color: #cbd5e1;
-        font-size: 18px;
-    }
-
-    /* ---------- PROYECTOS ---------- */
-
-    .projects {
-        background: #0b1020;
-    }
-
-    .cards {
-        max-width: 1100px;
-        margin: auto;
-
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
-        gap: 25px;
-    }
-
-    .card {
-        background: #111827;
-
-        border: 1px solid #1e293b;
-
-        border-radius: 20px;
-
-        padding: 30px;
-
-        transition: 0.3s;
-    }
-
-    .card:hover {
-        transform: translateY(-8px);
-        border-color: #38bdf8;
-    }
-
-    .card-image {
-        width: 100%;
-        height: 170px;
-
-        object-fit: cover;
-
-        border-radius: 14px;
-
-        margin-bottom: 20px;
-
-        background: #1e293b;
-    }
-
-    .card h3 {
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
-
-    .card p {
-        color: #94a3b8;
-    }
-
-    /* ---------- HABILIDADES ---------- */
-
-    .skills {
-        max-width: 900px;
-        margin: auto;
-
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        gap: 12px;
-    }
-
-    .skill {
-        padding: 10px 18px;
-
-        background: #111827;
-
-        border: 1px solid #334155;
-
-        border-radius: 50px;
-
-        color: #cbd5e1;
-    }
-
-    /* ---------- CONTACTO ---------- */
-
-    .contact {
-        text-align: center;
-        background: #020617;
-    }
-
-    .contact p {
-        color: #94a3b8;
-        max-width: 600px;
-        margin: 0 auto 30px;
-    }
-
-    /* ---------- FOOTER ---------- */
-
-    footer {
-        text-align: center;
-        padding: 25px;
-
-        background: #020617;
-
-        color: #64748b;
-
-        border-top: 1px solid #1e293b;
-    }
-
-    /* ---------- MÓVIL ---------- */
-
-    @media (max-width: 650px) {
+    <title>MOHSWEAR | Ropa urbana</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        /* NAVBAR */
 
         nav {
-            padding: 15px 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: -1px;
         }
 
         nav ul {
-            gap: 12px;
+            list-style: none;
+            display: flex;
+            gap: 25px;
         }
 
         nav a {
-            font-size: 13px;
+            text-decoration: none;
+            color: #111;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #777;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 7% 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.45)
+                ),
+                url("portada.jpg") center/cover;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 750px;
         }
 
         .hero h1 {
-            letter-spacing: -2px;
+            font-size: clamp(50px, 9vw, 100px);
+            font-weight: 900;
+            letter-spacing: -5px;
+            margin-bottom: 20px;
         }
 
-        .button-secondary {
-            margin-left: 0;
-            margin-top: 12px;
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 35px;
         }
 
-        section {
-            padding: 80px 5%;
+        .button {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
-    }
-</style>
-```
 
+        .button:hover {
+            transform: translateY(-4px);
+            background: #ddd;
+        }
+
+        /* PRODUCTOS */
+
+        .products-section {
+            padding: 100px 7%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .product img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .product p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .buy {
+            display: block;
+            text-align: center;
+            background: #111;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .buy:hover {
+            background: #333;
+        }
+
+        /* SOBRE LA MARCA */
+
+        .about {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 100px 7%;
+        }
+
+        .about p {
+            max-width: 650px;
+            margin: auto;
+            color: #bbb;
+            font-size: 18px;
+        }
+
+        /* CONTACTO */
+
+        .contact {
+            padding: 100px 7%;
+            text-align: center;
+        }
+
+        .contact p {
+            color: #666;
+            margin: 15px auto 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111;
+            color: #777;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* MÓVIL */
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .product img {
+                height: 280px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-```
-<!-- MENÚ -->
+    <!-- NAVBAR -->
 
-<nav>
+    <nav>
 
-    <div class="logo">
-        Mohs<span>Flow</span>
-    </div>
+        <div class="logo">
+            MOHSWEAR
+        </div>
 
-    <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-    </ul>
+        <ul>
+            <li>
+                <a href="#inicio">Inicio</a>
+            </li>
 
-</nav>
+            <li>
+                <a href="#productos">Tienda</a>
+            </li>
 
+            <li>
+                <a href="#sobre">Sobre nosotros</a>
+            </li>
 
-<!-- PORTADA -->
+            <li>
+                <a href="#contacto">Contacto</a>
+            </li>
+        </ul>
 
-<section class="hero" id="inicio">
-
-    <div class="hero-content">
-
-        <h1>
-            Soy <span>MohsFlow</span>
-        </h1>
-
-        <p>
-            Tecnología, creatividad y proyectos digitales.
-            Bienvenido a mi portfolio.
-        </p>
-
-        <a href="#proyectos" class="button">
-            Ver proyectos
-        </a>
-
-        <a href="#contacto" class="button button-secondary">
-            Contactar
-        </a>
-
-    </div>
-
-</section>
+    </nav>
 
 
-<!-- SOBRE MÍ -->
+    <!-- PORTADA -->
 
-<section id="sobre-mi">
+    <section class="hero" id="inicio">
 
-    <div class="about">
+        <div class="hero-content">
 
-        <h2 class="section-title">
-            Sobre mí
+            <h1>
+                MOHSWEAR
+            </h1>
+
+            <p>
+                Ropa urbana. Estilo propio.
+            </p>
+
+            <a href="#productos" class="button">
+                VER COLECCIÓN
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTOS -->
+
+    <section class="products-section" id="productos">
+
+        <h2 class="title">
+            Colección
         </h2>
 
-        <p class="section-subtitle">
-            Un poco sobre lo que hago.
+        <p class="subtitle">
+            Descubre nuestros productos.
         </p>
+
+
+        <div class="products">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="product">
+
+                <img
+                    src="camiseta.jpg"
+                    alt="Camiseta negra"
+                >
+
+                <div class="product-info">
+
+                    <h3>
+                        Camiseta Essential
+                    </h3>
+
+                    <p>
+                        Camiseta negra oversize.
+                    </p>
+
+                    <div class="price">
+                        24,99 €
+                    </div>
+
+                    <a
+                        href="#contacto"
+                        class="buy"
+                    >
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="product">
+
+                <img
+                    src="sudadera.jpg"
+                    alt="Sudadera"
+                >
+
+                <div class="product-info">
+
+                    <h3>
+                        Sudadera Mohs
+                    </h3>
+
+                    <p>
+                        Sudadera cómoda y moderna.
+                    </p>
+
+                    <div class="price">
+                        49,99 €
+                    </div>
+
+                    <a
+                        href="#contacto"
+                        class="buy"
+                    >
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="product">
+
+                <img
+                    src="pantalon.jpg"
+                    alt="Pantalón"
+                >
+
+                <div class="product-info">
+
+                    <h3>
+                        Cargo Black
+                    </h3>
+
+                    <p>
+                        Pantalón cargo estilo urbano.
+                    </p>
+
+                    <div class="price">
+                        39,99 €
+                    </div>
+
+                    <a
+                        href="#contacto"
+                        class="buy"
+                    >
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="product">
+
+                <img
+                    src="gorra.jpg"
+                    alt="Gorra"
+                >
+
+                <div class="product-info">
+
+                    <h3>
+                        Mohs Cap
+                    </h3>
+
+                    <p>
+                        Gorra minimalista.
+                    </p>
+
+                    <div class="price">
+                        19,99 €
+                    </div>
+
+                    <a
+                        href="#contacto"
+                        class="buy"
+                    >
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE LA MARCA -->
+
+    <section class="about" id="sobre">
+
+        <h2 class="title">
+            Nuestra marca
+        </h2>
 
         <p>
-            ¡Hola! Soy MohsFlow. Me interesa la tecnología,
-            los proyectos digitales y aprender cosas nuevas.
-            Esta página es mi espacio para enseñar mis proyectos
-            y todo lo que voy creando.
+            MOHSWEAR es una marca de ropa urbana creada para personas
+            que buscan expresar su estilo de una manera diferente.
+            Diseños sencillos, modernos y cómodos.
         </p>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- PROYECTOS -->
+    <!-- CONTACTO -->
 
-<section class="projects" id="proyectos">
+    <section class="contact" id="contacto">
 
-    <h2 class="section-title">
-        Mis proyectos
-    </h2>
+        <h2 class="title">
+            ¿Quieres comprar?
+        </h2>
 
-    <p class="section-subtitle">
-        Aquí puedes enseñar tus proyectos, trabajos o creaciones.
-    </p>
+        <p>
+            Contacta con nosotros para consultar tallas,
+            disponibilidad y pedidos.
+        </p>
 
+        <a
+            href="mailto:mohammedlamkadem16@gmail.com"
+            class="button"
+        >
+            📩 Contactar
+        </a>
 
-    <div class="cards">
-
-
-        <!-- PROYECTO 1 -->
-
-        <div class="card">
-
-            <!-- Cambia "proyecto1.jpg" por tu imagen -->
-
-            <img
-                class="card-image"
-                src="proyecto1.jpg"
-                alt="Proyecto 1"
-            >
-
-            <h3>
-                Proyecto 1
-            </h3>
-
-            <p>
-                Descripción de tu primer proyecto.
-            </p>
-
-        </div>
+    </section>
 
 
-        <!-- PROYECTO 2 -->
+    <!-- FOOTER -->
 
-        <div class="card">
+    <footer>
 
-            <img
-                class="card-image"
-                src="proyecto2.jpg"
-                alt="Proyecto 2"
-            >
+        © 2026 MOHSWEAR · Todos los derechos reservados.
 
-            <h3>
-                Proyecto 2
-            </h3>
-
-            <p>
-                Descripción de tu segundo proyecto.
-            </p>
-
-        </div>
-
-
-        <!-- PROYECTO 3 -->
-
-        <div class="card">
-
-            <img
-                class="card-image"
-                src="proyecto3.jpg"
-                alt="Proyecto 3"
-            >
-
-            <h3>
-                Proyecto 3
-            </h3>
-
-            <p>
-                Descripción de tu tercer proyecto.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- HABILIDADES -->
-
-<section>
-
-    <h2 class="section-title">
-        Mis habilidades
-    </h2>
-
-    <p class="section-subtitle">
-        Algunas cosas que sé hacer.
-    </p>
-
-    <div class="skills">
-
-        <div class="skill">💻 Tecnología</div>
-
-        <div class="skill">🌐 Web</div>
-
-        <div class="skill">🎨 Diseño</div>
-
-        <div class="skill">🎬 Edición</div>
-
-        <div class="skill">🚀 Proyectos</div>
-
-        <div class="skill">🧠 Aprendizaje</div>
-
-    </div>
-
-</section>
-
-
-<!-- CONTACTO -->
-
-<section class="contact" id="contacto">
-
-    <h2 class="section-title">
-        ¿Hablamos?
-    </h2>
-
-    <p>
-        Si quieres contactar conmigo para un proyecto,
-        una colaboración o simplemente quieres escribirme,
-        puedes hacerlo por email.
-    </p>
-
-    <a
-        href="mailto:mohammedlamkadem16@gmail.com"
-        class="button"
-    >
-        📩 Contactar conmigo
-    </a>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    © 2026 MohsFlow · Portfolio personal
-
-</footer>
-```
+    </footer>
 
 </body>
 </html>
+portada.jpg
+camiseta.jpg
+sudadera.jpg
+pantalon.jpg
+gorra.jpg
