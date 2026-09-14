@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,9 @@ body {
     color: #111;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 nav {
     position: fixed;
@@ -76,7 +79,9 @@ nav a:hover {
     font-size: 20px;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 100vh;
@@ -132,7 +137,9 @@ nav a:hover {
     transform: translateY(-4px);
 }
 
-/* PRODUCTOS */
+/* =========================
+   PRODUCTOS
+========================= */
 
 .products-section {
     padding: 110px 7%;
@@ -232,7 +239,9 @@ nav a:hover {
     background: #333;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about {
     background: #111;
@@ -243,6 +252,10 @@ nav a:hover {
     text-align: center;
 }
 
+.about .title {
+    color: white;
+}
+
 .about p {
     max-width: 650px;
 
@@ -251,9 +264,13 @@ nav a:hover {
     color: #bbb;
 
     font-size: 18px;
+
+    line-height: 1.7;
 }
 
-/* CONTACT */
+/* =========================
+   CONTACTO
+========================= */
 
 .contact {
     text-align: center;
@@ -261,7 +278,7 @@ nav a:hover {
     padding: 100px 7%;
 }
 
-.contact p {
+.contact > p {
     color: #666;
 
     margin: 15px auto 30px;
@@ -269,7 +286,50 @@ nav a:hover {
     max-width: 600px;
 }
 
-/* FOOTER */
+.contact-card {
+    max-width: 600px;
+
+    margin: 35px auto 0;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
+}
+
+.contact-card h3 {
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+.contact-card p {
+    color: #555;
+
+    margin: 18px 0;
+
+    line-height: 1.6;
+}
+
+.contact-card a {
+    color: #111;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: #111;
@@ -281,7 +341,9 @@ footer {
     padding: 25px;
 }
 
-/* MODAL */
+/* =========================
+   MODAL
+========================= */
 
 .modal {
     display: none;
@@ -338,6 +400,7 @@ footer {
 
 .modal-product {
     color: #666;
+
     margin-bottom: 25px;
 }
 
@@ -393,6 +456,10 @@ input {
     cursor: pointer;
 }
 
+.checkout:hover {
+    background: #333;
+}
+
 .demo-note {
     margin-top: 15px;
 
@@ -405,9 +472,13 @@ input {
     color: #666;
 
     font-size: 13px;
+
+    line-height: 1.5;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:650px) {
 
@@ -427,6 +498,14 @@ input {
         height: 280px;
     }
 
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .title {
+        font-size: 38px;
+    }
+
 }
 
 </style>
@@ -435,7 +514,9 @@ input {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav>
 
@@ -479,7 +560,9 @@ input {
 
 </nav>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="inicio">
 
@@ -506,7 +589,9 @@ input {
 
 </section>
 
-<!-- TIENDA -->
+<!-- =========================
+     TIENDA
+========================= -->
 
 <section
     class="products-section"
@@ -720,7 +805,9 @@ input {
 
 </section>
 
-<!-- NOSOTROS -->
+<!-- =========================
+     NOSOTROS
+========================= -->
 
 <section
     class="about"
@@ -741,7 +828,9 @@ input {
 
 </section>
 
-<!-- CONTACTO -->
+<!-- =========================
+     CONTACTO
+========================= -->
 
 <section
     class="contact"
@@ -755,19 +844,51 @@ input {
 
 <p>
     ¿Tienes alguna pregunta sobre nuestros productos?
+    ¡Escríbeme!
 </p>
 
-<a
-    href="mailto:mohammedlamkadem16@gmail.com"
-    class="button"
->
-    📩 Contactar
-</a>
+<div class="contact-card">
+
+    <h3>
+        Mohammed Lamkadem Amzaz
+    </h3>
+
+    <p>
+
+        📧
+        <strong>Correo:</strong>
+        <br>
+
+        <a
+            href="mailto:mohammedlamkadem16@gmail.com"
+        >
+            mohammedlamkadem16@gmail.com
+        </a>
+
+    </p>
+
+    <p>
+
+        📱
+        <strong>Teléfono:</strong>
+        <br>
+
+        <a
+            href="tel:642317879"
+        >
+            642 317 879
+        </a>
+
+    </p>
+
+</div>
 ```
 
 </section>
 
-<!-- VENTANA DE COMPRA -->
+<!-- =========================
+     VENTANA DE COMPRA
+========================= -->
 
 <div
     class="modal"
@@ -796,8 +917,6 @@ input {
         Producto
     </p>
 
-
-    <!-- TALLA -->
 
     <label for="size">
         Talla
@@ -831,8 +950,6 @@ input {
     </select>
 
 
-    <!-- CANTIDAD -->
-
     <label for="quantity">
         Cantidad
     </label>
@@ -841,11 +958,10 @@ input {
         type="number"
         id="quantity"
         min="1"
+        max="20"
         value="1"
     >
 
-
-    <!-- TOTAL -->
 
     <div class="total">
 
@@ -857,8 +973,6 @@ input {
     </div>
 
 
-    <!-- CHECKOUT DEMO -->
-
     <button
         class="checkout"
         onclick="showDemoMessage()"
@@ -869,10 +983,18 @@ input {
 
     <div class="demo-note">
 
-        🔒 Esta es una demostración.
-        Para aceptar pagos reales debes utilizar
-        un proveedor de pagos seguro. No introduzcas
-        números reales de tarjeta en esta página.
+        🔒 Pago de demostración.
+
+        <br><br>
+
+        Para aceptar pagos reales,
+        conecta esta tienda a un proveedor
+        de pagos seguro como Stripe Checkout.
+
+        <br><br>
+
+        No introduzcas números reales
+        de tarjeta en esta página.
 
     </div>
 
@@ -881,7 +1003,9 @@ input {
 
 </div>
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -895,6 +1019,8 @@ input {
 
 let currentPrice = 0;
 
+
+/* ABRIR PRODUCTO */
 
 function openProduct(name, price) {
 
@@ -917,6 +1043,8 @@ function openProduct(name, price) {
 }
 
 
+/* CERRAR MODAL */
+
 function closeModal() {
 
     document.getElementById(
@@ -925,6 +1053,8 @@ function closeModal() {
 
 }
 
+
+/* ACTUALIZAR TOTAL */
 
 function updateTotal() {
 
@@ -935,16 +1065,31 @@ function updateTotal() {
             ).value
         );
 
+    const safeQuantity =
+        Math.max(
+            1,
+            Math.min(
+                20,
+                quantity || 1
+            )
+        );
+
+    document.getElementById(
+        "quantity"
+    ).value = safeQuantity;
+
     const total =
-        currentPrice * quantity;
+        currentPrice * safeQuantity;
 
     document.getElementById(
         "total"
     ).textContent =
-        total.toFixed(2) + " €";
+        total.toFixed(2).replace(".", ",") + " €";
 
 }
 
+
+/* CAMBIAR CANTIDAD */
 
 document.getElementById(
     "quantity"
@@ -954,16 +1099,21 @@ document.getElementById(
 );
 
 
+/* BOTÓN DE PAGO */
+
 function showDemoMessage() {
 
     alert(
         "Checkout de demostración.\n\n" +
-        "Para vender de verdad, conecta un " +
-        "proveedor de pagos seguro."
+        "Todavía no se ha realizado ningún pago.\n\n" +
+        "Para vender de verdad, conecta " +
+        "MohsFlow con Stripe Checkout."
     );
 
 }
 
+
+/* CERRAR AL PULSAR FUERA */
 
 window.addEventListener(
     "click",
@@ -987,9 +1137,11 @@ window.addEventListener(
 
 </body>
 </html>
-portada.jpg
-camiseta.jpg
-sudadera.jpg
-pantalon.jpg
-gorra.jpg
-pantaloncorto.jpg
+MohsFlow/
+├── index.html
+├── portada.jpg
+├── camiseta.jpg
+├── sudadera.jpg
+├── pantalon.jpg
+├── gorra.jpg
+└── pantaloncorto.jpg
