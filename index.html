@@ -1,1130 +1,1689 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MohsFlow | Streetwear</title>
+<title>MOHSFLOW | Streetwear</title>
+
+<meta name="description"
+content="MOHSFLOW — Streetwear con actitud. Ropa urbana para personas que quieren vestir diferente.">
 
 <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5;
-    color: #111;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f7f7f7;
+    color:#111;
 }
 
-/* =========================
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =====================================================
    NAVBAR
-========================= */
+===================================================== */
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    padding: 18px 7%;
+    padding:0 6%;
 
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(15px);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
 
-    border-bottom: 1px solid #ddd;
+    border-bottom:1px solid #ddd;
+
+    z-index:1000;
 }
 
-.logo {
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: -1px;
+/* LOGO */
+
+.logo{
+    position:relative;
+
+    font-size:25px;
+    font-weight:1000;
+    letter-spacing:-2px;
+
+    transform:skew(-8deg);
 }
 
-.logo span {
-    color: #777;
+.logo::before{
+    content:"♛";
+
+    position:absolute;
+    top:-17px;
+    left:30px;
+
+    font-size:17px;
+    transform:skew(8deg);
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
+.logo span{
+    color:#777;
 }
 
-nav a {
-    text-decoration: none;
-    color: #111;
-    font-weight: bold;
+/* MENU */
+
+nav ul{
+    display:flex;
+    gap:32px;
+    list-style:none;
 }
 
-nav a:hover {
-    color: #777;
+nav ul a{
+    position:relative;
+
+    font-size:14px;
+    font-weight:600;
 }
 
-.cart {
-    cursor: pointer;
-    font-size: 20px;
+nav ul a::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    bottom:-9px;
+
+    width:0;
+    height:2px;
+
+    background:#111;
+
+    transition:.3s;
 }
 
-/* =========================
+nav ul a:hover::after{
+    width:100%;
+}
+
+/* CART */
+
+.cart{
+    position:relative;
+
+    font-size:22px;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.cart:hover{
+    transform:scale(1.12);
+}
+
+.cart-count{
+    position:absolute;
+
+    top:-9px;
+    right:-11px;
+
+    width:18px;
+    height:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#111;
+    color:#fff;
+
+    border-radius:50%;
+
+    font-size:10px;
+    font-weight:bold;
+}
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
-.hero {
-    min-height: 100vh;
+.hero{
+    min-height:100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    align-items:center;
 
-    text-align: center;
-
-    padding: 120px 20px;
+    padding:110px 7% 70px;
 
     background:
-        linear-gradient(
-            rgba(0,0,0,0.5),
-            rgba(0,0,0,0.5)
-        ),
-        url("portada.jpg") center/cover;
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.78) 0%,
+        rgba(0,0,0,.45) 42%,
+        rgba(0,0,0,.15) 100%
+    ),
+    url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=2000&q=90")
+    center/cover;
+
+    color:white;
 }
 
-.hero-content {
-    color: white;
+.hero-content{
+    max-width:620px;
 }
 
-.hero h1 {
-    font-size: clamp(55px, 10vw, 110px);
-    letter-spacing: -5px;
-    margin-bottom: 20px;
+.hero-logo{
+    font-size:clamp(55px,9vw,110px);
+
+    font-weight:1000;
+    letter-spacing:-7px;
+
+    line-height:.9;
+
+    transform:skew(-7deg);
+
+    margin-bottom:25px;
 }
 
-.hero p {
-    font-size: 22px;
-    margin-bottom: 35px;
+.hero-logo::before{
+    content:"♛";
+
+    display:block;
+
+    font-size:35px;
+
+    letter-spacing:0;
+
+    margin-left:15px;
+    margin-bottom:4px;
 }
 
-.button {
-    display: inline-block;
+.hero-tag{
+    font-size:14px;
+    font-weight:bold;
 
-    padding: 15px 32px;
+    letter-spacing:4px;
 
-    border-radius: 50px;
-
-    background: white;
-    color: black;
-
-    text-decoration: none;
-    font-weight: bold;
-
-    transition: .3s;
+    margin-bottom:18px;
 }
 
-.button:hover {
-    transform: translateY(-4px);
+.hero p{
+    max-width:470px;
+
+    font-size:19px;
+    line-height:1.6;
+
+    color:#eee;
+
+    margin-bottom:35px;
 }
 
-/* =========================
-   PRODUCTOS
-========================= */
+.hero-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-.products-section {
-    padding: 110px 7%;
+    padding:17px 35px;
+
+    background:white;
+    color:#111;
+
+    border-radius:40px;
+
+    font-weight:bold;
+
+    transition:.3s;
 }
 
-.title {
-    text-align: center;
-    font-size: 45px;
-    margin-bottom: 12px;
+.hero-button:hover{
+    transform:translateY(-4px);
+    padding-left:42px;
+    padding-right:42px;
 }
 
-.subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 50px;
+/* =====================================================
+   SECTION TITLES
+===================================================== */
+
+.section{
+    padding:105px 7%;
 }
 
-.products {
-    max-width: 1200px;
-    margin: auto;
+.section-title{
+    text-align:center;
 
-    display: grid;
+    font-size:clamp(38px,5vw,58px);
+
+    letter-spacing:-2px;
+
+    margin-bottom:10px;
+}
+
+.section-subtitle{
+    text-align:center;
+
+    color:#777;
+
+    font-size:16px;
+
+    margin-bottom:55px;
+}
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products{
+    max-width:1250px;
+
+    margin:auto;
+
+    display:grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+    repeat(auto-fit,minmax(220px,1fr));
 
-    gap: 25px;
+    gap:22px;
 }
 
-.product {
-    background: white;
+.product{
+    background:#fff;
 
-    border-radius: 18px;
+    border-radius:16px;
 
-    overflow: hidden;
+    overflow:hidden;
+
+    box-shadow:0 5px 25px rgba(0,0,0,.06);
+
+    transition:.35s;
+}
+
+.product:hover{
+    transform:translateY(-8px);
 
     box-shadow:
-        0 5px 20px rgba(0,0,0,.06);
-
-    transition: .3s;
+    0 18px 45px rgba(0,0,0,.13);
 }
 
-.product:hover {
-    transform: translateY(-8px);
+.product-image{
+    position:relative;
+
+    height:350px;
+
+    overflow:hidden;
+
+    background:#eee;
 }
 
-.product img {
-    width: 100%;
-    height: 330px;
+.product-image img{
+    width:100%;
+    height:100%;
 
-    object-fit: cover;
+    object-fit:cover;
 
-    display: block;
+    display:block;
+
+    transition:.5s;
 }
 
-.product-info {
-    padding: 22px;
+.product:hover img{
+    transform:scale(1.05);
 }
 
-.product-info h3 {
-    font-size: 21px;
-    margin-bottom: 8px;
+.badge{
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    padding:7px 11px;
+
+    background:#111;
+    color:#fff;
+
+    border-radius:20px;
+
+    font-size:11px;
+    font-weight:bold;
 }
 
-.description {
-    color: #777;
-    margin-bottom: 12px;
+.product-info{
+    padding:21px;
 }
 
-.price {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 18px;
+.product-info h3{
+    font-size:19px;
+
+    margin-bottom:7px;
 }
 
-.buy {
-    width: 100%;
+.category{
+    font-size:13px;
+    color:#888;
 
-    border: none;
-
-    padding: 13px;
-
-    border-radius: 10px;
-
-    background: #111;
-    color: white;
-
-    font-size: 15px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: .3s;
+    margin-bottom:12px;
 }
 
-.buy:hover {
-    background: #333;
+.description{
+    font-size:14px;
+
+    color:#777;
+
+    line-height:1.5;
+
+    margin-bottom:13px;
 }
 
-/* =========================
-   ABOUT
-========================= */
+.price{
+    font-size:21px;
 
-.about {
-    background: #111;
-    color: white;
+    font-weight:900;
 
-    padding: 110px 7%;
-
-    text-align: center;
+    margin-bottom:17px;
 }
 
-.about .title {
-    color: white;
+.buy{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:#111;
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
 }
 
-.about p {
-    max-width: 650px;
-
-    margin: auto;
-
-    color: #bbb;
-
-    font-size: 18px;
-
-    line-height: 1.7;
+.buy:hover{
+    background:#333;
 }
 
-/* =========================
-   CONTACTO
-========================= */
+/* =====================================================
+   BRAND / ABOUT
+===================================================== */
 
-.contact {
-    text-align: center;
+.about{
+    padding:100px 7%;
 
-    padding: 100px 7%;
+    background:#111;
+    color:white;
 }
 
-.contact > p {
-    color: #666;
+.about-container{
+    max-width:1200px;
 
-    margin: 15px auto 30px;
+    margin:auto;
 
-    max-width: 600px;
+    display:grid;
+
+    grid-template-columns:1.15fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
 }
 
-.contact-card {
-    max-width: 600px;
+.about-image{
+    height:500px;
 
-    margin: 35px auto 0;
+    border-radius:15px;
 
-    padding: 30px;
-
-    background: white;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.06);
+    overflow:hidden;
 }
 
-.contact-card h3 {
-    font-size: 25px;
+.about-image img{
+    width:100%;
+    height:100%;
 
-    margin-bottom: 25px;
+    object-fit:cover;
 }
 
-.contact-card p {
-    color: #555;
+.about-text .small-title{
+    font-size:12px;
 
-    margin: 18px 0;
+    letter-spacing:4px;
 
-    line-height: 1.6;
+    font-weight:bold;
+
+    color:#aaa;
+
+    margin-bottom:18px;
 }
 
-.contact-card a {
-    color: #111;
+.about-text h2{
+    font-size:clamp(40px,5vw,65px);
 
-    text-decoration: none;
+    line-height:.98;
 
-    font-weight: bold;
+    letter-spacing:-3px;
+
+    margin-bottom:25px;
 }
 
-.contact-card a:hover {
-    text-decoration: underline;
+.about-text p{
+    color:#bbb;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
 }
 
-/* =========================
+.outline-button{
+    display:inline-block;
+
+    padding:14px 26px;
+
+    border:1px solid white;
+
+    border-radius:30px;
+
+    font-size:14px;
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.outline-button:hover{
+    background:white;
+    color:#111;
+}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+    padding:90px 7%;
+
+    background:#f7f7f7;
+}
+
+.contact-grid{
+    max-width:1050px;
+
+    margin:45px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+.contact-box{
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 25px rgba(0,0,0,.05);
+}
+
+.contact-icon{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 18px;
+
+    background:#111;
+    color:white;
+
+    border-radius:50%;
+
+    font-size:20px;
+}
+
+.contact-box h3{
+    margin-bottom:8px;
+}
+
+.contact-box p{
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
-footer {
-    background: #111;
+footer{
+    background:#111;
+    color:white;
 
-    color: #777;
+    padding:45px 7%;
 
-    text-align: center;
-
-    padding: 25px;
+    text-align:center;
 }
 
-/* =========================
+.footer-logo{
+    font-size:34px;
+
+    font-weight:1000;
+
+    letter-spacing:-3px;
+
+    transform:skew(-7deg);
+
+    display:inline-block;
+
+    margin-bottom:20px;
+}
+
+.footer-links{
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-bottom:25px;
+
+    color:#aaa;
+
+    font-size:13px;
+}
+
+.footer-copy{
+    color:#666;
+
+    font-size:12px;
+}
+
+/* =====================================================
    MODAL
-========================= */
+===================================================== */
 
-.modal {
-    display: none;
+.modal{
+    position:fixed;
 
-    position: fixed;
+    inset:0;
 
-    inset: 0;
+    background:rgba(0,0,0,.75);
 
-    background: rgba(0,0,0,.7);
+    display:none;
 
-    z-index: 3000;
+    align-items:center;
+    justify-content:center;
 
-    justify-content: center;
-    align-items: center;
+    padding:20px;
 
-    padding: 20px;
+    z-index:3000;
 }
 
-.modal-content {
-    background: white;
-
-    width: 100%;
-    max-width: 480px;
-
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    border-radius: 20px;
-
-    padding: 30px;
-
-    position: relative;
+.modal.active{
+    display:flex;
 }
 
-.close {
-    position: absolute;
+.modal-content{
+    width:100%;
+    max-width:470px;
 
-    top: 12px;
-    right: 18px;
+    background:white;
 
-    border: none;
+    border-radius:20px;
 
-    background: none;
+    padding:32px;
 
-    font-size: 30px;
+    position:relative;
 
-    cursor: pointer;
+    animation:modalIn .25s ease;
 }
 
-.modal-content h2 {
-    margin-bottom: 5px;
+@keyframes modalIn{
+
+    from{
+        transform:scale(.9);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
-.modal-product {
-    color: #666;
+.close{
+    position:absolute;
 
-    margin-bottom: 25px;
+    top:12px;
+    right:18px;
+
+    border:none;
+
+    background:none;
+
+    font-size:30px;
+
+    cursor:pointer;
 }
 
-label {
-    display: block;
+.modal-content h2{
+    font-size:30px;
 
-    margin-top: 15px;
-    margin-bottom: 7px;
+    margin-bottom:5px;
+}
 
-    font-weight: bold;
+.modal-product{
+    color:#777;
+
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+
+    margin:17px 0 7px;
+
+    font-weight:bold;
+
+    font-size:14px;
 }
 
 select,
-input {
-    width: 100%;
+input{
+    width:100%;
 
-    padding: 13px;
+    padding:14px;
 
-    border: 1px solid #ccc;
+    border:1px solid #ccc;
 
-    border-radius: 9px;
+    border-radius:9px;
 
-    font-size: 16px;
+    font-size:16px;
+
+    background:white;
 }
 
-.total {
-    margin-top: 25px;
+.total{
+    margin-top:25px;
 
-    font-size: 21px;
+    font-size:22px;
 
-    font-weight: bold;
+    font-weight:bold;
 }
 
-.checkout {
-    width: 100%;
+.checkout{
+    width:100%;
 
-    margin-top: 20px;
+    margin-top:20px;
 
-    padding: 15px;
+    padding:15px;
 
-    border: none;
+    border:none;
 
-    border-radius: 10px;
+    border-radius:10px;
 
-    background: #111;
+    background:#111;
 
-    color: white;
+    color:white;
 
-    font-size: 16px;
+    font-size:16px;
 
-    font-weight: bold;
+    font-weight:bold;
 
-    cursor: pointer;
+    cursor:pointer;
 }
 
-.checkout:hover {
-    background: #333;
+.demo-note{
+    margin-top:15px;
+
+    padding:14px;
+
+    background:#f1f1f1;
+
+    border-radius:10px;
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.5;
 }
 
-.demo-note {
-    margin-top: 15px;
-
-    padding: 12px;
-
-    background: #f1f1f1;
-
-    border-radius: 10px;
-
-    color: #666;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-}
-
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
-@media(max-width:650px) {
+@media(max-width:750px){
 
-    nav {
-        padding: 15px 5%;
+    nav{
+        height:65px;
+        padding:0 5%;
     }
 
-    nav ul {
-        gap: 10px;
+    nav ul{
+        gap:13px;
     }
 
-    nav a {
-        font-size: 13px;
+    nav ul a{
+        font-size:11px;
     }
 
-    .product img {
-        height: 280px;
+    .logo{
+        font-size:20px;
     }
 
-    .hero h1 {
-        letter-spacing: -3px;
+    .hero{
+        padding:100px 7% 70px;
+        min-height:90vh;
     }
 
-    .title {
-        font-size: 38px;
+    .hero-logo{
+        font-size:65px;
+        letter-spacing:-5px;
     }
 
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:75px 5%;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .product-image{
+        height:250px;
+    }
+
+    .product-info{
+        padding:15px;
+    }
+
+    .product-info h3{
+        font-size:16px;
+    }
+
+    .description{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:18px;
+    }
+
+    .buy{
+        padding:12px 5px;
+        font-size:12px;
+    }
+
+    .about{
+        padding:70px 5%;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .about-image{
+        height:380px;
+    }
+
+    .contact{
+        padding:70px 5%;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-links{
+        flex-wrap:wrap;
+    }
+}
+
+@media(max-width:430px){
+
+    nav ul{
+        gap:8px;
+    }
+
+    nav ul a{
+        font-size:10px;
+    }
+
+    .cart{
+        font-size:19px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:370px;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- =========================
+
+<!-- =====================================================
      NAVBAR
-========================= -->
+===================================================== -->
 
 <nav>
 
-```
-<div class="logo">
-    Mohs<span>Flow</span>
-</div>
-
-<ul>
-
-    <li>
-        <a href="#inicio">
-            Inicio
-        </a>
-    </li>
-
-    <li>
-        <a href="#tienda">
-            Tienda
-        </a>
-    </li>
-
-    <li>
-        <a href="#nosotros">
-            Nosotros
-        </a>
-    </li>
-
-    <li>
-        <a href="#contacto">
-            Contacto
-        </a>
-    </li>
-
-</ul>
-
-<div class="cart">
-    🛒
-</div>
-```
-
-</nav>
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero" id="inicio">
-
-```
-<div class="hero-content">
-
-    <h1>
-        MohsFlow
-    </h1>
-
-    <p>
-        Streetwear. Tu estilo. Tu Flow.
-    </p>
-
-    <a
-        href="#tienda"
-        class="button"
-    >
-        VER COLECCIÓN
+    <a href="#inicio" class="logo">
+        Mohs<span>Flow</span>
     </a>
 
-</div>
-```
+    <ul>
 
-</section>
+        <li>
+            <a href="#inicio">Inicio</a>
+        </li>
 
-<!-- =========================
-     TIENDA
-========================= -->
+        <li>
+            <a href="#tienda">Tienda</a>
+        </li>
 
-<section
-    class="products-section"
-    id="tienda"
->
+        <li>
+            <a href="#nosotros">Nosotros</a>
+        </li>
 
-```
-<h2 class="title">
-    Colección
-</h2>
+        <li>
+            <a href="#contacto">Contacto</a>
+        </li>
 
-<p class="subtitle">
-    Descubre la nueva colección MohsFlow.
-</p>
+    </ul>
 
+    <div class="cart" onclick="openCart()">
 
-<div class="products">
+        🛒
 
-
-    <!-- CAMISETA -->
-
-    <div class="product">
-
-        <img
-            src="camiseta.jpg"
-            alt="Camiseta MohsFlow"
-        >
-
-        <div class="product-info">
-
-            <h3>
-                Camiseta MohsFlow
-            </h3>
-
-            <p class="description">
-                Camiseta oversize de algodón.
-            </p>
-
-            <div class="price">
-                24,99 €
-            </div>
-
-            <button
-                class="buy"
-                onclick="openProduct(
-                    'Camiseta MohsFlow',
-                    24.99
-                )"
-            >
-                Comprar
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- SUDADERA -->
-
-    <div class="product">
-
-        <img
-            src="sudadera.jpg"
-            alt="Sudadera MohsFlow"
-        >
-
-        <div class="product-info">
-
-            <h3>
-                Sudadera MohsFlow
-            </h3>
-
-            <p class="description">
-                Sudadera premium oversize.
-            </p>
-
-            <div class="price">
-                49,99 €
-            </div>
-
-            <button
-                class="buy"
-                onclick="openProduct(
-                    'Sudadera MohsFlow',
-                    49.99
-                )"
-            >
-                Comprar
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- PANTALÓN -->
-
-    <div class="product">
-
-        <img
-            src="pantalon.jpg"
-            alt="Pantalón MohsFlow"
-        >
-
-        <div class="product-info">
-
-            <h3>
-                Cargo MohsFlow
-            </h3>
-
-            <p class="description">
-                Pantalón cargo estilo urbano.
-            </p>
-
-            <div class="price">
-                44,99 €
-            </div>
-
-            <button
-                class="buy"
-                onclick="openProduct(
-                    'Cargo MohsFlow',
-                    44.99
-                )"
-            >
-                Comprar
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- GORRA -->
-
-    <div class="product">
-
-        <img
-            src="gorra.jpg"
-            alt="Gorra MohsFlow"
-        >
-
-        <div class="product-info">
-
-            <h3>
-                Gorra MohsFlow
-            </h3>
-
-            <p class="description">
-                Gorra clásica con logo.
-            </p>
-
-            <div class="price">
-                19,99 €
-            </div>
-
-            <button
-                class="buy"
-                onclick="openProduct(
-                    'Gorra MohsFlow',
-                    19.99
-                )"
-            >
-                Comprar
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- PANTALÓN CORTO -->
-
-    <div class="product">
-
-        <img
-            src="pantaloncorto.jpg"
-            alt="Pantalón corto MohsFlow"
-        >
-
-        <div class="product-info">
-
-            <h3>
-                Shorts MohsFlow
-            </h3>
-
-            <p class="description">
-                Pantalón corto deportivo.
-            </p>
-
-            <div class="price">
-                29,99 €
-            </div>
-
-            <button
-                class="buy"
-                onclick="openProduct(
-                    'Shorts MohsFlow',
-                    29.99
-                )"
-            >
-                Comprar
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- =========================
-     NOSOTROS
-========================= -->
-
-<section
-    class="about"
-    id="nosotros"
->
-
-```
-<h2 class="title">
-    MOHSFLOW
-</h2>
-
-<p>
-    MohsFlow es una marca de streetwear creada para
-    personas que quieren vestir diferente y expresar
-    su propio estilo.
-</p>
-```
-
-</section>
-
-<!-- =========================
-     CONTACTO
-========================= -->
-
-<section
-    class="contact"
-    id="contacto"
->
-
-```
-<h2 class="title">
-    Contacto
-</h2>
-
-<p>
-    ¿Tienes alguna pregunta sobre nuestros productos?
-    ¡Escríbeme!
-</p>
-
-<div class="contact-card">
-
-    <h3>
-        Mohammed Lamkadem Amzaz
-    </h3>
-
-    <p>
-
-        📧
-        <strong>Correo:</strong>
-        <br>
-
-        <a
-            href="mailto:mohammedlamkadem16@gmail.com"
-        >
-            mohammedlamkadem16@gmail.com
-        </a>
-
-    </p>
-
-    <p>
-
-        📱
-        <strong>Teléfono:</strong>
-        <br>
-
-        <a
-            href="tel:642317879"
-        >
-            642 317 879
-        </a>
-
-    </p>
-
-</div>
-```
-
-</section>
-
-<!-- =========================
-     VENTANA DE COMPRA
-========================= -->
-
-<div
-    class="modal"
-    id="buyModal"
->
-
-```
-<div class="modal-content">
-
-    <button
-        class="close"
-        onclick="closeModal()"
-    >
-        ×
-    </button>
-
-
-    <h2>
-        Comprar
-    </h2>
-
-    <p
-        class="modal-product"
-        id="productName"
-    >
-        Producto
-    </p>
-
-
-    <label for="size">
-        Talla
-    </label>
-
-    <select id="size">
-
-        <option value="XS">
-            XS
-        </option>
-
-        <option value="S">
-            S
-        </option>
-
-        <option
-            value="M"
-            selected
-        >
-            M
-        </option>
-
-        <option value="L">
-            L
-        </option>
-
-        <option value="XL">
-            XL
-        </option>
-
-    </select>
-
-
-    <label for="quantity">
-        Cantidad
-    </label>
-
-    <input
-        type="number"
-        id="quantity"
-        min="1"
-        max="20"
-        value="1"
-    >
-
-
-    <div class="total">
-
-        Total:
-        <span id="total">
-            0,00 €
+        <span class="cart-count" id="cartCount">
+            0
         </span>
 
     </div>
 
-
-    <button
-        class="checkout"
-        onclick="showDemoMessage()"
-    >
-        Continuar al pago
-    </button>
+</nav>
 
 
-    <div class="demo-note">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-        🔒 Pago de demostración.
+<section class="hero" id="inicio">
 
-        <br><br>
+    <div class="hero-content">
 
-        Para aceptar pagos reales,
-        conecta esta tienda a un proveedor
-        de pagos seguro como Stripe Checkout.
+        <div class="hero-logo">
+            MOHSFLOW
+        </div>
 
-        <br><br>
+        <div class="hero-tag">
+            STREETWEAR CON ACTITUD
+        </div>
 
-        No introduzcas números reales
-        de tarjeta en esta página.
+        <p>
+            Ropa urbana para personas que no siguen tendencias.
+            Crean su propio estilo.
+        </p>
+
+        <a href="#tienda" class="hero-button">
+            VER COLECCIÓN
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCTOS
+===================================================== -->
+
+<section class="section" id="tienda">
+
+    <h2 class="section-title">
+        Productos
+    </h2>
+
+    <p class="section-subtitle">
+        Las mejores piezas para tu estilo. Calidad, comodidad y actitud.
+    </p>
+
+
+    <div class="products">
+
+
+        <!-- HOODIE -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    MÁS VENDIDO
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90"
+                    alt="Sudadera negra streetwear"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Hoodie Classic
+                </h3>
+
+                <div class="category">
+                    SUDADERAS
+                </div>
+
+                <p class="description">
+                    Sudadera oversize premium para un look urbano.
+                </p>
+
+                <div class="price">
+                    49,99 €
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="openProduct('Hoodie Classic',49.99)"
+                >
+                    AÑADIR AL CARRITO
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- CAMISETA -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    NUEVO
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
+                    alt="Camiseta blanca streetwear"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    T-Shirt Original
+                </h3>
+
+                <div class="category">
+                    CAMISETAS
+                </div>
+
+                <p class="description">
+                    Camiseta oversize de algodón con identidad MohsFlow.
+                </p>
+
+                <div class="price">
+                    24,99 €
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="openProduct('T-Shirt Original',24.99)"
+                >
+                    AÑADIR AL CARRITO
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARGO -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=90"
+                    alt="Pantalón cargo urbano"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Cargo Pants
+                </h3>
+
+                <div class="category">
+                    PANTALONES
+                </div>
+
+                <p class="description">
+                    Cargo urbano con corte relajado y funcional.
+                </p>
+
+                <div class="price">
+                    44,99 €
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="openProduct('Cargo Pants',44.99)"
+                >
+                    AÑADIR AL CARRITO
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- GORRA -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    MOHSFLOW
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1588850561407-ed78c282e70b?auto=format&fit=crop&w=900&q=90"
+                    alt="Gorra negra streetwear"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Gorro Classic
+                </h3>
+
+                <div class="category">
+                    ACCESORIOS
+                </div>
+
+                <p class="description">
+                    Gorra clásica negra para completar tu outfit.
+                </p>
+
+                <div class="price">
+                    19,99 €
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="openProduct('Gorra Classic',19.99)"
+                >
+                    AÑADIR AL CARRITO
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- SHORTS -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=900&q=90"
+                    alt="Shorts deportivos"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Shorts MohsFlow
+                </h3>
+
+                <div class="category">
+                    SHORTS
+                </div>
+
+                <p class="description">
+                    Pantalón corto deportivo para tu día a día.
+                </p>
+
+                <div class="price">
+                    29,99 €
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="openProduct('Shorts MohsFlow',29.99)"
+                >
+                    AÑADIR AL CARRITO
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- EXTRA -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=900&q=90"
+                    alt="Ropa urbana MohsFlow"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    Essential Tee
+                </h3>
+
+                <div class="category">
+                    COLECCIÓN ESSENTIAL
+                </div>
+
+                <p class="description">
+                    Una pieza básica con la esencia de MohsFlow.
+                </p>
+
+                <div class="price">
+                    27,99 €
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="openProduct('Essential Tee',27.99)"
+                >
+                    AÑADIR AL CARRITO
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about" id="nosotros">
+
+    <div class="about-container">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=90"
+                alt="Moda streetwear"
+            >
+
+        </div>
+
+
+        <div class="about-text">
+
+            <div class="small-title">
+                SOBRE MOHSFLOW
+            </div>
+
+            <h2>
+                Más que ropa,<br>
+                es una mentalidad.
+            </h2>
+
+            <p>
+                En MohsFlow creemos en la autenticidad,
+                la disciplina y la libertad de ser tú mismo.
+            </p>
+
+            <p>
+                Nuestra marca nace en la calle, pero mira
+                hacia el futuro. Diseñamos prendas que no
+                solo se visten: se viven.
+            </p>
+
+            <a href="#contacto" class="outline-button">
+                CONOCE MÁS
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section class="contact" id="contacto">
+
+    <h2 class="section-title">
+        Contacto
+    </h2>
+
+    <p class="section-subtitle">
+        ¿Tienes alguna pregunta? Escríbenos.
+    </p>
+
+
+    <div class="contact-grid">
+
+
+        <div class="contact-box">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <h3>
+                Teléfono
+            </h3>
+
+            <p>
+                642 317 879
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <div class="contact-icon">
+                ✉
+            </div>
+
+            <h3>
+                Email
+            </h3>
+
+            <p>
+                mohammedlamkadem16@gmail.com
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <div class="contact-icon">
+                ◎
+            </div>
+
+            <h3>
+                Instagram
+            </h3>
+
+            <p>
+                @mohsflow
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        MOHSFLOW
+    </div>
+
+    <div class="footer-links">
+
+        <a href="#inicio">
+            Inicio
+        </a>
+
+        <a href="#tienda">
+            Tienda
+        </a>
+
+        <a href="#nosotros">
+            Nosotros
+        </a>
+
+        <a href="#contacto">
+            Contacto
+        </a>
+
+    </div>
+
+    <div class="footer-copy">
+        © 2026 MohsFlow. Todos los derechos reservados.
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     MODAL COMPRA
+===================================================== -->
+
+<div class="modal" id="buyModal">
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            Comprar
+        </h2>
+
+        <p
+            class="modal-product"
+            id="productName"
+        >
+            Producto
+        </p>
+
+
+        <label for="size">
+            Talla
+        </label>
+
+        <select id="size">
+
+            <option value="XS">
+                XS
+            </option>
+
+            <option value="S">
+                S
+            </option>
+
+            <option value="M" selected>
+                M
+            </option>
+
+            <option value="L">
+                L
+            </option>
+
+            <option value="XL">
+                XL
+            </option>
+
+        </select>
+
+
+        <label for="quantity">
+            Cantidad
+        </label>
+
+        <input
+            type="number"
+            id="quantity"
+            min="1"
+            max="20"
+            value="1"
+        >
+
+
+        <div class="total">
+
+            Total:
+            <span id="total">
+                0,00 €
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout"
+            onclick="addToCart()"
+        >
+            AÑADIR AL CARRITO
+        </button>
+
+
+        <div class="demo-note">
+
+            🔒 Pago seguro próximamente.
+
+            <br><br>
+
+            Esta versión es una demostración.
+            Para aceptar pagos reales puedes conectar
+            Stripe Checkout o PayPal.
+
+        </div>
 
     </div>
 
 </div>
-```
 
-</div>
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-```
-© 2026 MohsFlow · Streetwear
-```
-
-</footer>
 
 <script>
 
+/* =====================================================
+   VARIABLES
+===================================================== */
+
 let currentPrice = 0;
+let currentProduct = "";
+let cartItems = 0;
 
 
-/* ABRIR PRODUCTO */
+/* =====================================================
+   ABRIR PRODUCTO
+===================================================== */
 
-function openProduct(name, price) {
+function openProduct(name, price){
 
+    currentProduct = name;
     currentPrice = price;
 
-    document.getElementById(
-        "productName"
-    ).textContent = name;
+    document.getElementById("productName")
+        .textContent = name;
 
-    document.getElementById(
-        "quantity"
-    ).value = 1;
+    document.getElementById("quantity")
+        .value = 1;
 
     updateTotal();
 
-    document.getElementById(
-        "buyModal"
-    ).style.display = "flex";
-
+    document.getElementById("buyModal")
+        .classList.add("active");
 }
 
 
-/* CERRAR MODAL */
+/* =====================================================
+   CERRAR MODAL
+===================================================== */
 
-function closeModal() {
+function closeModal(){
 
-    document.getElementById(
-        "buyModal"
-    ).style.display = "none";
-
+    document.getElementById("buyModal")
+        .classList.remove("active");
 }
 
 
-/* ACTUALIZAR TOTAL */
+/* =====================================================
+   TOTAL
+===================================================== */
 
-function updateTotal() {
+function updateTotal(){
+
+    let quantity =
+        Number(
+            document.getElementById("quantity").value
+        );
+
+    quantity = Math.max(
+        1,
+        Math.min(20, quantity || 1)
+    );
+
+    document.getElementById("quantity")
+        .value = quantity;
+
+    const total =
+        currentPrice * quantity;
+
+    document.getElementById("total")
+        .textContent =
+        total.toFixed(2).replace(".", ",")
+        + " €";
+}
+
+
+/* =====================================================
+   CANTIDAD
+===================================================== */
+
+document
+    .getElementById("quantity")
+    .addEventListener(
+        "input",
+        updateTotal
+    );
+
+
+/* =====================================================
+   AÑADIR AL CARRITO
+===================================================== */
+
+function addToCart(){
 
     const quantity =
         Number(
-            document.getElementById(
-                "quantity"
-            ).value
+            document.getElementById("quantity").value
         );
 
-    const safeQuantity =
-        Math.max(
-            1,
-            Math.min(
-                20,
-                quantity || 1
-            )
-        );
+    cartItems += quantity;
 
-    document.getElementById(
-        "quantity"
-    ).value = safeQuantity;
+    document.getElementById("cartCount")
+        .textContent = cartItems;
 
-    const total =
-        currentPrice * safeQuantity;
-
-    document.getElementById(
-        "total"
-    ).textContent =
-        total.toFixed(2).replace(".", ",") + " €";
-
-}
-
-
-/* CAMBIAR CANTIDAD */
-
-document.getElementById(
-    "quantity"
-).addEventListener(
-    "input",
-    updateTotal
-);
-
-
-/* BOTÓN DE PAGO */
-
-function showDemoMessage() {
+    closeModal();
 
     alert(
-        "Checkout de demostración.\n\n" +
-        "Todavía no se ha realizado ningún pago.\n\n" +
-        "Para vender de verdad, conecta " +
-        "MohsFlow con Stripe Checkout."
+        currentProduct +
+        " se ha añadido al carrito."
     );
-
 }
 
 
-/* CERRAR AL PULSAR FUERA */
+/* =====================================================
+   CARRITO
+===================================================== */
+
+function openCart(){
+
+    if(cartItems === 0){
+
+        alert(
+            "Tu carrito está vacío."
+        );
+
+        return;
+    }
+
+    alert(
+        "Tienes " +
+        cartItems +
+        " producto(s) en el carrito."
+    );
+}
+
+
+/* =====================================================
+   CERRAR MODAL FUERA
+===================================================== */
 
 window.addEventListener(
     "click",
-    function(event) {
+    function(event){
 
         const modal =
-            document.getElementById(
-                "buyModal"
-            );
+            document.getElementById("buyModal");
 
-        if (event.target === modal) {
+        if(event.target === modal){
 
             closeModal();
 
@@ -1137,11 +1696,3 @@ window.addEventListener(
 
 </body>
 </html>
-MohsFlow/
-├── index.html
-├── portada.jpg
-├── camiseta.jpg
-├── sudadera.jpg
-├── pantalon.jpg
-├── gorra.jpg
-└── pantaloncorto.jpg
