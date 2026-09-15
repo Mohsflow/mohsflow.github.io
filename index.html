@@ -1,28 +1,22 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MOHSFLOW — Streetwear</title>
+<title>MOHSFLOW | Streetwear</title>
 
-<!-- Tipografías -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -30,9 +24,14 @@ html{
 }
 
 body{
+    font-family:Inter,Arial,sans-serif;
     background:#f5f4f1;
     color:#111;
-    font-family:"Inter",sans-serif;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
 }
 
 a{
@@ -40,24 +39,17 @@ a{
     color:inherit;
 }
 
-button{
-    font-family:inherit;
-}
-
-
-/* =====================================================
+/* =========================
    NAVBAR
-===================================================== */
+========================= */
 
-.navbar{
-
+.nav{
     position:fixed;
-
+    z-index:50;
     top:0;
     left:0;
-
     width:100%;
-    height:70px;
+    height:60px;
 
     padding:0 4%;
 
@@ -65,912 +57,518 @@ button{
     align-items:center;
     justify-content:space-between;
 
-    background:rgba(0,0,0,.55);
-
-    backdrop-filter:blur(12px);
-
     color:white;
 
-    z-index:1000;
-
-    border-bottom:1px solid rgba(255,255,255,.12);
-
+    background:rgba(5,5,5,.90);
+    backdrop-filter:blur(12px);
 }
 
-
-/* LOGO */
-
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    font-family:"Cinzel",serif;
-
-    font-size:19px;
-
-    letter-spacing:2px;
-
-    white-space:nowrap;
-
+.nav-logo{
+    width:125px;
+    height:48px;
+    object-fit:contain;
 }
-
-
-.brand-symbol{
-
-    width:38px;
-    height:38px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-
-    font-family:"Cinzel",serif;
-
-    font-size:25px;
-
-    font-weight:700;
-
-    border:1px solid rgba(255,255,255,.8);
-
-}
-
-
-.brand-symbol::before{
-
-    content:"♛";
-
-    position:absolute;
-
-    top:-14px;
-
-    font-size:13px;
-
-}
-
-
-.brand-name{
-
-    font-weight:500;
-
-}
-
-
-/* MENU */
 
 .nav-links{
-
     display:flex;
-
-    align-items:center;
-
-    gap:42px;
-
+    gap:38px;
     list-style:none;
-
 }
-
 
 .nav-links a{
-
-    position:relative;
-
-    font-size:12px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.5px;
-
-    color:#eee;
-
+    font-size:11px;
+    color:white;
 }
 
-
-.nav-links a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-8px;
-
-    width:0;
-
-    height:1px;
-
-    background:white;
-
-    transition:.3s;
-
+.nav-links a:hover{
+    opacity:.6;
 }
 
-
-.nav-links a:hover::after{
-
-    width:100%;
-
-}
-
-
-/* NAV ICONS */
-
-.nav-actions{
-
+.nav-icons{
     display:flex;
-
+    gap:20px;
     align-items:center;
-
-    gap:22px;
-
 }
 
-
-.search{
-
-    font-size:21px;
-
-    cursor:pointer;
-
+.nav-icons button{
+    border:0;
+    background:none;
+    color:white;
+    font-size:20px;
 }
 
-
-.cart{
-
-    position:relative;
-
-    font-size:21px;
-
-    cursor:pointer;
-
-}
-
-
-.cart-number{
-
+.cart-count{
     position:absolute;
+    margin-left:-8px;
+    margin-top:-8px;
 
-    top:-9px;
-    right:-10px;
-
-    width:17px;
-    height:17px;
+    width:16px;
+    height:16px;
 
     border-radius:50%;
 
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
     background:white;
-
     color:#111;
 
     font-size:9px;
 
-    font-weight:bold;
-
+    display:grid;
+    place-items:center;
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
+/* =========================
+   PORTADA
+========================= */
 
 .hero{
-
-    height:100vh;
-
-    min-height:700px;
+    height:520px;
 
     position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    overflow:hidden;
 
     color:white;
 
-    background:
+    display:flex;
+    align-items:center;
 
-    linear-gradient(
-        90deg,
-        rgba(0,0,0,.78) 0%,
-        rgba(0,0,0,.48) 38%,
-        rgba(0,0,0,.08) 100%
-    ),
-
-    url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=2400&q=95")
-    center/cover no-repeat;
-
-}
-
-
-.hero::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
+    padding-left:7%;
+    padding-top:45px;
 
     background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.88),
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.15)
+        ),
+        url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=2200&q=90");
 
-    linear-gradient(
-        0deg,
-        rgba(0,0,0,.35),
-        transparent 35%
-    );
-
-    pointer-events:none;
-
+    background-size:cover;
+    background-position:center;
 }
 
-
-.hero-content{
-
-    position:relative;
-
-    z-index:2;
-
-    width:100%;
-
-    padding-left:9%;
-
-    padding-top:50px;
-
+.hero-copy{
+    width:520px;
 }
 
-
-.hero-small{
-
-    font-size:10px;
-
-    letter-spacing:8px;
-
-    margin-bottom:18px;
-
-    font-weight:500;
-
+.hero-kicker{
+    font-size:9px;
+    letter-spacing:7px;
+    margin-bottom:20px;
 }
 
+.hero-logo{
+    width:340px;
+    max-width:85vw;
 
-.hero-title{
-
-    font-family:"Cinzel",serif;
-
-    font-size:clamp(65px,9vw,145px);
-
-    font-weight:500;
-
-    line-height:.9;
-
-    letter-spacing:2px;
-
-    margin-left:-7px;
-
+    filter:
+        drop-shadow(0 5px 8px rgba(0,0,0,.8));
 }
 
-
-.hero-title::first-letter{
-
-    font-size:1.05em;
-
-}
-
-
-.hero-line{
-
-    width:300px;
-
+.hero-rule{
+    width:220px;
     height:1px;
 
     background:rgba(255,255,255,.7);
 
-    margin:27px 0 20px;
-
+    margin:20px 0;
 }
 
+.hero-copy p{
+    font-size:12px;
+    line-height:1.7;
 
-.hero-slogan{
+    max-width:390px;
 
-    font-size:11px;
-
-    letter-spacing:7px;
-
-    font-weight:500;
-
-    margin-bottom:28px;
-
+    margin-bottom:22px;
 }
 
+.hero-cta{
+    display:inline-block;
 
-.hero-description{
-
-    max-width:440px;
-
-    font-size:15px;
-
-    line-height:1.8;
-
-    color:#eee;
-
-    margin-bottom:32px;
-
-}
-
-
-.hero-button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding:17px 28px;
-
-    background:#fff;
-
+    background:white;
     color:#111;
 
-    font-size:10px;
+    padding:13px 28px;
 
-    letter-spacing:3px;
+    font-size:9px;
+    font-weight:bold;
 
-    font-weight:600;
-
-    transition:.3s;
-
+    letter-spacing:1px;
 }
 
-
-.hero-button:hover{
-
+.hero-cta:hover{
     background:#111;
-
     color:white;
-
 }
 
+/* =========================
+   PRODUCTOS
+========================= */
 
-.hero-button span{
-
-    font-size:18px;
-
+.section{
+    padding:55px 4%;
 }
 
+.section-title{
+    font-family:Cinzel,serif;
 
-/* =====================================================
-   PRODUCTS
-===================================================== */
-
-.products-section{
-
-    padding:85px 5% 100px;
-
-    background:#f5f4f1;
-
-}
-
-
-.section-heading{
+    font-size:32px;
 
     text-align:center;
 
-    margin-bottom:50px;
-
-}
-
-
-.section-heading-top{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:28px;
-
-}
-
-
-.section-heading-top::before,
-.section-heading-top::after{
-
-    content:"";
-
-    width:120px;
-
-    height:1px;
-
-    background:#aaa;
-
-}
-
-
-.section-title{
-
-    font-family:"Cinzel",serif;
-
-    font-size:42px;
-
     font-weight:500;
 
-    letter-spacing:1px;
-
+    margin-bottom:5px;
 }
 
+.section-sub{
+    text-align:center;
 
-.section-subtitle{
+    font-size:10px;
 
     color:#777;
 
-    font-size:13px;
-
-    margin-top:10px;
-
+    margin-bottom:30px;
 }
-
-
-/* PRODUCT GRID */
 
 .products{
-
-    max-width:1200px;
-
-    margin:auto;
-
     display:grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:
+        repeat(4,1fr);
 
-    gap:18px;
+    gap:16px;
 
+    max-width:1150px;
+
+    margin:auto;
 }
 
+.card{
+    background:white;
 
-/* CARD */
+    border:1px solid #e5e3de;
 
-.product{
-
-    background:#fff;
-
-    border:1px solid #e9e7e3;
-
-    transition:.35s;
-
+    transition:.25s;
 }
 
-
-.product:hover{
-
+.card:hover{
     transform:translateY(-5px);
 
     box-shadow:
-    0 15px 40px rgba(0,0,0,.08);
-
+        0 15px 35px rgba(0,0,0,.10);
 }
 
-
-.product-image{
-
-    height:280px;
+.card-photo{
+    height:270px;
 
     position:relative;
 
     overflow:hidden;
 
     background:#ddd;
-
 }
 
-
-.product-image img{
-
+.card-photo>img:first-child{
     width:100%;
-
     height:100%;
 
     object-fit:cover;
 
     display:block;
 
-    transition:.6s;
-
+    transition:.4s;
 }
 
-
-.product:hover .product-image img{
-
+.card:hover .card-photo>img:first-child{
     transform:scale(1.05);
-
 }
 
+/* LOGO SOBRE LA ROPA */
 
-/* BADGE */
+.print{
+    position:absolute !important;
+
+    width:31% !important;
+    height:auto !important;
+
+    object-fit:contain !important;
+
+    left:50% !important;
+    top:50% !important;
+
+    transform:
+        translate(-50%,-50%) !important;
+
+    filter:
+        drop-shadow(0 2px 4px rgba(0,0,0,.7));
+}
 
 .badge{
-
     position:absolute;
 
-    top:10px;
-    left:10px;
+    left:9px;
+    top:9px;
 
-    z-index:2;
-
-    padding:7px 9px;
+    z-index:3;
 
     background:#111;
-
     color:white;
 
-    font-size:8px;
+    font-size:7px;
 
-    letter-spacing:1px;
-
+    padding:6px 8px;
 }
 
-
-/* PRODUCT INFO */
-
-.product-info{
-
-    padding:16px 14px 14px;
-
+.card-body{
+    padding:12px;
 }
 
-
-.product-info h3{
-
-    font-family:"Cinzel",serif;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    margin-bottom:5px;
-
-}
-
-
-.product-category{
-
-    font-size:8px;
-
-    letter-spacing:1.5px;
-
-    color:#777;
-
-    margin-bottom:13px;
-
-}
-
-
-.product-price{
+.card-body h3{
+    font-family:Cinzel,serif;
 
     font-size:13px;
 
     font-weight:600;
 
-    margin-bottom:14px;
-
+    margin-bottom:4px;
 }
 
+.cat{
+    font-size:7px;
 
-.add-button{
+    color:#888;
 
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+}
+
+.price{
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.view{
     width:100%;
 
-    border:none;
+    border:0;
 
     background:#080808;
 
     color:white;
 
-    padding:12px;
+    padding:10px;
 
-    cursor:pointer;
+    font-size:8px;
 
-    font-size:10px;
-
-    transition:.3s;
-
+    letter-spacing:1px;
 }
 
-
-.add-button:hover{
-
+.view:hover{
     background:#333;
-
 }
 
-
-/* =====================================================
-   ABOUT
-===================================================== */
+/* =========================
+   SOBRE MOHSFLOW
+========================= */
 
 .about{
-
-    background:#090909;
+    background:#080808;
 
     color:white;
 
-    padding:70px 5%;
-
+    padding:55px 4%;
 }
 
-
-.about-container{
-
-    max-width:1200px;
+.about-grid{
+    max-width:1150px;
 
     margin:auto;
 
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-    gap:55px;
+    gap:45px;
 
     align-items:center;
-
 }
-
 
 .about-photo{
-
-    height:430px;
+    height:350px;
 
     overflow:hidden;
-
 }
 
-
 .about-photo img{
-
     width:100%;
-
     height:100%;
 
     object-fit:cover;
-
 }
-
-
-.about-content{
-
-    padding-right:50px;
-
-}
-
 
 .about-small{
-
-    font-size:9px;
+    font-size:8px;
 
     letter-spacing:4px;
 
     color:#aaa;
 
-    margin-bottom:20px;
-
+    margin-bottom:12px;
 }
 
+.about h2{
+    font-family:Cinzel,serif;
 
-.about-title{
+    font-size:34px;
 
-    font-family:"Cinzel",serif;
-
-    font-size:45px;
+    line-height:1.12;
 
     font-weight:500;
 
-    line-height:1.1;
-
-    margin-bottom:25px;
-
+    margin-bottom:18px;
 }
 
+.about p{
+    font-size:11px;
 
-.about-text{
+    line-height:1.7;
 
     color:#aaa;
 
-    font-size:14px;
-
-    line-height:1.8;
-
-    margin-bottom:15px;
-
+    margin-bottom:10px;
 }
 
-
-.about-button{
-
+.about-btn{
     display:inline-block;
-
-    margin-top:15px;
-
-    padding:13px 25px;
 
     border:1px solid #aaa;
 
-    font-size:9px;
+    padding:10px 18px;
 
-    letter-spacing:2px;
+    font-size:8px;
 
-    transition:.3s;
+    letter-spacing:1px;
 
+    margin-top:6px;
 }
 
-
-.about-button:hover{
-
+.about-btn:hover{
     background:white;
-
     color:#111;
-
 }
 
+.mf{
+    font-family:Cinzel,serif;
 
-/* BIG LOGO */
+    font-size:65px;
 
-.about-mark{
+    color:#333;
 
-    margin-top:30px;
-
-    font-family:"Cinzel",serif;
-
-    font-size:90px;
-
-    color:#292929;
-
-    line-height:.8;
-
+    float:right;
 }
 
-
-/* =====================================================
-   CONTACT
-===================================================== */
+/* =========================
+   CONTACTO
+========================= */
 
 .contact{
-
-    padding:60px 5%;
-
-    background:#f5f4f1;
-
+    padding:55px 4%;
 }
 
-
-.contact-title{
-
+.contact h2{
     text-align:center;
 
-    font-family:"Cinzel",serif;
+    font-family:Cinzel,serif;
 
     font-size:30px;
 
     font-weight:500;
-
 }
 
-
-.contact-subtitle{
-
+.contact-sub{
     text-align:center;
-
-    font-size:12px;
 
     color:#777;
 
-    margin:8px 0 35px;
+    font-size:9px;
 
+    margin:7px 0 25px;
 }
 
-
 .contact-grid{
-
-    max-width:900px;
+    max-width:850px;
 
     margin:auto;
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
-
+    grid-template-columns:
+        repeat(3,1fr);
 }
 
-
-.contact-item{
-
+.contact-box{
     text-align:center;
-
-    padding:20px;
 
     border-right:1px solid #ccc;
 
+    padding:10px;
 }
 
-
-.contact-item:last-child{
-
-    border-right:none;
-
+.contact-box:last-child{
+    border:0;
 }
 
-
-.contact-icon{
-
-    width:45px;
-    height:45px;
-
-    margin:0 auto 15px;
+.circle{
+    width:40px;
+    height:40px;
 
     border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
 
     background:#111;
 
     color:white;
 
+    display:grid;
+
+    place-items:center;
+
+    margin:0 auto 10px;
 }
 
-
-.contact-item h3{
-
-    font-family:"Cinzel",serif;
-
-    font-size:13px;
-
-    margin-bottom:7px;
-
-}
-
-
-.contact-item p{
-
-    color:#777;
+.contact-box h3{
+    font-family:Cinzel,serif;
 
     font-size:11px;
 
+    margin-bottom:4px;
 }
 
+.contact-box p{
+    font-size:8px;
 
-/* =====================================================
+    color:#777;
+}
+
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
-
     background:#050505;
 
     color:white;
 
-    padding:35px 5%;
-
+    padding:25px 4% 15px;
 }
 
-
-.footer-container{
-
-    max-width:1200px;
+.footer-row{
+    max-width:1150px;
 
     margin:auto;
 
@@ -979,1617 +577,1702 @@ footer{
     justify-content:space-between;
 
     align-items:center;
-
 }
 
-
-.footer-brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    font-family:"Cinzel",serif;
-
-    font-size:17px;
-
-    letter-spacing:2px;
-
+.footer-logo{
+    width:120px;
 }
-
 
 .footer-links{
-
     display:flex;
 
-    gap:25px;
+    gap:22px;
+
+    font-size:8px;
 
     color:#aaa;
-
-    font-size:10px;
-
 }
 
-
-.footer-social{
-
-    display:flex;
-
-    gap:15px;
-
-    font-size:15px;
-
-}
-
-
-.footer-copy{
-
+.copy{
     text-align:center;
-
-    margin-top:30px;
-
-    padding-top:20px;
-
-    border-top:1px solid #222;
 
     color:#555;
 
-    font-size:9px;
+    border-top:1px solid #222;
 
+    margin-top:18px;
+
+    padding-top:12px;
+
+    font-size:7px;
 }
 
-
-/* =====================================================
-   CART PANEL
-===================================================== */
-
-.cart-panel{
-
-    position:fixed;
-
-    top:0;
-    right:-390px;
-
-    width:390px;
-
-    height:100vh;
-
-    background:#fff;
-
-    z-index:3000;
-
-    box-shadow:-10px 0 40px rgba(0,0,0,.2);
-
-    transition:.4s;
-
-    padding:25px;
-
-}
-
-
-.cart-panel.open{
-
-    right:0;
-
-}
-
-
-.cart-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding-bottom:20px;
-
-    border-bottom:1px solid #ddd;
-
-}
-
-
-.cart-header h2{
-
-    font-family:"Cinzel",serif;
-
-    font-size:20px;
-
-    font-weight:500;
-
-}
-
-
-.close-cart{
-
-    border:none;
-
-    background:none;
-
-    font-size:25px;
-
-    cursor:pointer;
-
-}
-
-
-.empty-cart{
-
-    height:70vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    color:#777;
-
-}
-
-
-.empty-cart-icon{
-
-    font-size:45px;
-
-    margin-bottom:20px;
-
-}
-
-
-.empty-cart h3{
-
-    font-family:"Cinzel",serif;
-
-    color:#111;
-
-    margin-bottom:10px;
-
-}
-
-
-.continue-button{
-
-    margin-top:25px;
-
-    padding:13px 25px;
-
-    background:#111;
-
-    color:white;
-
-    border:none;
-
-    cursor:pointer;
-
-}
-
-
-/* OVERLAY */
-
-.cart-overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.45);
-
-    z-index:2500;
-
-    display:none;
-
-}
-
-
-.cart-overlay.show{
-
-    display:block;
-
-}
-
-
-/* =====================================================
-   MODAL
-===================================================== */
+/* =========================
+   MODAL PRODUCTO
+========================= */
 
 .modal{
+    display:none;
 
     position:fixed;
+
+    z-index:110;
 
     inset:0;
 
     background:rgba(0,0,0,.75);
 
-    display:none;
-
     align-items:center;
 
     justify-content:center;
 
-    z-index:4000;
-
     padding:20px;
-
 }
 
-
-.modal.show{
-
+.modal.open{
     display:flex;
-
 }
 
+.product-modal{
+    background:white;
 
-.modal-content{
+    width:min(900px,100%);
 
-    width:100%;
+    display:grid;
 
-    max-width:430px;
-
-    background:#fff;
-
-    padding:30px;
+    grid-template-columns:
+        1fr 1fr;
 
     position:relative;
 
+    max-height:90vh;
+
+    overflow:auto;
 }
 
+.modal-photo{
+    min-height:520px;
+
+    position:relative;
+
+    background:#ddd;
+}
+
+.modal-photo>img:first-child{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.modal-photo .print{
+    width:30% !important;
+}
+
+.modal-info{
+    padding:42px;
+}
 
 .modal-close{
-
     position:absolute;
 
-    right:15px;
-    top:10px;
+    right:10px;
+    top:8px;
 
-    border:none;
+    border:0;
 
-    background:none;
+    background:white;
 
-    font-size:28px;
+    font-size:26px;
 
-    cursor:pointer;
+    width:35px;
+    height:35px;
 
+    z-index:2;
 }
 
+.small{
+    font-size:8px;
 
-.modal-title{
+    color:#888;
 
-    font-family:"Cinzel",serif;
-
-    font-size:25px;
-
-    margin-bottom:5px;
-
+    letter-spacing:2px;
 }
 
+.modal-info h2{
+    font-family:Cinzel,serif;
 
-.modal-product{
+    font-size:30px;
+
+    font-weight:500;
+
+    margin:9px 0;
+}
+
+.modal-price{
+    font-size:17px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+.desc{
+    font-size:10px;
 
     color:#777;
 
-    font-size:13px;
-
-    margin-bottom:25px;
-
+    line-height:1.7;
 }
 
+.label{
+    font-size:8px;
 
-.modal label{
+    font-weight:bold;
 
-    display:block;
+    text-transform:uppercase;
 
-    font-size:11px;
+    letter-spacing:1px;
 
-    font-weight:600;
-
-    margin:15px 0 7px;
-
+    margin:18px 0 8px;
 }
 
+.opts{
+    display:flex;
 
-.modal select,
-.modal input{
+    gap:6px;
 
-    width:100%;
+    flex-wrap:wrap;
+}
 
-    padding:13px;
-
+.opt{
     border:1px solid #ccc;
 
     background:white;
 
+    padding:9px 13px;
+
+    font-size:8px;
 }
 
+.opt.active{
+    background:#111;
 
-.total{
+    color:white;
 
+    border-color:#111;
+}
+
+.qty{
     display:flex;
 
-    justify-content:space-between;
+    width:110px;
 
-    margin-top:25px;
-
-    font-weight:bold;
-
+    border:1px solid #ccc;
 }
 
+.qty button{
+    width:33px;
 
-.checkout{
+    border:0;
 
+    background:white;
+}
+
+.qty input{
+    width:44px;
+
+    border:0;
+
+    text-align:center;
+}
+
+.add{
     width:100%;
 
-    padding:15px;
-
-    border:none;
+    border:0;
 
     background:#111;
 
     color:white;
 
+    padding:14px;
+
     margin-top:20px;
 
-    cursor:pointer;
+    font-size:8px;
 
+    letter-spacing:2px;
 }
 
+/* =========================
+   CARRITO
+========================= */
 
-/* =====================================================
-   MOBILE
-===================================================== */
+.drawer{
+    position:fixed;
 
-@media(max-width:900px){
+    z-index:100;
+
+    right:-400px;
+
+    top:0;
+
+    width:350px;
+
+    height:100vh;
+
+    background:#080808;
+
+    color:white;
+
+    transition:.35s;
+
+    padding:25px;
+
+    box-shadow:-10px 0 30px rgba(0,0,0,.5);
+}
+
+.drawer.open{
+    right:0;
+}
+
+.overlay{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:90;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.drawer-head{
+    display:flex;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid #333;
+
+    padding-bottom:15px;
+}
+
+.drawer-head h2{
+    font-family:Cinzel,serif;
+
+    font-size:16px;
+
+    font-weight:500;
+}
+
+.close{
+    background:none;
+
+    border:0;
+
+    color:white;
+
+    font-size:25px;
+}
+
+.cart-item{
+    display:grid;
+
+    grid-template-columns:
+        60px 1fr auto;
+
+    gap:10px;
+
+    padding:13px 0;
+
+    border-bottom:1px solid #333;
+}
+
+.thumb{
+    height:65px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#333;
+}
+
+.thumb>img:first-child{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.thumb .print{
+    width:55% !important;
+}
+
+.cart-item h4{
+    font-size:9px;
+
+    margin-bottom:4px;
+}
+
+.cart-item p{
+    font-size:7px;
+
+    color:#aaa;
+}
+
+.remove{
+    border:0;
+
+    background:none;
+
+    color:#aaa;
+
+    font-size:18px;
+}
+
+.empty{
+    text-align:center;
+
+    padding-top:150px;
+
+    color:#aaa;
+
+    font-size:10px;
+}
+
+.empty-icon{
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.cart-total{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:20px;
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+.checkout{
+    width:100%;
+
+    background:white;
+
+    color:#111;
+
+    border:0;
+
+    padding:13px;
+
+    margin-top:15px;
+
+    font-size:8px;
+
+    font-weight:bold;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
 
     .nav-links{
-
-        gap:18px;
-
+        gap:15px;
     }
 
     .products{
-
-        grid-template-columns:repeat(2,1fr);
-
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .about-container{
-
+    .about-grid{
         grid-template-columns:1fr;
-
-    }
-
-    .about-content{
-
-        padding-right:0;
-
     }
 
 }
-
 
 @media(max-width:600px){
 
-    .navbar{
-
-        padding:0 5%;
-
+    .nav{
+        height:60px;
     }
 
-    .brand-name{
-
-        font-size:14px;
-
+    .nav-logo{
+        width:105px;
     }
 
     .nav-links{
-
         display:none;
-
     }
 
     .hero{
+        height:650px;
 
-        min-height:720px;
+        padding:
+            120px 7% 50px;
 
-        background-position:62% center;
+        align-items:flex-start;
 
+        background-position:
+            62% center;
     }
 
-    .hero-content{
-
-        padding-left:7%;
-
-        padding-right:7%;
-
+    .hero-copy{
+        margin-top:80px;
     }
 
-    .hero-title{
-
-        font-size:58px;
-
-        letter-spacing:0;
-
-    }
-
-    .hero-small{
-
-        letter-spacing:5px;
-
-    }
-
-    .hero-slogan{
-
-        letter-spacing:3px;
-
-    }
-
-    .section-title{
-
-        font-size:32px;
-
-    }
-
-    .section-heading-top::before,
-    .section-heading-top::after{
-
-        width:45px;
-
+    .hero-logo{
+        width:280px;
     }
 
     .products{
+        grid-template-columns:
+            1fr 1fr;
 
-        grid-template-columns:1fr 1fr;
-
-        gap:10px;
-
+        gap:9px;
     }
 
-    .product-image{
-
-        height:220px;
-
+    .card-photo{
+        height:210px;
     }
 
-    .product-info{
-
-        padding:13px 10px;
-
+    .section{
+        padding:45px 4%;
     }
 
-    .product-info h3{
-
-        font-size:13px;
-
+    .product-modal{
+        grid-template-columns:1fr;
     }
 
-    .product-category{
-
-        font-size:7px;
-
+    .modal-photo{
+        min-height:360px;
     }
 
-    .product-price{
-
-        font-size:12px;
-
+    .modal-info{
+        padding:25px;
     }
 
-    .add-button{
-
-        font-size:8px;
-
-        padding:11px 4px;
-
-    }
-
-    .about{
-
-        padding:60px 6%;
-
-    }
-
-    .about-photo{
-
-        height:330px;
-
-    }
-
-    .about-title{
-
-        font-size:35px;
-
+    .drawer{
+        width:100%;
+        right:-100%;
     }
 
     .contact-grid{
-
         grid-template-columns:1fr;
-
     }
 
-    .contact-item{
+    .contact-box{
+        border-right:0;
 
-        border-right:none;
-
-        border-bottom:1px solid #ccc;
-
+        border-bottom:
+            1px solid #ccc;
     }
 
-    .contact-item:last-child{
-
-        border-bottom:none;
-
-    }
-
-    .footer-container{
-
+    .footer-row{
         flex-direction:column;
 
-        gap:20px;
-
+        gap:15px;
     }
-
-    .cart-panel{
-
-        width:100%;
-
-        right:-100%;
-
-    }
-
-}
-
-
-/* =====================================================
-   FADE ANIMATION
-===================================================== */
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(25px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-.hero-content{
-
-    animation:fadeUp 1.2s ease;
-
 }
 
 </style>
 </head>
 
-
 <body>
 
+<!-- =========================
+     NAV
+========================= -->
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<header class="nav">
 
-<header class="navbar">
+<a href="#inicio">
+<img
+src="mohsflow-logo.png"
+class="nav-logo"
+alt="MOHSFLOW">
+</a>
 
-    <a href="#inicio" class="brand">
+<ul class="nav-links">
 
-        <div class="brand-symbol">
-            M
-        </div>
+<li>
+<a href="#inicio">Inicio</a>
+</li>
 
-        <div class="brand-name">
-            MOHSFLOW
-        </div>
+<li>
+<a href="#tienda">Tienda</a>
+</li>
 
-    </a>
+<li>
+<a href="#nosotros">Nosotros</a>
+</li>
 
+<li>
+<a href="#contacto">Contacto</a>
+</li>
 
-    <ul class="nav-links">
+</ul>
 
-        <li>
-            <a href="#inicio">Inicio</a>
-        </li>
+<div class="nav-icons">
 
-        <li>
-            <a href="#tienda">Tienda</a>
-        </li>
+<button>⌕</button>
 
-        <li>
-            <a href="#nosotros">Nosotros</a>
-        </li>
+<button onclick="openCart()">
 
-        <li>
-            <a href="#contacto">Contacto</a>
-        </li>
+🛒
 
-    </ul>
+<span
+class="cart-count"
+id="count">
+0
+</span>
 
+</button>
 
-    <div class="nav-actions">
-
-        <div class="search">
-            ⌕
-        </div>
-
-        <div
-            class="cart"
-            onclick="openCart()"
-        >
-
-            🛒
-
-            <span
-                class="cart-number"
-                id="cartNumber"
-            >
-                0
-            </span>
-
-        </div>
-
-    </div>
+</div>
 
 </header>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- =========================
+     PORTADA
+========================= -->
 
 <section
-    class="hero"
-    id="inicio"
->
+class="hero"
+id="inicio">
 
-    <div class="hero-content">
+<div class="hero-copy">
 
-        <div class="hero-small">
-            STREETWEAR
-        </div>
+<div class="hero-kicker">
+STREETWEAR
+</div>
 
-        <h1 class="hero-title">
-            MOHSFLOW
-        </h1>
+<img
+src="mohsflow-logo.png"
+class="hero-logo"
+alt="MOHSFLOW">
 
-        <div class="hero-line"></div>
+<div class="hero-rule"></div>
 
-        <div class="hero-slogan">
-            DISCIPLINA · ESTILO · ACTITUD
-        </div>
+<p>
 
-        <p class="hero-description">
+Más que ropa, es una mentalidad.
 
-            Más que ropa, es una mentalidad.
-            Ropa urbana para quienes no siguen tendencias,
-            crean su propio camino.
+<br>
 
-        </p>
+Ropa urbana para quienes no siguen tendencias,
+crean su propio camino.
 
-        <a
-            href="#tienda"
-            class="hero-button"
-        >
+</p>
 
-            VER COLECCIÓN
+<a
+class="hero-cta"
+href="#tienda">
 
-            <span>
-                →
-            </span>
+VER COLECCIÓN →
 
-        </a>
+</a>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     PRODUCTOS
-===================================================== -->
+<!-- =========================
+     TIENDA
+========================= -->
 
 <section
-    class="products-section"
-    id="tienda"
->
+class="section"
+id="tienda">
 
-    <div class="section-heading">
+<h2 class="section-title">
+PRODUCTOS
+</h2>
 
-        <div class="section-heading-top">
+<p class="section-sub">
 
-            <h2 class="section-title">
-                PRODUCTOS
-            </h2>
+Las mejores piezas para tu estilo.
+Calidad, comodidad y actitud.
 
-        </div>
+</p>
 
-        <p class="section-subtitle">
-            Las mejores piezas para tu estilo. Calidad, comodidad y actitud.
-        </p>
-
-    </div>
-
-
-    <div class="products">
-
-
-        <!-- 1 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <span class="badge">
-                    MÁS VENDIDO
-                </span>
-
-                <img
-                    src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90"
-                    alt="Hoodie MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Hoodie Classic
-                </h3>
-
-                <div class="product-category">
-                    SUDADERAS
-                </div>
-
-                <div class="product-price">
-                    49,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('Hoodie Classic',49.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 2 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <span class="badge">
-                    NUEVO
-                </span>
-
-                <img
-                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
-                    alt="T-Shirt MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    T-Shirt Original
-                </h3>
-
-                <div class="product-category">
-                    CAMISETAS
-                </div>
-
-                <div class="product-price">
-                    24,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('T-Shirt Original',24.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 3 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=90"
-                    alt="Cargo Pants MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Cargo Pants
-                </h3>
-
-                <div class="product-category">
-                    PANTALONES
-                </div>
-
-                <div class="product-price">
-                    44,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('Cargo Pants',44.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 4 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1588850561407-ed78c282e70b?auto=format&fit=crop&w=900&q=90"
-                    alt="Gorra MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Gorra Classic
-                </h3>
-
-                <div class="product-category">
-                    ACCESORIOS
-                </div>
-
-                <div class="product-price">
-                    19,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('Gorra Classic',19.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 5 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=900&q=90"
-                    alt="Shorts MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Shorts MohsFlow
-                </h3>
-
-                <div class="product-category">
-                    SHORTS
-                </div>
-
-                <div class="product-price">
-                    29,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('Shorts MohsFlow',29.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 6 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=900&q=90"
-                    alt="Camiseta Essential MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Essential Tee
-                </h3>
-
-                <div class="product-category">
-                    COLECCIÓN ESSENTIAL
-                </div>
-
-                <div class="product-price">
-                    27,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('Essential Tee',27.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 7 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90"
-                    alt="Chaqueta MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Chaqueta Windbreaker
-                </h3>
-
-                <div class="product-category">
-                    CHAQUETAS
-                </div>
-
-                <div class="product-price">
-                    69,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('Chaqueta Windbreaker',69.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- 8 -->
-
-        <article class="product">
-
-            <div class="product-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1517832207067-4db24a2ae47c?auto=format&fit=crop&w=900&q=90"
-                    alt="Beanie MohsFlow"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                    Beanie Classic
-                </h3>
-
-                <div class="product-category">
-                    ACCESORIOS
-                </div>
-
-                <div class="product-price">
-                    17,99 €
-                </div>
-
-                <button
-                    class="add-button"
-                    onclick="openProduct('Beanie Classic',17.99)"
-                >
-                    Añadir al carrito
-                </button>
-
-            </div>
-
-        </article>
-
-    </div>
+<div
+class="products"
+id="products">
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     ABOUT
-===================================================== -->
+<!-- =========================
+     NOSOTROS
+========================= -->
 
 <section
-    class="about"
-    id="nosotros"
->
+class="about"
+id="nosotros">
 
-    <div class="about-container">
+<div class="about-grid">
 
+<div class="about-photo">
 
-        <div class="about-photo">
+<img
+src="mohsflow-logo.png"
+alt="MOHSFLOW">
 
-            <img
-                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=90"
-                alt="MohsFlow streetwear"
-            >
+</div>
 
-        </div>
+<div>
 
+<div class="about-small">
+SOBRE MOHSFLOW
+</div>
 
-        <div class="about-content">
+<h2>
 
-            <div class="about-small">
-                SOBRE MOHSFLOW
-            </div>
+MÁS QUE ROPA,
 
-            <h2 class="about-title">
+<br>
 
-                MÁS QUE ROPA,<br>
-                ES UNA MENTALIDAD.
+ES UNA MENTALIDAD.
 
-            </h2>
+</h2>
 
-            <p class="about-text">
+<p>
 
-                En MohsFlow creemos en la autenticidad,
-                la disciplina y la libertad de ser tú mismo.
+En MohsFlow creemos en la autenticidad,
+la disciplina y la libertad de ser tú mismo.
 
-            </p>
+</p>
 
-            <p class="about-text">
+<p>
 
-                Nuestra marca nace en la calle,
-                pero mira hacia el futuro.
-                Diseñamos prendas que no solo se visten:
-                se viven.
+Nuestra marca nace en la calle,
+pero mira hacia el futuro.
 
-            </p>
+Diseñamos prendas que no solo se visten:
+se viven.
 
-            <a
-                href="#contacto"
-                class="about-button"
-            >
-                CONOCE MÁS →
-            </a>
+</p>
 
-            <div class="about-mark">
-                M
-            </div>
+<a
+class="about-btn"
+href="#contacto">
 
-        </div>
+CONOCE MÁS →
 
-    </div>
+</a>
+
+<div class="mf">
+MF
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      CONTACTO
-===================================================== -->
+========================= -->
 
 <section
-    class="contact"
-    id="contacto"
->
+class="contact"
+id="contacto">
 
-    <h2 class="contact-title">
-        CONTACTO
-    </h2>
+<h2>
+CONTACTO
+</h2>
 
-    <p class="contact-subtitle">
-        ¿Tienes alguna pregunta? Escríbenos, estaremos encantados de ayudarte.
-    </p>
+<p class="contact-sub">
 
+¿Tienes alguna pregunta?
+Escríbenos, estaremos encantados de ayudarte.
 
-    <div class="contact-grid">
+</p>
 
+<div class="contact-grid">
 
-        <div class="contact-item">
+<div class="contact-box">
 
-            <div class="contact-icon">
-                ☎
-            </div>
+<div class="circle">
+☎
+</div>
 
-            <h3>
-                Teléfono
-            </h3>
+<h3>
+Teléfono
+</h3>
 
-            <p>
-                642 317 879
-            </p>
+<p>
+642 317 879
+</p>
 
-        </div>
-
-
-        <div class="contact-item">
-
-            <div class="contact-icon">
-                ✉
-            </div>
-
-            <h3>
-                Email
-            </h3>
-
-            <p>
-                mohammedlamkadem16@gmail.com
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="contact-item">
+<div class="contact-box">
 
-            <div class="contact-icon">
-                ◎
-            </div>
+<div class="circle">
+✉
+</div>
 
-            <h3>
-                Instagram
-            </h3>
+<h3>
+Email
+</h3>
 
-            <p>
-                @mohsflow
-            </p>
+<p>
+mohammedlamkadem16@gmail.com
+</p>
 
-        </div>
+</div>
 
 
-    </div>
+<div class="contact-box">
+
+<div class="circle">
+◎
+</div>
+
+<h3>
+Instagram
+</h3>
+
+<p>
+@mohsflow
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
-    <div class="footer-container">
+<div class="footer-row">
 
-        <div class="footer-brand">
+<img
+src="mohsflow-logo.png"
+class="footer-logo"
+alt="MOHSFLOW">
 
-            <div class="brand-symbol">
-                M
-            </div>
+<div class="footer-links">
 
-            MOHSFLOW
+<a href="#inicio">
+Inicio
+</a>
 
-        </div>
+<a href="#tienda">
+Tienda
+</a>
 
+<a href="#nosotros">
+Nosotros
+</a>
 
-        <div class="footer-links">
+<a href="#contacto">
+Contacto
+</a>
 
-            <a href="#inicio">
-                Inicio
-            </a>
+</div>
 
-            <a href="#tienda">
-                Tienda
-            </a>
+<div>
+◎　♪　▶
+</div>
 
-            <a href="#nosotros">
-                Nosotros
-            </a>
+</div>
 
-            <a href="#contacto">
-                Contacto
-            </a>
+<div class="copy">
 
-        </div>
+© 2026 MOHSFLOW · TODOS LOS DERECHOS RESERVADOS
 
-
-        <div class="footer-social">
-
-            <span>◎</span>
-            <span>♪</span>
-            <span>▶</span>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-copy">
-
-        © 2026 MOHSFLOW · STREETWEAR · TODOS LOS DERECHOS RESERVADOS
-
-    </div>
+</div>
 
 </footer>
 
 
-<!-- =====================================================
-     CART OVERLAY
-===================================================== -->
+<!-- =========================
+     PRODUCTO
+========================= -->
 
 <div
-    class="cart-overlay"
-    id="cartOverlay"
-    onclick="closeCart()"
-></div>
+class="modal"
+id="modal">
+
+<div class="product-modal">
+
+<button
+class="modal-close"
+onclick="closeProduct()">
+
+×
+
+</button>
 
 
-<!-- =====================================================
-     CART PANEL
-===================================================== -->
+<div class="modal-photo">
 
-<div
-    class="cart-panel"
-    id="cartPanel"
->
+<img
+id="mPhoto"
+src=""
+alt="">
 
-    <div class="cart-header">
-
-        <h2>
-            Tu carrito (<span id="cartTotalItems">0</span>)
-        </h2>
-
-        <button
-            class="close-cart"
-            onclick="closeCart()"
-        >
-            ×
-        </button>
-
-    </div>
-
-
-    <div class="empty-cart">
-
-        <div class="empty-cart-icon">
-            🛒
-        </div>
-
-        <h3>
-            Tu carrito está vacío.
-        </h3>
-
-        <p>
-            Descubre nuestra colección.
-        </p>
-
-        <button
-            class="continue-button"
-            onclick="closeCart(); document.getElementById('tienda').scrollIntoView()"
-        >
-            SEGUIR COMPRANDO
-        </button>
-
-    </div>
+<img
+src="mohsflow-logo.png"
+class="print"
+alt="">
 
 </div>
 
 
-<!-- =====================================================
-     PRODUCT MODAL
-===================================================== -->
+<div class="modal-info">
 
 <div
-    class="modal"
-    id="productModal"
->
+class="small"
+id="mCat">
+</div>
 
-    <div class="modal-content">
+<h2
+id="mName">
+</h2>
 
-        <button
-            class="modal-close"
-            onclick="closeProduct()"
-        >
-            ×
-        </button>
+<div
+class="modal-price"
+id="mPrice">
+</div>
 
-        <h2 class="modal-title">
-            Comprar
-        </h2>
-
-        <p
-            class="modal-product"
-            id="modalProductName"
-        >
-            Producto
-        </p>
+<p
+class="desc"
+id="mDesc">
+</p>
 
 
-        <label>
-            Talla
-        </label>
+<div class="label">
+TALLA
+</div>
 
-        <select id="size">
-
-            <option>XS</option>
-            <option>S</option>
-            <option selected>M</option>
-            <option>L</option>
-            <option>XL</option>
-
-        </select>
+<div
+class="opts"
+id="sizes">
+</div>
 
 
-        <label>
-            Cantidad
-        </label>
+<div class="label">
+COLOR
+</div>
 
-        <input
-            type="number"
-            id="quantity"
-            value="1"
-            min="1"
-            max="20"
-            oninput="updateTotal()"
-        >
+<div
+class="opts"
+id="colors">
+</div>
 
 
-        <div class="total">
+<div class="label">
+CANTIDAD
+</div>
 
-            <span>
-                Total
-            </span>
+<div class="qty">
 
-            <span id="totalPrice">
-                0,00 €
-            </span>
+<button onclick="qtyChange(-1)">
+−
+</button>
 
-        </div>
+<input
+id="qty"
+value="1"
+readonly>
 
-
-        <button
-            class="checkout"
-            onclick="addToCart()"
-        >
-            AÑADIR AL CARRITO
-        </button>
-
-    </div>
+<button onclick="qtyChange(1)">
++
+</button>
 
 </div>
+
+
+<button
+class="add"
+onclick="addCart()">
+
+AÑADIR AL CARRITO
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CARRITO
+========================= -->
+
+<div
+class="overlay"
+id="overlay"
+onclick="closeCart()">
+</div>
+
+
+<aside
+class="drawer"
+id="drawer">
+
+<div class="drawer-head">
+
+<h2>
+
+TU CARRITO
+
+(<span id="cartN">0</span>)
+
+</h2>
+
+<button
+class="close"
+onclick="closeCart()">
+
+×
+
+</button>
+
+</div>
+
+
+<div id="cartList">
+</div>
+
+
+<div
+id="empty"
+class="empty">
+
+<div class="empty-icon">
+🛒
+</div>
+
+Tu carrito está vacío.
+
+</div>
+
+
+<div
+id="cartBottom"
+style="display:none">
+
+<div class="cart-total">
+
+<span>
+TOTAL
+</span>
+
+<span id="cartTotal">
+0,00 €
+</span>
+
+</div>
+
+<button
+class="checkout"
+onclick="checkout()">
+
+CONTINUAR AL PAGO
+
+</button>
+
+</div>
+
+</aside>
 
 
 <script>
 
-/* =====================================================
+/* =========================
+   PRODUCTOS
+========================= */
+
+const products = [
+
+{
+id:1,
+
+n:"Hoodie Classic",
+
+c:"SUDADERAS",
+
+p:49.99,
+
+img:
+"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"Sudadera oversize premium con estética MOHSFLOW.",
+
+s:["S","M","L","XL"],
+
+co:["Negro","Gris"],
+
+tag:"MÁS VENDIDO"
+},
+
+
+{
+id:2,
+
+n:"T-Shirt Original",
+
+c:"CAMISETAS",
+
+p:24.99,
+
+img:
+"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"Camiseta de algodón de corte amplio con identidad MOHSFLOW.",
+
+s:["XS","S","M","L","XL"],
+
+co:["Blanco","Negro"],
+
+tag:"NUEVO"
+},
+
+
+{
+id:3,
+
+n:"Cargo Pants",
+
+c:"PANTALONES",
+
+p:44.99,
+
+img:
+"https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"Pantalón cargo de corte relajado para looks urbanos.",
+
+s:["S","M","L","XL"],
+
+co:["Negro","Oliva"],
+
+tag:""
+},
+
+
+{
+id:4,
+
+n:"Gorra Classic",
+
+c:"ACCESORIOS",
+
+p:19.99,
+
+img:
+"https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"Gorra clásica con el logo MOHSFLOW.",
+
+s:["Única"],
+
+co:["Negro","Gris"],
+
+tag:""
+},
+
+
+{
+id:5,
+
+n:"Shorts MohsFlow",
+
+c:"SHORTS",
+
+p:29.99,
+
+img:
+"https://images.unsplash.com/photo-1562886877-2f2e6b5e5e48?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"Short urbano ligero para completar tu outfit.",
+
+s:["S","M","L","XL"],
+
+co:["Negro","Gris"],
+
+tag:""
+},
+
+
+{
+id:6,
+
+n:"Essential Tee",
+
+c:"COLECCIÓN ESSENTIAL",
+
+p:27.99,
+
+img:
+"https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"La camiseta esencial de MOHSFLOW.",
+
+s:["XS","S","M","L","XL"],
+
+co:["Blanco","Negro"],
+
+tag:""
+},
+
+
+{
+id:7,
+
+n:"Chaqueta Windbreaker",
+
+c:"CHAQUETAS",
+
+p:69.99,
+
+img:
+"https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"Chaqueta ligera de inspiración urbana.",
+
+s:["S","M","L","XL"],
+
+co:["Negro","Gris"],
+
+tag:""
+},
+
+
+{
+id:8,
+
+n:"Beanie Classic",
+
+c:"ACCESORIOS",
+
+p:17.99,
+
+img:
+"https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=90",
+
+d:
+"Gorro minimalista con sello MOHSFLOW.",
+
+s:["Única"],
+
+co:["Negro","Gris"],
+
+tag:""
+}
+
+];
+
+
+/* =========================
    VARIABLES
-===================================================== */
+========================= */
 
-let currentPrice = 0;
+let current = null;
 
-let currentProduct = "";
+let selectedSize = "";
 
-let cartItems = 0;
+let selectedColor = "";
+
+let quantity = 1;
+
+let cart = [];
 
 
-/* =====================================================
-   PRODUCT MODAL
-===================================================== */
+/* =========================
+   EUROS
+========================= */
 
-function openProduct(name,price){
+const euro = n =>
+    n.toFixed(2)
+     .replace(".",",") + " €";
 
-    currentProduct = name;
 
-    currentPrice = price;
+/* =========================
+   MOSTRAR PRODUCTOS
+========================= */
 
-    document.getElementById(
-        "modalProductName"
-    ).textContent = name;
+function render(){
 
-    document.getElementById(
-        "quantity"
-    ).value = 1;
+document.getElementById("products").innerHTML =
 
-    updateTotal();
+products.map(x => `
 
-    document.getElementById(
-        "productModal"
-    ).classList.add("show");
+<article
+class="card"
+onclick="openProduct(${x.id})">
+
+<div class="card-photo">
+
+${
+x.tag
+?
+`<span class="badge">
+${x.tag}
+</span>`
+:
+""
+}
+
+<img
+src="${x.img}"
+alt="${x.n}">
+
+<img
+src="mohsflow-logo.png"
+class="print"
+alt="">
+
+</div>
+
+
+<div class="card-body">
+
+<h3>
+${x.n}
+</h3>
+
+<div class="cat">
+${x.c}
+</div>
+
+<div class="price">
+${euro(x.p)}
+</div>
+
+<button
+class="view"
+onclick="event.stopPropagation();openProduct(${x.id})">
+
+VER PRODUCTO
+
+</button>
+
+</div>
+
+</article>
+
+`).join("");
 
 }
 
 
-/* =====================================================
-   CLOSE PRODUCT
-===================================================== */
+/* =========================
+   ABRIR PRODUCTO
+========================= */
+
+function openProduct(id){
+
+current =
+products.find(x => x.id === id);
+
+quantity = 1;
+
+selectedSize =
+current.s[0];
+
+selectedColor =
+current.co[0];
+
+
+document.getElementById("mPhoto").src =
+current.img;
+
+document.getElementById("mName").textContent =
+current.n;
+
+document.getElementById("mCat").textContent =
+current.c;
+
+document.getElementById("mPrice").textContent =
+euro(current.p);
+
+document.getElementById("mDesc").textContent =
+current.d;
+
+document.getElementById("qty").value =
+1;
+
+
+/* TALLAS */
+
+document.getElementById("sizes").innerHTML =
+
+current.s.map(x => `
+
+<button
+class="opt ${x === selectedSize ? "active":""}"
+onclick="selectSize('${x}',this)">
+
+${x}
+
+</button>
+
+`).join("");
+
+
+/* COLORES */
+
+document.getElementById("colors").innerHTML =
+
+current.co.map(x => `
+
+<button
+class="opt ${x === selectedColor ? "active":""}"
+onclick="selectColor('${x}',this)">
+
+${x}
+
+</button>
+
+`).join("");
+
+
+document
+.getElementById("modal")
+.classList.add("open");
+
+}
+
+
+/* =========================
+   SELECCIONAR TALLA
+========================= */
+
+function selectSize(x,e){
+
+selectedSize = x;
+
+document
+.querySelectorAll("#sizes .opt")
+.forEach(b =>
+b.classList.remove("active"));
+
+e.classList.add("active");
+
+}
+
+
+/* =========================
+   SELECCIONAR COLOR
+========================= */
+
+function selectColor(x,e){
+
+selectedColor = x;
+
+document
+.querySelectorAll("#colors .opt")
+.forEach(b =>
+b.classList.remove("active"));
+
+e.classList.add("active");
+
+}
+
+
+/* =========================
+   CANTIDAD
+========================= */
+
+function qtyChange(n){
+
+quantity =
+Math.max(
+1,
+Math.min(
+20,
+quantity + n
+)
+);
+
+document.getElementById("qty").value =
+quantity;
+
+}
+
+
+/* =========================
+   CERRAR PRODUCTO
+========================= */
 
 function closeProduct(){
 
-    document.getElementById(
-        "productModal"
-    ).classList.remove("show");
+document
+.getElementById("modal")
+.classList.remove("open");
 
 }
 
 
-/* =====================================================
-   TOTAL
-===================================================== */
+/* =========================
+   AÑADIR AL CARRITO
+========================= */
 
-function updateTotal(){
+function addCart(){
 
-    let quantity = Number(
-        document.getElementById(
-            "quantity"
-        ).value
-    );
+let found =
+cart.find(
+x =>
+x.id === current.id &&
+x.size === selectedSize &&
+x.color === selectedColor
+);
 
-    if(quantity < 1){
-        quantity = 1;
-    }
 
-    if(quantity > 20){
-        quantity = 20;
-    }
+if(found){
 
-    document.getElementById(
-        "quantity"
-    ).value = quantity;
+found.q += quantity;
 
-    const total =
-        currentPrice * quantity;
+}
 
-    document.getElementById(
-        "totalPrice"
-    ).textContent =
-        total
-        .toFixed(2)
-        .replace(".",",")
-        + " €";
+else{
+
+cart.push({
+
+...current,
+
+size:selectedSize,
+
+color:selectedColor,
+
+q:quantity
+
+});
 
 }
 
 
-/* =====================================================
-   ADD CART
-===================================================== */
+closeProduct();
 
-function addToCart(){
+renderCart();
 
-    const quantity = Number(
-        document.getElementById(
-            "quantity"
-        ).value
-    );
-
-    cartItems += quantity;
-
-    document.getElementById(
-        "cartNumber"
-    ).textContent = cartItems;
-
-    document.getElementById(
-        "cartTotalItems"
-    ).textContent = cartItems;
-
-    closeProduct();
-
-    alert(
-        currentProduct +
-        " se ha añadido al carrito."
-    );
+openCart();
 
 }
 
 
-/* =====================================================
-   OPEN CART
-===================================================== */
+/* =========================
+   BORRAR PRODUCTO
+========================= */
+
+function remove(i){
+
+cart.splice(i,1);
+
+renderCart();
+
+}
+
+
+/* =========================
+   RENDER CARRITO
+========================= */
+
+function renderCart(){
+
+let items =
+cart.reduce(
+(a,x) => a + x.q,
+0
+);
+
+let total =
+cart.reduce(
+(a,x) => a + x.q * x.p,
+0
+);
+
+
+document.getElementById("count")
+.textContent = items;
+
+document.getElementById("cartN")
+.textContent = items;
+
+document.getElementById("cartTotal")
+.textContent = euro(total);
+
+
+document.getElementById("empty")
+.style.display =
+cart.length
+?
+"none"
+:
+"block";
+
+
+document.getElementById("cartBottom")
+.style.display =
+cart.length
+?
+"block"
+:
+"none";
+
+
+document.getElementById("cartList")
+.innerHTML =
+
+cart.map((x,i) => `
+
+<div class="cart-item">
+
+<div class="thumb">
+
+<img
+src="${x.img}">
+
+<img
+src="mohsflow-logo.png"
+class="print">
+
+</div>
+
+
+<div>
+
+<h4>
+${x.n}
+</h4>
+
+<p>
+Talla ${x.size}
+·
+${x.color}
+</p>
+
+<p>
+${x.q}
+×
+${euro(x.p)}
+</p>
+
+</div>
+
+
+<button
+class="remove"
+onclick="remove(${i})">
+
+×
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================
+   ABRIR CARRITO
+========================= */
 
 function openCart(){
 
-    document.getElementById(
-        "cartPanel"
-    ).classList.add("open");
+renderCart();
 
-    document.getElementById(
-        "cartOverlay"
-    ).classList.add("show");
+document
+.getElementById("drawer")
+.classList.add("open");
+
+document
+.getElementById("overlay")
+.classList.add("show");
 
 }
 
 
-/* =====================================================
-   CLOSE CART
-===================================================== */
+/* =========================
+   CERRAR CARRITO
+========================= */
 
 function closeCart(){
 
-    document.getElementById(
-        "cartPanel"
-    ).classList.remove("open");
+document
+.getElementById("drawer")
+.classList.remove("open");
 
-    document.getElementById(
-        "cartOverlay"
-    ).classList.remove("show");
+document
+.getElementById("overlay")
+.classList.remove("show");
 
 }
 
 
-/* =====================================================
-   CLOSE MODAL OUTSIDE
-===================================================== */
+/* =========================
+   CHECKOUT
+========================= */
 
-window.addEventListener(
-    "click",
-    function(event){
+function checkout(){
 
-        const modal =
-            document.getElementById(
-                "productModal"
-            );
+if(!cart.length){
 
-        if(event.target === modal){
+alert("Tu carrito está vacío.");
 
-            closeProduct();
+return;
 
-        }
+}
 
-    }
+alert(
+"El carrito está preparado. Aquí puedes conectar Stripe o PayPal para recibir los pagos."
 );
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+render();
+
+renderCart();
 
 </script>
 
-
 </body>
 </html>
-```
 
+       
