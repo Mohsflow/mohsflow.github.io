@@ -1,438 +1,3666 @@
+### `index.html`
+
+```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Suite de aplicaciones ofimáticas online">
-    <title>Ofimática Web</title>
+
+    <meta name="description"
+          content="Ofimática Pro - herramientas, aplicaciones, cursos y tutoriales de ofimática">
+
+    <title>Ofimática Pro | Suite de herramientas digitales</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- BARRA SUPERIOR -->
-    <header class="topbar">
-        <div class="logo">
-            <span>▦</span>
-            Ofimática Web
-        </div>
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
 
-        <nav>
-            <button onclick="mostrarInicio()">Inicio</button>
-            <button onclick="abrirApp('documentos')">Documentos</button>
-            <button onclick="abrirApp('hoja')">Hoja de cálculo</button>
-            <button onclick="abrirApp('notas')">Notas</button>
-            <button onclick="abrirApp('calculadora')">Calculadora</button>
-        </nav>
+<header class="header">
 
-        <button class="tema" onclick="cambiarTema()" title="Cambiar tema">
-            🌙
+    <a href="#inicio" class="logo">
+        <span class="logo-icon">
+            <i class="fa-solid fa-layer-group"></i>
+        </span>
+
+        <span>
+            Ofimática<span class="azul">Pro</span>
+        </span>
+    </a>
+
+
+    <nav class="nav">
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#aplicaciones">Aplicaciones</a>
+
+        <a href="#tutoriales">Tutoriales</a>
+
+        <a href="#recursos">Recursos</a>
+
+        <a href="#sobre">Sobre nosotros</a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+        <button
+            class="icon-button"
+            onclick="toggleDarkMode()"
+            title="Cambiar tema">
+
+            <i class="fa-solid fa-moon"></i>
+
         </button>
-    </header>
 
 
-    <!-- PÁGINA PRINCIPAL -->
-    <section id="inicio" class="pagina activa">
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
 
-        <div class="hero">
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section id="inicio" class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            <i class="fa-solid fa-bolt"></i>
+            PRODUCTIVIDAD DIGITAL
+        </span>
+
+
+        <h1>
+
+            Todo lo que necesitas
+            para trabajar mejor.
+
+            <span>
+                En un solo lugar.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Herramientas, aplicaciones, tutoriales,
+            cursos y recursos para aprender y utilizar
+            la ofimática de forma sencilla.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#aplicaciones"
+                class="btn btn-primary">
+
+                Explorar aplicaciones
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a
+                href="#tutoriales"
+                class="btn btn-secondary">
+
+                <i class="fa-solid fa-play"></i>
+
+                Ver tutoriales
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
             <div>
-                <span class="etiqueta">SUITE OFIMÁTICA ONLINE</span>
 
-                <h1>
-                    Todas tus herramientas
-                    <span>en un solo lugar</span>
-                </h1>
+                <strong>10+</strong>
 
-                <p>
-                    Escribe documentos, crea hojas de cálculo,
-                    toma notas y realiza cálculos directamente
-                    desde tu navegador.
-                </p>
-
-                <button class="boton-principal"
-                        onclick="abrirApp('documentos')">
-                    Comenzar a trabajar →
-                </button>
-            </div>
-
-            <div class="hero-icon">
-                📂
-            </div>
-        </div>
-
-
-        <h2 class="titulo-seccion">Aplicaciones</h2>
-
-        <div class="apps">
-
-            <article class="app-card documentos"
-                     onclick="abrirApp('documentos')">
-                <div class="app-icon">📝</div>
-                <h3>Documentos</h3>
-                <p>
-                    Escribe y edita documentos de texto.
-                </p>
-                <span>Abrir aplicación →</span>
-            </article>
-
-
-            <article class="app-card calculo"
-                     onclick="abrirApp('hoja')">
-                <div class="app-icon">📊</div>
-                <h3>Hoja de cálculo</h3>
-                <p>
-                    Trabaja con datos, tablas y fórmulas.
-                </p>
-                <span>Abrir aplicación →</span>
-            </article>
-
-
-            <article class="app-card notas"
-                     onclick="abrirApp('notas')">
-                <div class="app-icon">📋</div>
-                <h3>Notas</h3>
-                <p>
-                    Guarda rápidamente tus ideas y apuntes.
-                </p>
-                <span>Abrir aplicación →</span>
-            </article>
-
-
-            <article class="app-card calculadora"
-                     onclick="abrirApp('calculadora')">
-                <div class="app-icon">🧮</div>
-                <h3>Calculadora</h3>
-                <p>
-                    Realiza cálculos de forma rápida.
-                </p>
-                <span>Abrir aplicación →</span>
-            </article>
-
-        </div>
-    </section>
-
-
-
-    <!-- DOCUMENTOS -->
-    <section id="documentos" class="pagina">
-
-        <div class="app-header">
-            <button onclick="mostrarInicio()" class="volver">
-                ← Inicio
-            </button>
-
-            <h1>📝 Procesador de textos</h1>
-
-            <button onclick="guardarDocumento()"
-                    class="guardar">
-                💾 Guardar
-            </button>
-        </div>
-
-
-        <div class="editor-container">
-
-            <div class="toolbar">
-
-                <button onclick="ejecutar('bold')">
-                    <b>B</b>
-                </button>
-
-                <button onclick="ejecutar('italic')">
-                    <i>I</i>
-                </button>
-
-                <button onclick="ejecutar('underline')">
-                    <u>U</u>
-                </button>
-
-                <span></span>
-
-                <button onclick="ejecutar('justifyLeft')">
-                    ☰
-                </button>
-
-                <button onclick="ejecutar('justifyCenter')">
-                    ≡
-                </button>
-
-                <button onclick="ejecutar('justifyRight')">
-                    ☷
-                </button>
-
-                <span></span>
-
-                <button onclick="ejecutar('insertUnorderedList')">
-                    • Lista
-                </button>
-
-                <button onclick="ejecutar('insertOrderedList')">
-                    1. Lista
-                </button>
-
-            </div>
-
-
-            <input
-                id="tituloDocumento"
-                class="titulo-documento"
-                placeholder="Título del documento"
-            >
-
-
-            <div
-                id="editor"
-                class="editor"
-                contenteditable="true"
-                spellcheck="true"
-            >
-                Empieza a escribir aquí...
-            </div>
-
-            <div class="estado-editor">
-                <span id="contador">0 palabras</span>
-                <span>Guardado localmente</span>
-            </div>
-
-        </div>
-    </section>
-
-
-
-    <!-- HOJA DE CÁLCULO -->
-    <section id="hoja" class="pagina">
-
-        <div class="app-header">
-
-            <button onclick="mostrarInicio()" class="volver">
-                ← Inicio
-            </button>
-
-            <h1>📊 Hoja de cálculo</h1>
-
-            <button onclick="guardarHoja()" class="guardar">
-                💾 Guardar
-            </button>
-
-        </div>
-
-
-        <div class="hoja-container">
-
-            <div class="barra-formula">
-
-                <span id="celdaSeleccionada">
-                    A1
+                <span>
+                    herramientas
                 </span>
 
-                <input
-                    id="formula"
-                    placeholder="Introduce un valor o fórmula..."
-                    onkeydown="editarFormula(event)"
-                >
+            </div>
+
+
+            <div>
+
+                <strong>50+</strong>
+
+                <span>
+                    tutoriales
+                </span>
 
             </div>
 
 
-            <div class="tabla-scroll">
+            <div>
 
-                <table id="tabla">
+                <strong>100%</strong>
+
+                <span>
+                    online
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="floating-card card-one">
+
+            <i class="fa-solid fa-file-word"></i>
+
+            <span>
+                Documentos
+            </span>
+
+        </div>
+
+
+        <div class="floating-card card-two">
+
+            <i class="fa-solid fa-table-cells"></i>
+
+            <span>
+                Hojas de cálculo
+            </span>
+
+        </div>
+
+
+        <div class="floating-card card-three">
+
+            <i class="fa-solid fa-chart-pie"></i>
+
+            <span>
+                Presentaciones
+            </span>
+
+        </div>
+
+
+        <div class="computer">
+
+            <div class="computer-screen">
+
+                <div class="screen-top"></div>
+
+                <div class="screen-content">
+
+                    <div class="fake-sidebar"></div>
+
+                    <div class="fake-document">
+
+                        <div class="fake-title"></div>
+
+                        <div class="fake-line"></div>
+                        <div class="fake-line"></div>
+                        <div class="fake-line short"></div>
+
+                        <div class="fake-table">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="computer-base"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     APLICACIONES
+===================================================== -->
+
+<section id="aplicaciones" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            HERRAMIENTAS
+        </span>
+
+        <h2>
+            Aplicaciones ofimáticas
+        </h2>
+
+        <p>
+            Encuentra la herramienta adecuada
+            para cada tarea.
+        </p>
+
+    </div>
+
+
+    <div class="app-grid">
+
+
+        <article
+            class="app-card"
+            onclick="openTool('documentos')">
+
+            <div class="app-card-icon word">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Documentos
+                </h3>
+
+                <p>
+                    Escribe, edita y organiza
+                    documentos de texto.
+                </p>
+
+                <span>
+                    Abrir herramienta
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="app-card"
+            onclick="openTool('hojas')">
+
+            <div class="app-card-icon excel">
+                <i class="fa-solid fa-table"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Hojas de cálculo
+                </h3>
+
+                <p>
+                    Organiza datos, tablas,
+                    fórmulas y estadísticas.
+                </p>
+
+                <span>
+                    Abrir herramienta
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="app-card"
+            onclick="openTool('presentaciones')">
+
+            <div class="app-card-icon powerpoint">
+                <i class="fa-solid fa-display"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Presentaciones
+                </h3>
+
+                <p>
+                    Prepara presentaciones
+                    visuales y profesionales.
+                </p>
+
+                <span>
+                    Abrir herramienta
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="app-card"
+            onclick="openTool('notas')">
+
+            <div class="app-card-icon notes">
+                <i class="fa-solid fa-note-sticky"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Notas
+                </h3>
+
+                <p>
+                    Guarda ideas, apuntes,
+                    listas y recordatorios.
+                </p>
+
+                <span>
+                    Abrir herramienta
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="app-card"
+            onclick="openTool('calculadora')">
+
+            <div class="app-card-icon calculator">
+                <i class="fa-solid fa-calculator"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Calculadora
+                </h3>
+
+                <p>
+                    Realiza operaciones
+                    matemáticas rápidamente.
+                </p>
+
+                <span>
+                    Abrir herramienta
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="app-card"
+            onclick="openTool('convertidor')">
+
+            <div class="app-card-icon converter">
+                <i class="fa-solid fa-arrows-rotate"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Conversor
+                </h3>
+
+                <p>
+                    Convierte unidades,
+                    tamaños y formatos.
+                </p>
+
+                <span>
+                    Abrir herramienta
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BANNER
+===================================================== -->
+
+<section class="banner">
+
+    <div>
+
+        <span>
+            APRENDE A TU RITMO
+        </span>
+
+        <h2>
+            ¿Quieres mejorar tus
+            conocimientos de ofimática?
+        </h2>
+
+        <p>
+            Aprende Word, Excel, PowerPoint,
+            Google Docs y mucho más.
+        </p>
+
+    </div>
+
+
+    <a href="#tutoriales" class="btn white-button">
+
+        Ver cursos
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     TUTORIALES
+===================================================== -->
+
+<section id="tutoriales" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            APRENDE
+        </span>
+
+        <h2>
+            Tutoriales y vídeos
+        </h2>
+
+        <p>
+            Recursos para aprender ofimática
+            paso a paso.
+        </p>
+
+    </div>
+
+
+    <div class="video-grid">
+
+
+        <article class="video-card">
+
+            <div class="video-thumbnail blue-thumbnail">
+
+                <i class="fa-solid fa-file-word"></i>
+
+                <div class="play">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span class="video-tag">
+                    WORD
+                </span>
+
+                <h3>
+                    Aprende a crear documentos
+                </h3>
+
+                <p>
+                    Introducción a la creación
+                    y edición de documentos.
+                </p>
+
+                <a
+                    href="https://support.microsoft.com/es-es/word/"
+                    target="_blank">
+
+                    Ver tutorial
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="video-card">
+
+            <div class="video-thumbnail green-thumbnail">
+
+                <i class="fa-solid fa-table-cells"></i>
+
+                <div class="play">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span class="video-tag green">
+                    EXCEL
+                </span>
+
+                <h3>
+                    Primeros pasos con Excel
+                </h3>
+
+                <p>
+                    Aprende tablas, fórmulas
+                    y funciones básicas.
+                </p>
+
+                <a
+                    href="https://support.microsoft.com/es-es/excel/"
+                    target="_blank">
+
+                    Ver tutorial
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="video-card">
+
+            <div class="video-thumbnail orange-thumbnail">
+
+                <i class="fa-solid fa-display"></i>
+
+                <div class="play">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span class="video-tag orange">
+                    POWERPOINT
+                </span>
+
+                <h3>
+                    Crea presentaciones
+                </h3>
+
+                <p>
+                    Aprende a diseñar
+                    presentaciones atractivas.
+                </p>
+
+                <a
+                    href="https://support.microsoft.com/es-es/powerpoint/"
+                    target="_blank">
+
+                    Ver tutorial
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RECURSOS
+===================================================== -->
+
+<section id="recursos" class="section resources-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            RECURSOS
+        </span>
+
+        <h2>
+            Sitios recomendados
+        </h2>
+
+        <p>
+            Accede a documentación y
+            formación oficial.
+        </p>
+
+    </div>
+
+
+    <div class="resources">
+
+
+        <a
+            class="resource"
+            href="https://support.microsoft.com/es-es/microsoft-365/"
+            target="_blank">
+
+            <div class="resource-icon microsoft">
+                <i class="fa-brands fa-microsoft"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Microsoft 365
+                </h3>
+
+                <p>
+                    Ayuda, formación y recursos
+                    oficiales.
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+        </a>
+
+
+        <a
+            class="resource"
+            href="https://support.google.com/a/users/?hl=es"
+            target="_blank">
+
+            <div class="resource-icon google">
+                <i class="fa-brands fa-google"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Google Workspace
+                </h3>
+
+                <p>
+                    Formación para Docs,
+                    Sheets, Slides y más.
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+        </a>
+
+
+        <a
+            class="resource"
+            href="https://support.google.com/a/users/answer/9282959?hl=es"
+            target="_blank">
+
+            <div class="resource-icon sheets">
+                <i class="fa-solid fa-chart-column"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Google Sheets
+                </h3>
+
+                <p>
+                    Guías y recursos para
+                    hojas de cálculo.
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+        </a>
+
+
+        <a
+            class="resource"
+            href="https://support.google.com/a/users/answer/9313043?hl=es"
+            target="_blank">
+
+            <div class="resource-icon slides">
+                <i class="fa-solid fa-presentation-screen"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Google Slides
+                </h3>
+
+                <p>
+                    Aprende a crear
+                    presentaciones.
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOBRE
+===================================================== -->
+
+<section id="sobre" class="about">
+
+    <div>
+
+        <span class="section-label">
+            OFIMÁTICA PRO
+        </span>
+
+        <h2>
+            Una plataforma para
+            aprender y trabajar.
+        </h2>
+
+        <p>
+            Ofimática Pro reúne herramientas
+            digitales y recursos educativos
+            para facilitar el trabajo diario,
+            los estudios y la productividad.
+        </p>
+
+        <p>
+            La plataforma está diseñada para
+            funcionar desde ordenador, tablet
+            y teléfono móvil.
+        </p>
+
+    </div>
+
+
+    <div class="about-box">
+
+        <div>
+            <i class="fa-solid fa-laptop"></i>
+            <span>Online</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-mobile-screen"></i>
+            <span>Responsive</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Educativa</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Segura</span>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <a href="#inicio" class="logo">
+
+                <span class="logo-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </span>
+
+                Ofimática<span class="azul">Pro</span>
+
+            </a>
+
+            <p>
+                Herramientas y recursos
+                para mejorar tu productividad.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Navegación
+            </h4>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#aplicaciones">
+                Aplicaciones
+            </a>
+
+            <a href="#tutoriales">
+                Tutoriales
+            </a>
+
+            <a href="#recursos">
+                Recursos
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Recursos
+            </h4>
+
+            <a
+                href="https://support.microsoft.com/es-es/microsoft-365/"
+                target="_blank">
+
+                Microsoft 365
+
+            </a>
+
+            <a
+                href="https://support.google.com/a/users/?hl=es"
+                target="_blank">
+
+                Google Workspace
+
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Redes
+            </h4>
+
+            <div class="social">
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Ofimática Pro.
+        Todos los derechos reservados.
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+    id="toolModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeTool()">
+
+            ×
+
+        </button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
+
+### `style.css`
+
+```css
+:root {
+
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --text: #172033;
+    --muted: #667085;
+
+    --background: #f7f9fc;
+
+    --white: #ffffff;
+
+    --border: #e5e7eb;
+
+    --shadow:
+        0 15px 40px rgba(15, 23, 42, .08);
+
+    --radius: 18px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+
+    background: var(--background);
+
+    transition:
+        background .3s,
+        color .3s;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* HEADER */
+
+.header {
+
+    height: 76px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background:
+        rgba(255,255,255,.9);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.logo-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    border-radius: 10px;
+}
+
+
+.azul {
+    color: var(--primary);
+}
+
+
+.nav {
+
+    display: flex;
+
+    gap: 28px;
+
+    flex: 1;
+}
+
+
+.nav a {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition: .2s;
+}
+
+
+.nav a:hover {
+
+    color: var(--primary);
+}
+
+
+.header-actions {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.icon-button,
+.menu-button {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: 1px solid var(--border);
+
+    background: var(--white);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+.menu-button {
+    display: none;
+}
+
+
+/* HERO */
+
+.hero {
+
+    max-width: 1300px;
+
+    min-height: 700px;
+
+    margin: auto;
+
+    padding: 90px 6%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+}
+
+
+.badge {
+
+    display: inline-flex;
+
+    gap: 8px;
+
+    padding: 8px 12px;
+
+    border-radius: 50px;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(
+        45px,
+        5vw,
+        70px
+    );
+
+    line-height: 1.03;
+
+    margin: 25px 0;
+
+    letter-spacing: -3px;
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--primary);
+}
+
+
+.hero p {
+
+    max-width: 600px;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: var(--muted);
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+.btn {
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    display: inline-flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    transition: .2s;
+}
+
+
+.btn-primary {
+
+    color: white;
+
+    background: var(--primary);
+}
+
+
+.btn-primary:hover {
+
+    background:
+        var(--primary-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.btn-secondary {
+
+    background: white;
+
+    border: 1px solid var(--border);
+}
+
+
+.hero-stats {
+
+    display: flex;
+
+    gap: 40px;
+
+    margin-top: 45px;
+}
+
+
+.hero-stats div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.hero-stats strong {
+
+    font-size: 25px;
+}
+
+
+.hero-stats span {
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* HERO ILUSTRACIÓN */
+
+.hero-image {
+
+    min-height: 500px;
+
+    position: relative;
+
+    display: grid;
+
+    place-items: center;
+}
+
+
+.computer {
+
+    width: 440px;
+
+    max-width: 85%;
+}
+
+
+.computer-screen {
+
+    height: 300px;
+
+    background: white;
+
+    border: 10px solid #1e293b;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 70px
+        rgba(37,99,235,.25);
+}
+
+
+.screen-top {
+
+    height: 35px;
+
+    background: #f1f5f9;
+}
+
+
+.screen-content {
+
+    height: calc(100% - 35px);
+
+    display: flex;
+}
+
+
+.fake-sidebar {
+
+    width: 70px;
+
+    background: #eff6ff;
+}
+
+
+.fake-document {
+
+    padding: 25px;
+
+    flex: 1;
+}
+
+
+.fake-title {
+
+    width: 60%;
+
+    height: 18px;
+
+    background: #2563eb;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+}
+
+
+.fake-line {
+
+    height: 8px;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+
+    margin: 12px 0;
+}
+
+
+.fake-line.short {
+    width: 60%;
+}
+
+
+.fake-table {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 5px;
+
+    margin-top: 25px;
+}
+
+
+.fake-table span {
+
+    height: 30px;
+
+    background: #dbeafe;
+
+    border-radius: 3px;
+}
+
+
+.computer-base {
+
+    width: 500px;
+
+    max-width: 110%;
+
+    height: 18px;
+
+    margin-left: -7%;
+
+    background: #334155;
+
+    border-radius:
+        0 0 20px 20px;
+}
+
+
+.floating-card {
+
+    position: absolute;
+
+    background: white;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    animation:
+        float 4s ease-in-out infinite;
+}
+
+
+.floating-card i {
+
+    color: var(--primary);
+
+    font-size: 20px;
+}
+
+
+.card-one {
+    top: 70px;
+    left: 0;
+}
+
+
+.card-two {
+
+    right: 0;
+
+    top: 190px;
+
+    animation-delay: .8s;
+}
+
+
+.card-three {
+
+    bottom: 60px;
+
+    left: 30px;
+
+    animation-delay: 1.4s;
+}
+
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* SECCIONES */
+
+.section {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 100px 6%;
+}
+
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.section-label {
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.section-heading h2 {
+
+    font-size: 42px;
+
+    margin:
+        12px 0;
+}
+
+
+.section-heading p {
+
+    color: var(--muted);
+}
+
+
+/* APPS */
+
+.app-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.app-card {
+
+    padding: 28px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    display: flex;
+
+    gap: 20px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.app-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.app-card-icon {
+
+    min-width: 55px;
+
+    width: 55px;
+
+    height: 55px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 14px;
+
+    font-size: 23px;
+}
+
+
+.word {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+
+.excel {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+.powerpoint {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+
+.notes {
+    background: #fef9c3;
+    color: #ca8a04;
+}
+
+
+.calculator {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+
+.converter {
+    background: #fce7f3;
+    color: #db2777;
+}
+
+
+.app-card h3 {
+
+    margin:
+        0 0 8px;
+
+    font-size: 18px;
+}
+
+
+.app-card p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.app-card span {
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* BANNER */
+
+.banner {
+
+    max-width: 1200px;
+
+    margin: 30px auto;
+
+    padding: 55px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.banner h2 {
+
+    font-size: 35px;
+
+    max-width: 650px;
+
+    margin: 12px 0;
+}
+
+
+.banner p {
+
+    opacity: .85;
+}
+
+
+.white-button {
+
+    background: white;
+
+    color: #2563eb;
+
+    white-space: nowrap;
+}
+
+
+/* VIDEOS */
+
+.video-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.video-card {
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.04);
+}
+
+
+.video-thumbnail {
+
+    height: 200px;
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+
+    color: white;
+
+    font-size: 65px;
+}
+
+
+.blue-thumbnail {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #60a5fa
+        );
+}
+
+
+.green-thumbnail {
+
+    background:
+        linear-gradient(
+            135deg,
+            #15803d,
+            #4ade80
+        );
+}
+
+
+.orange-thumbnail {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ea580c,
+            #fb923c
+        );
+}
+
+
+.play {
+
+    position: absolute;
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--primary);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 17px;
+}
+
+
+.video-info {
+
+    padding: 22px;
+}
+
+
+.video-tag {
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+.video-tag.green {
+    color: #16a34a;
+}
+
+
+.video-tag.orange {
+    color: #ea580c;
+}
+
+
+.video-info h3 {
+
+    margin:
+        10px 0;
+
+    font-size: 18px;
+}
+
+
+.video-info p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.video-info a {
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* RECURSOS */
+
+.resources {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+.resource {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    transition: .2s;
+}
+
+
+.resource:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.resource-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    font-size: 24px;
+}
+
+
+.microsoft {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+
+.google {
+    background: #fef3c7;
+    color: #ea580c;
+}
+
+
+.sheets {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+.slides {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+
+.resource div:nth-child(2) {
+
+    flex: 1;
+}
+
+
+.resource h3 {
+
+    margin: 0 0 5px;
+}
+
+
+.resource p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* SOBRE */
+
+.about {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 100px 6%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+.about h2 {
+
+    font-size: 42px;
+
+    line-height: 1.15;
+}
+
+
+.about p {
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+
+.about-box {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.about-box div {
+
+    min-height: 150px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.04);
+}
+
+
+.about-box i {
+
+    color: var(--primary);
+
+    font-size: 28px;
+}
+
+
+.about-box span {
+
+    font-weight: 700;
+}
+
+
+/* FOOTER */
+
+footer {
+
+    padding:
+        70px 6% 25px;
+
+    background: #111827;
+
+    color: white;
+}
+
+
+.footer-content {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+
+.footer-content p {
+
+    color: #9ca3af;
+
+    line-height: 1.7;
+}
+
+
+.footer-content h4 {
+
+    margin-top: 0;
+}
+
+
+.footer-content > div > a:not(.logo) {
+
+    display: block;
+
+    color: #9ca3af;
+
+    margin:
+        12px 0;
+
+    font-size: 14px;
+}
+
+
+.social {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.social a {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #1f2937;
+
+    border-radius: 9px;
+}
+
+
+.copyright {
+
+    max-width: 1200px;
+
+    margin:
+        60px auto 0;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid #374151;
+
+    color: #9ca3af;
+
+    font-size: 13px;
+}
+
+
+/* MODAL */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(15,23,42,.65);
+
+    backdrop-filter:
+        blur(5px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 500;
+}
+
+
+.modal.active {
+
+    display: flex;
+}
+
+
+.modal-content {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    overflow: auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    position: relative;
+}
+
+
+.close-modal {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 15px;
+
+    border: 0;
+
+    background: transparent;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+/* MODO OSCURO */
+
+body.dark {
+
+    --text: #f8fafc;
+
+    --muted: #a8b1c0;
+
+    --background: #0f172a;
+
+    --white: #1e293b;
+
+    --border: #334155;
+}
+
+
+body.dark .header {
+
+    background:
+        rgba(15,23,42,.9);
+}
+
+
+body.dark .app-card,
+body.dark .resource,
+body.dark .video-card,
+body.dark .about-box div {
+
+    background: #1e293b;
+}
+
+
+body.dark .btn-secondary,
+body.dark .icon-button,
+body.dark .menu-button {
+
+    background: #1e293b;
+
+    color: white;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width: 950px) {
+
+    .nav {
+
+        display: none;
+    }
+
+
+    .menu-button {
+
+        display: block;
+    }
+
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 60px;
+    }
+
+
+    .hero-image {
+
+        min-height: 400px;
+    }
+
+
+    .app-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .video-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .footer-content {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+@media(max-width: 650px) {
+
+    .header {
+
+        padding: 0 20px;
+    }
+
+
+    .hero {
+
+        padding:
+            60px 20px;
+    }
+
+
+    .hero h1 {
+
+        letter-spacing:
+            -2px;
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+    }
+
+
+    .hero-stats {
+
+        gap: 20px;
+    }
+
+
+    .computer {
+
+        transform:
+            scale(.75);
+    }
+
+
+    .app-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .resources {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .about {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+    }
+
+
+    .footer-content {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .banner {
+
+        margin: 20px;
+
+        padding: 35px 25px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+}
+```
+
+### `script.js`
+
+```javascript
+/* =====================================================
+   MENÚ
+===================================================== */
+
+function toggleMenu() {
+
+    const nav =
+        document.querySelector(".nav");
+
+    nav.classList.toggle("mobile-open");
+}
+
+
+/* =====================================================
+   MODO OSCURO
+===================================================== */
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark");
+
+    const oscuro =
+        document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "darkMode",
+        oscuro
+    );
+}
+
+
+if (
+    localStorage.getItem("darkMode")
+    === "true"
+) {
+
+    document.body.classList.add("dark");
+}
+
+
+/* =====================================================
+   HERRAMIENTAS
+===================================================== */
+
+function openTool(tool) {
+
+    const modal =
+        document.getElementById("toolModal");
+
+    const content =
+        document.getElementById("modalContent");
+
+
+    let html = "";
+
+
+    if (tool === "documentos") {
+
+        html = `
+
+            <h2>
+                📝 Procesador de documentos
+            </h2>
+
+            <p>
+                Escribe y edita tu documento
+                directamente desde el navegador.
+            </p>
+
+            <input
+                id="documentTitle"
+                class="tool-input"
+                placeholder="Título del documento">
+
+            <div
+                id="documentEditor"
+                class="document-editor"
+                contenteditable="true">
+
+                Empieza a escribir aquí...
+
+            </div>
+
+            <div class="tool-buttons">
+
+                <button
+                    onclick="saveDocument()">
+
+                    💾 Guardar
+
+                </button>
+
+                <button
+                    onclick="downloadDocument()">
+
+                    📥 Descargar
+
+                </button>
+
+            </div>
+        `;
+    }
+
+
+    if (tool === "hojas") {
+
+        html = `
+
+            <h2>
+                📊 Hoja de cálculo
+            </h2>
+
+            <p>
+                Utiliza esta tabla para introducir
+                y organizar tus datos.
+            </p>
+
+            <div class="spreadsheet">
+
+                <table>
 
                     <thead>
+
                         <tr>
                             <th></th>
-
                             <th>A</th>
                             <th>B</th>
                             <th>C</th>
                             <th>D</th>
                             <th>E</th>
-                            <th>F</th>
-                            <th>G</th>
-                            <th>H</th>
-
                         </tr>
+
                     </thead>
 
-                    <tbody id="cuerpoTabla"></tbody>
+                    <tbody id="sheetBody"></tbody>
 
                 </table>
 
             </div>
+        `;
 
-        </div>
-
-    </section>
-
-
-
-    <!-- NOTAS -->
-    <section id="notas" class="pagina">
-
-        <div class="app-header">
-
-            <button onclick="mostrarInicio()" class="volver">
-                ← Inicio
-            </button>
-
-            <h1>📋 Notas</h1>
-
-            <button onclick="guardarNotas()" class="guardar">
-                💾 Guardar
-            </button>
-
-        </div>
+        setTimeout(
+            createSpreadsheet,
+            50
+        );
+    }
 
 
-        <div class="notas-container">
+    if (tool === "notas") {
+
+        html = `
+
+            <h2>
+                📋 Bloc de notas
+            </h2>
+
+            <p>
+                Tus notas se guardan
+                automáticamente en este navegador.
+            </p>
 
             <input
-                id="tituloNotas"
-                class="titulo-notas"
-                placeholder="Título de las notas"
-            >
+                id="noteTitle"
+                class="tool-input"
+                placeholder="Título">
 
             <textarea
-                id="areaNotas"
-                placeholder="Escribe tus notas aquí..."
-            ></textarea>
+                id="noteText"
+                class="note-area"
+                placeholder="Escribe tus notas...">
+            </textarea>
 
-            <div class="notas-info">
-                Las notas se guardan en este navegador.
-            </div>
+            <button
+                onclick="saveNotes()">
 
-        </div>
+                💾 Guardar notas
 
-    </section>
-
-
-
-    <!-- CALCULADORA -->
-    <section id="calculadora" class="pagina">
-
-        <div class="app-header">
-
-            <button onclick="mostrarInicio()" class="volver">
-                ← Inicio
             </button>
-
-            <h1>🧮 Calculadora</h1>
-
-        </div>
+        `;
+    }
 
 
-        <div class="calculadora">
+    if (tool === "calculadora") {
 
-            <input
-                id="pantalla"
-                readonly
-                value="0"
-            >
+        html = `
 
-            <div class="botones-calculadora">
+            <h2>
+                🧮 Calculadora
+            </h2>
 
-                <button onclick="limpiarCalculadora()"
-                        class="especial">
-                    AC
-                </button>
+            <div class="calculator">
 
-                <button onclick="borrarCalculadora()"
-                        class="especial">
-                    DEL
-                </button>
+                <input
+                    id="calcDisplay"
+                    readonly
+                    value="0">
 
-                <button onclick="agregarCalculadora('%')">
-                    %
-                </button>
+                <div class="calc-buttons">
 
-                <button onclick="agregarCalculadora('/')"
-                        class="operador">
-                    ÷
-                </button>
+                    <button onclick="clearCalc()">
+                        AC
+                    </button>
 
+                    <button onclick="calcInput('7')">
+                        7
+                    </button>
 
-                <button onclick="agregarCalculadora('7')">
-                    7
-                </button>
+                    <button onclick="calcInput('8')">
+                        8
+                    </button>
 
-                <button onclick="agregarCalculadora('8')">
-                    8
-                </button>
+                    <button onclick="calcInput('9')">
+                        9
+                    </button>
 
-                <button onclick="agregarCalculadora('9')">
-                    9
-                </button>
+                    <button onclick="calcInput('/')">
+                        ÷
+                    </button>
 
-                <button onclick="agregarCalculadora('*')"
-                        class="operador">
-                    ×
-                </button>
+                    <button onclick="calcInput('4')">
+                        4
+                    </button>
 
+                    <button onclick="calcInput('5')">
+                        5
+                    </button>
 
-                <button onclick="agregarCalculadora('4')">
-                    4
-                </button>
+                    <button onclick="calcInput('6')">
+                        6
+                    </button>
 
-                <button onclick="agregarCalculadora('5')">
-                    5
-                </button>
+                    <button onclick="calcInput('*')">
+                        ×
+                    </button>
 
-                <button onclick="agregarCalculadora('6')">
-                    6
-                </button>
+                    <button onclick="calcInput('1')">
+                        1
+                    </button>
 
-                <button onclick="agregarCalculadora('-')"
-                        class="operador">
-                    −
-                </button>
+                    <button onclick="calcInput('2')">
+                        2
+                    </button>
 
+                    <button onclick="calcInput('3')">
+                        3
+                    </button>
 
-                <button onclick="agregarCalculadora('1')">
-                    1
-                </button>
+                    <button onclick="calcInput('-')">
+                        −
+                    </button>
 
-                <button onclick="agregarCalculadora('2')">
-                    2
-                </button>
+                    <button onclick="calcInput('0')">
+                        0
+                    </button>
 
-                <button onclick="agregarCalculadora('3')">
-                    3
-                </button>
+                    <button onclick="calcInput('.')">
+                        .
+                    </button>
 
-                <button onclick="agregarCalculadora('+')"
-                        class="operador">
-                    +
-                </button>
+                    <button onclick="calculate()">
+                        =
+                    </button>
 
+                    <button onclick="calcInput('+')">
+                        +
+                    </button>
 
-                <button onclick="agregarCalculadora('0')"
-                        class="cero">
-                    0
-                </button>
-
-                <button onclick="agregarCalculadora('.')">
-                    .
-                </button>
-
-                <button onclick="calcular()"
-                        class="igual">
-                    =
-                </button>
+                </div>
 
             </div>
+        `;
+    }
 
+
+    if (tool === "convertidor") {
+
+        html = `
+
+            <h2>
+                🔄 Conversor
+            </h2>
+
+            <div class="converter">
+
+                <label>
+                    Valor
+                </label>
+
+                <input
+                    id="convertValue"
+                    type="number"
+                    value="1">
+
+                <label>
+                    De
+                </label>
+
+                <select id="convertFrom">
+
+                    <option value="km">
+                        Kilómetros
+                    </option>
+
+                    <option value="m">
+                        Metros
+                    </option>
+
+                    <option value="cm">
+                        Centímetros
+                    </option>
+
+                </select>
+
+                <label>
+                    A
+                </label>
+
+                <select id="convertTo">
+
+                    <option value="m">
+                        Metros
+                    </option>
+
+                    <option value="km">
+                        Kilómetros
+                    </option>
+
+                    <option value="cm">
+                        Centímetros
+                    </option>
+
+                </select>
+
+                <button
+                    onclick="convertUnits()">
+
+                    Convertir
+
+                </button>
+
+                <div
+                    id="convertResult"
+                    class="result">
+
+                    Resultado
+
+                </div>
+
+            </div>
+        `;
+    }
+
+
+    if (tool === "presentaciones") {
+
+        html = `
+
+            <h2>
+                📽️ Presentaciones
+            </h2>
+
+            <p>
+                Para crear presentaciones completas
+                puedes utilizar herramientas especializadas.
+            </p>
+
+            <div class="presentation-links">
+
+                <a
+                    href="https://slides.google.com/"
+                    target="_blank">
+
+                    <i class="fa-brands fa-google"></i>
+
+                    Google Slides
+
+                </a>
+
+                <a
+                    href="https://www.microsoft.com/microsoft-365/powerpoint"
+                    target="_blank">
+
+                    <i class="fa-solid fa-display"></i>
+
+                    Microsoft PowerPoint
+
+                </a>
+
+            </div>
+        `;
+    }
+
+
+    content.innerHTML = html;
+
+    modal.classList.add("active");
+}
+
+
+function closeTool() {
+
+    document
+        .getElementById("toolModal")
+        .classList.remove("active");
+}
+
+
+document
+    .getElementById("toolModal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeTool();
+            }
+        }
+    );
+
+
+/* =====================================================
+   DOCUMENTOS
+===================================================== */
+
+function saveDocument() {
+
+    const title =
+        document.getElementById(
+            "documentTitle"
+        ).value;
+
+    const text =
+        document.getElementById(
+            "documentEditor"
+        ).innerText;
+
+    localStorage.setItem(
+        "documentTitle",
+        title
+    );
+
+    localStorage.setItem(
+        "documentText",
+        text
+    );
+
+    alert(
+        "Documento guardado correctamente."
+    );
+}
+
+
+function downloadDocument() {
+
+    const editor =
+        document.getElementById(
+            "documentEditor"
+        );
+
+    const title =
+        document.getElementById(
+            "documentTitle"
+        ).value
+        || "documento";
+
+
+    const blob =
+        new Blob(
+            [editor.innerText],
+            {
+                type:
+                    "text/plain;charset=utf-8"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+    link.href = url;
+
+    link.download =
+        title + ".txt";
+
+    link.click();
+
+    URL.revokeObjectURL(url);
+}
+
+
+/* =====================================================
+   HOJA DE CÁLCULO
+===================================================== */
+
+function createSpreadsheet() {
+
+    const body =
+        document.getElementById(
+            "sheetBody"
+        );
+
+    if (!body) return;
+
+
+    for (
+        let row = 1;
+        row <= 10;
+        row++
+    ) {
+
+        const tr =
+            document.createElement("tr");
+
+
+        const number =
+            document.createElement("th");
+
+        number.textContent =
+            row;
+
+        tr.appendChild(number);
+
+
+        for (
+            let col = 0;
+            col < 5;
+            col++
+        ) {
+
+            const td =
+                document.createElement("td");
+
+            td.contentEditable =
+                "true";
+
+            td.addEventListener(
+                "input",
+                saveSpreadsheet
+            );
+
+            tr.appendChild(td);
+        }
+
+
+        body.appendChild(tr);
+    }
+}
+
+
+function saveSpreadsheet() {
+
+    const table =
+        document.querySelector(
+            ".spreadsheet table"
+        );
+
+    if (!table) return;
+
+
+    const data = [];
+
+
+    table.querySelectorAll(
+        "tbody tr"
+    ).forEach(row => {
+
+        const rowData = [];
+
+
+        row.querySelectorAll(
+            "td"
+        ).forEach(cell => {
+
+            rowData.push(
+                cell.innerText
+            );
+        });
+
+
+        data.push(rowData);
+    });
+
+
+    localStorage.setItem(
+        "spreadsheet",
+        JSON.stringify(data)
+    );
+}
+
+
+/* =====================================================
+   NOTAS
+===================================================== */
+
+function saveNotes() {
+
+    const title =
+        document.getElementById(
+            "noteTitle"
+        ).value;
+
+    const text =
+        document.getElementById(
+            "noteText"
+        ).value;
+
+
+    localStorage.setItem(
+        "notesTitle",
+        title
+    );
+
+    localStorage.setItem(
+        "notesText",
+        text
+    );
+
+
+    alert(
+        "Notas guardadas."
+    );
+}
+
+
+/* =====================================================
+   CALCULADORA
+===================================================== */
+
+let calculation = "";
+
+
+function calcInput(value) {
+
+    calculation += value;
+
+    document.getElementById(
+        "calcDisplay"
+    ).value =
+        calculation;
+}
+
+
+function clearCalc() {
+
+    calculation = "";
+
+    document.getElementById(
+        "calcDisplay"
+    ).value =
+        "0";
+}
+
+
+function calculate() {
+
+    try {
+
+        calculation =
+            String(
+                Function(
+                    "return " +
+                    calculation
+                )()
+            );
+
+        document.getElementById(
+            "calcDisplay"
+        ).value =
+            calculation;
+
+    } catch {
+
+        calculation = "";
+
+        document.getElementById(
+            "calcDisplay"
+        ).value =
+            "Error";
+    }
+}
+
+
+/* =====================================================
+   CONVERSOR
+===================================================== */
+
+function convertUnits() {
+
+    const value =
+        Number(
+            document.getElementById(
+                "convertValue"
+            ).value
+        );
+
+
+    const from =
+        document.getElementById(
+            "convertFrom"
+        ).value;
+
+
+    const to =
+        document.getElementById(
+            "convertTo"
+        ).value;
+
+
+    const factors = {
+
+        km: 1000,
+
+        m: 1,
+
+        cm: 0.01
+    };
+
+
+    const meters =
+        value *
+        factors[from];
+
+
+    const result =
+        meters /
+        factors[to];
+
+
+    document.getElementById(
+        "convertResult"
+    ).textContent =
+        `${result} ${to}`;
+}
+```
+
+### Añade también este CSS al final de `style.css`
+
+```css
+/* HERRAMIENTAS DEL MODAL */
+
+.tool-input,
+.note-area,
+.converter input,
+.converter select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin:
+        8px 0 15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    font-family: inherit;
+}
+
+
+.document-editor {
+
+    min-height: 400px;
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+
+.note-area {
+
+    min-height: 350px;
+
+    resize: vertical;
+}
+
+
+.tool-buttons {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.tool-buttons button,
+.modal-content > button:not(.close-modal),
+.converter button {
+
+    padding: 12px 18px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* HOJA DE CÁLCULO */
+
+.spreadsheet {
+
+    overflow: auto;
+
+    margin-top: 20px;
+}
+
+
+.spreadsheet table {
+
+    width: 100%;
+
+    border-collapse:
+        collapse;
+}
+
+
+.spreadsheet th,
+.spreadsheet td {
+
+    min-width: 100px;
+
+    height: 40px;
+
+    border:
+        1px solid var(--border);
+
+    padding: 8px;
+}
+
+
+.spreadsheet th {
+
+    background:
+        #eff6ff;
+
+    text-align: center;
+}
+
+
+.spreadsheet td:focus {
+
+    outline:
+        2px solid var(--primary);
+}
+
+
+/* CALCULADORA */
+
+.calculator {
+
+    max-width: 350px;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: #111827;
+}
+
+
+#calcDisplay {
+
+    width: 100%;
+
+    height: 70px;
+
+    margin-bottom: 15px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    background: #020617;
+
+    color: white;
+
+    text-align: right;
+
+    font-size: 28px;
+}
+
+
+.calc-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 8px;
+}
+
+
+.calc-buttons button {
+
+    height: 55px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: #374151;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+
+.calc-buttons button:hover {
+
+    background: #4b5563;
+}
+
+
+/* CONVERSOR */
+
+.converter {
+
+    max-width: 500px;
+
+    margin: 30px auto;
+}
+
+
+.converter label {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.result {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* PRESENTACIONES */
+
+.presentation-links {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+
+.presentation-links a {
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+
+/* MENÚ MÓVIL */
+
+@media(max-width:950px) {
+
+    .nav.mobile-open {
+
+        display: flex;
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        right: 0;
+
+        padding: 20px;
+
+        background: white;
+
+        flex-direction: column;
+
+        border-bottom:
+            1px solid var(--border);
+
+        box-shadow:
+            var(--shadow);
+    }
+
+}
+```
+
+## Imágenes
+
+La versión que te he preparado utiliza **ilustraciones CSS**, por lo que no tienes que subir imágenes obligatoriamente. Si quieres fotografías reales, puedes crear una carpeta:
+
+```text
+img/
+├── hero.jpg
+├── documentos.jpg
+├── excel.jpg
+├── powerpoint.jpg
+└── oficina.jpg
+```
+
+y sustituir, por ejemplo:
+
+```css
+.hero-image {
+    background-image: url("img/hero.jpg");
+}
+```
+
+Para un proyecto público, es mejor utilizar imágenes con licencia adecuada o imágenes propias en lugar de copiar fotografías de otras webs.
+
+## Vídeos y recursos
+
+He dejado enlaces a documentación oficial en lugar de inventar vídeos. Microsoft tiene páginas oficiales de formación para Excel y PowerPoint, y Google ofrece recursos de aprendizaje para Sheets y Slides.
+
+También puedes añadir vídeos de YouTube de esta manera:
+
+```html
+<a
+    href="https://www.youtube.com/watch?v=ID_DEL_VIDEO"
+    target="_blank"
+    class="video-card">
+
+    <div class="video-thumbnail">
+
+        <img
+            src="img/excel.jpg"
+            alt="Tutorial de Excel">
+
+        <div class="play">
+            ▶
         </div>
 
-    </section>
+    </div>
 
+    <h3>
+        Curso de Excel para principiantes
+    </h3>
 
-    <footer>
-        <p>© 2026 Ofimática Web · Aplicaciones online</p>
-    </footer>
+</a>
+```
 
+Así puedes crear una sección con **muchos cursos y vídeos**, cada uno con su imagen, descripción y enlace.
 
-    <script src="script.js"></script>
+### Cómo quedaría en GitHub
 
-</body>
-</html>
+```text
+📁 ofimatica-web
+│
+├── 📄 index.html
+├── 📄 style.css
+├── 📄 script.js
+│
+├── 📁 img
+│   ├── 🖼️ hero.jpg
+│   ├── 🖼️ documentos.jpg
+│   ├── 🖼️ excel.jpg
+│   ├── 🖼️ powerpoint.jpg
+│   └── 🖼️ oficina.jpg
+│
+└── 📄 README.md
+```
+
+Después solo tienes que activar **GitHub Pages** en `Settings → Pages → Deploy from a branch → main → /root`.
+
+La página tendrá una apariencia mucho más cercana a una **plataforma profesional de ofimática**, y las herramientas se abren dentro de la propia web mediante ventanas. Los enlaces externos llevan a recursos oficiales, como la formación de Microsoft 365 y Google Workspace.
+
+**Una mejora importante para la siguiente versión:** podemos hacer que tenga un auténtico **Word + Excel + PowerPoint web**, con barra de herramientas, fórmulas de Excel, gráficos, creación de diapositivas, exportación de archivos, buscador, categorías, vídeos incrustados y un panel de usuario. Eso ya sería una web bastante más grande que esta versión.
+
