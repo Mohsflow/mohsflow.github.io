@@ -8,16 +8,21 @@
 
 <meta name="description" content="Portal profesional de aplicaciones ofimáticas, herramientas, tutoriales y recursos de productividad.">
 <meta name="keywords" content="ofimática, Word, Excel, PowerPoint, documentos, hojas de cálculo, presentaciones, productividad">
-<meta name="author" content="Ofimática Pro">
+<meta name="author" content="Mohammed Lamkadem">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
 
 *{
     margin:0;
@@ -27,995 +32,1734 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 }
 
 :root{
+
     --primary:#2563eb;
     --primary-dark:#1d4ed8;
     --secondary:#7c3aed;
     --accent:#06b6d4;
+
     --success:#16a34a;
     --danger:#dc2626;
     --warning:#f59e0b;
 
     --bg:#f5f7fb;
     --card:#ffffff;
+
     --text:#172033;
     --muted:#64748b;
+
     --border:#e2e8f0;
 
     --shadow:0 15px 40px rgba(15,23,42,.08);
 }
 
 body.dark{
+
     --bg:#0f172a;
     --card:#172033;
+
     --text:#f8fafc;
     --muted:#94a3b8;
+
     --border:#293548;
+
     --shadow:0 15px 40px rgba(0,0,0,.3);
 }
 
 body{
+
     font-family:'Inter',sans-serif;
+
     background:var(--bg);
     color:var(--text);
+
     line-height:1.6;
+
     transition:.3s;
 }
 
 a{
+
     text-decoration:none;
     color:inherit;
+
 }
 
 button,
 input,
 textarea,
 select{
+
     font-family:inherit;
+
 }
 
 button{
+
     cursor:pointer;
+
 }
 
 .container{
+
     width:min(1180px,92%);
     margin:auto;
+
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
+
     position:sticky;
     top:0;
+
     z-index:1000;
+
     background:rgba(255,255,255,.88);
+
     backdrop-filter:blur(15px);
+
     border-bottom:1px solid var(--border);
+
 }
 
 body.dark header{
+
     background:rgba(15,23,42,.9);
+
 }
 
 .navbar{
+
     min-height:76px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:20px;
+
 }
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     font-weight:800;
+
     font-size:21px;
+
 }
 
 .logo-icon{
+
     width:42px;
     height:42px;
+
     border-radius:13px;
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
     color:white;
+
     display:grid;
+
     place-items:center;
-    box-shadow:0 8px 20px rgba(37,99,235,.3);
+
+    box-shadow:
+    0 8px 20px rgba(37,99,235,.3);
+
 }
 
 .logo span{
+
     color:var(--primary);
+
 }
 
 .nav-links{
+
     display:flex;
+
     align-items:center;
+
     gap:25px;
+
     list-style:none;
+
 }
 
 .nav-links a{
+
     color:var(--muted);
+
     font-weight:600;
+
     transition:.2s;
+
 }
 
 .nav-links a:hover{
+
     color:var(--primary);
+
 }
 
 .nav-actions{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
 }
 
 .icon-btn{
+
     width:42px;
     height:42px;
+
     border:none;
+
     border-radius:12px;
+
     background:var(--bg);
+
     color:var(--text);
+
     display:grid;
+
     place-items:center;
+
     font-size:17px;
+
 }
 
 .menu-btn{
+
     display:none;
+
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
+
     padding:90px 0 80px;
+
     overflow:hidden;
+
 }
 
 .hero-grid{
+
     display:grid;
+
     grid-template-columns:1.05fr .95fr;
+
     gap:70px;
+
     align-items:center;
+
 }
 
 .badge{
+
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
+
     background:#dbeafe;
+
     color:#1d4ed8;
+
     border-radius:50px;
+
     padding:8px 14px;
+
     font-size:13px;
+
     font-weight:800;
+
     margin-bottom:20px;
+
 }
 
 body.dark .badge{
+
     background:#1e3a8a;
+
     color:#bfdbfe;
+
 }
 
 .hero h1{
+
     font-size:clamp(40px,6vw,68px);
+
     line-height:1.05;
+
     letter-spacing:-2.5px;
+
     margin-bottom:22px;
+
 }
 
 .gradient-text{
-    background:linear-gradient(135deg,var(--primary),var(--secondary),var(--accent));
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary),
+        var(--accent)
+    );
+
     -webkit-background-clip:text;
+
     background-clip:text;
+
     color:transparent;
+
 }
 
 .hero p{
+
     color:var(--muted);
+
     font-size:18px;
+
     max-width:650px;
+
     margin-bottom:30px;
+
 }
 
 .hero-buttons{
+
     display:flex;
+
     gap:14px;
+
     flex-wrap:wrap;
+
 }
 
 .btn{
+
     border:none;
+
     border-radius:13px;
+
     padding:14px 20px;
+
     font-weight:700;
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:9px;
+
     transition:.25s;
+
 }
 
 .btn-primary{
+
     background:var(--primary);
+
     color:white;
+
 }
 
 .btn-primary:hover{
+
     background:var(--primary-dark);
+
     transform:translateY(-2px);
+
 }
 
 .btn-secondary{
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     color:var(--text);
+
 }
 
 .btn-secondary:hover{
+
     transform:translateY(-2px);
+
     box-shadow:var(--shadow);
+
 }
 
-/* HERO APP PREVIEW */
+
+/* =========================================================
+   PANEL DE PREVISUALIZACIÓN
+========================================================= */
 
 .dashboard{
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     border-radius:25px;
+
     padding:18px;
-    box-shadow:0 30px 70px rgba(37,99,235,.15);
+
+    box-shadow:
+    0 30px 70px rgba(37,99,235,.15);
+
     transform:rotate(1deg);
+
 }
 
 .dashboard-top{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     padding:8px 4px 16px;
+
 }
 
 .window-dots{
+
     display:flex;
+
     gap:6px;
+
 }
 
 .window-dots i{
+
     width:10px;
     height:10px;
+
     border-radius:50%;
+
     background:#cbd5e1;
+
 }
 
 .fake-search{
+
     height:32px;
+
     width:45%;
+
     border-radius:8px;
+
     background:var(--bg);
+
 }
 
 .dashboard-body{
+
     display:grid;
+
     grid-template-columns:150px 1fr;
+
     gap:15px;
+
 }
 
 .sidebar{
+
     background:var(--bg);
+
     border-radius:15px;
+
     padding:14px;
+
 }
 
 .sidebar div{
+
     padding:11px;
+
     border-radius:9px;
+
     color:var(--muted);
+
     margin-bottom:5px;
+
     font-size:13px;
+
 }
 
 .sidebar div:first-child{
+
     background:var(--primary);
+
     color:white;
+
 }
 
 .preview-content{
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:15px;
+
 }
 
 .preview-card{
+
     min-height:110px;
+
     border:1px solid var(--border);
+
     border-radius:15px;
+
     padding:16px;
+
     background:var(--card);
+
 }
 
 .preview-card i{
+
     font-size:24px;
+
     color:var(--primary);
+
     margin-bottom:10px;
+
 }
 
 .preview-card strong{
+
     display:block;
+
     font-size:14px;
+
 }
 
 .preview-card small{
+
     color:var(--muted);
+
 }
 
-/* SECTIONS */
+
+/* =========================================================
+   SECCIONES
+========================================================= */
 
 section{
+
     padding:85px 0;
+
 }
 
 .section-head{
+
     text-align:center;
+
     max-width:720px;
+
     margin:0 auto 45px;
+
 }
 
 .section-head span{
+
     color:var(--primary);
+
     font-weight:800;
+
     font-size:14px;
+
     text-transform:uppercase;
+
     letter-spacing:1px;
+
 }
 
 .section-head h2{
+
     font-size:clamp(30px,4vw,44px);
+
     margin:8px 0 12px;
+
 }
 
 .section-head p{
+
     color:var(--muted);
+
 }
 
-/* SEARCH */
+
+/* =========================================================
+   BUSCADOR
+========================================================= */
 
 .search-box{
+
     max-width:650px;
+
     margin:0 auto 35px;
+
     position:relative;
+
 }
 
 .search-box i{
+
     position:absolute;
+
     left:18px;
+
     top:50%;
+
     transform:translateY(-50%);
+
     color:var(--muted);
+
 }
 
 .search-box input{
+
     width:100%;
+
     height:56px;
+
     padding:0 20px 0 50px;
+
     border:1px solid var(--border);
+
     border-radius:15px;
+
     outline:none;
+
     background:var(--card);
+
     color:var(--text);
+
     font-size:15px;
+
 }
 
 .search-box input:focus{
+
     border-color:var(--primary);
+
 }
 
-/* APP CARDS */
+
+/* =========================================================
+   APLICACIONES
+========================================================= */
 
 .apps-grid{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:22px;
+
 }
 
 .app-card{
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     border-radius:20px;
+
     padding:25px;
+
     box-shadow:var(--shadow);
+
     transition:.25s;
+
 }
 
 .app-card:hover{
+
     transform:translateY(-7px);
+
 }
 
 .app-icon{
+
     width:55px;
     height:55px;
+
     border-radius:16px;
+
     display:grid;
+
     place-items:center;
+
     font-size:24px;
+
     color:white;
+
     margin-bottom:20px;
+
 }
 
-.blue{background:#2563eb;}
-.green{background:#16a34a;}
-.orange{background:#ea580c;}
-.purple{background:#7c3aed;}
-.cyan{background:#0891b2;}
-.red{background:#dc2626;}
+.blue{
+
+    background:#2563eb;
+
+}
+
+.green{
+
+    background:#16a34a;
+
+}
+
+.orange{
+
+    background:#ea580c;
+
+}
+
+.purple{
+
+    background:#7c3aed;
+
+}
+
+.cyan{
+
+    background:#0891b2;
+
+}
+
+.red{
+
+    background:#dc2626;
+
+}
 
 .app-card h3{
+
     margin-bottom:8px;
+
 }
 
 .app-card p{
+
     color:var(--muted);
+
     font-size:14px;
+
     margin-bottom:20px;
+
 }
 
 .app-footer{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
 
 .app-link{
+
     color:var(--primary);
+
     font-weight:800;
+
     border:none;
+
     background:none;
+
 }
 
-/* FEATURES */
+
+/* =========================================================
+   CARACTERÍSTICAS
+========================================================= */
 
 .features{
+
     background:var(--card);
+
 }
 
 .features-grid{
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:20px;
+
 }
 
 .feature{
+
     text-align:center;
+
     padding:25px 15px;
+
 }
 
 .feature i{
+
     width:60px;
     height:60px;
+
     border-radius:18px;
+
     background:#dbeafe;
+
     color:var(--primary);
+
     display:grid;
+
     place-items:center;
+
     margin:0 auto 18px;
+
     font-size:23px;
+
 }
 
 body.dark .feature i{
+
     background:#1e3a8a;
+
 }
 
 .feature h3{
+
     margin-bottom:8px;
+
 }
 
 .feature p{
+
     color:var(--muted);
+
     font-size:14px;
+
 }
 
-/* TUTORIALS */
+
+/* =========================================================
+   TUTORIALES
+========================================================= */
 
 .tutorial-grid{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:22px;
+
 }
 
 .video-card{
+
     overflow:hidden;
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     border-radius:20px;
+
     box-shadow:var(--shadow);
+
 }
 
 .video-frame{
+
     aspect-ratio:16/9;
+
     background:#111827;
+
 }
 
 .video-frame iframe{
+
     width:100%;
+
     height:100%;
+
     border:0;
+
 }
 
 .video-content{
+
     padding:20px;
+
 }
 
 .video-content span{
+
     font-size:12px;
+
     color:var(--primary);
+
     font-weight:800;
+
 }
 
 .video-content h3{
+
     margin:7px 0;
+
 }
 
 .video-content p{
+
     color:var(--muted);
+
     font-size:14px;
+
 }
 
-/* TOOLS */
+
+/* =========================================================
+   HERRAMIENTAS
+========================================================= */
 
 .tools-section{
+
     background:var(--card);
+
 }
 
 .tools-grid{
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:25px;
+
 }
 
 .tool{
+
     border:1px solid var(--border);
+
     border-radius:20px;
+
     padding:25px;
+
     background:var(--bg);
+
 }
 
 .tool h3{
+
     margin-bottom:15px;
+
 }
 
 .tool p{
+
     color:var(--muted);
+
     font-size:14px;
+
     margin-bottom:18px;
+
 }
 
 textarea,
 .text-input,
 .tool select{
+
     width:100%;
+
     border:1px solid var(--border);
+
     background:var(--card);
+
     color:var(--text);
+
     outline:none;
+
     border-radius:12px;
+
     padding:13px;
+
     margin-bottom:12px;
+
 }
 
 textarea{
+
     min-height:150px;
+
     resize:vertical;
+
 }
 
 textarea:focus,
 .text-input:focus,
 .tool select:focus{
+
     border-color:var(--primary);
+
 }
 
 .tool-buttons{
+
     display:flex;
+
     gap:10px;
+
     flex-wrap:wrap;
+
 }
 
 .result{
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     border-radius:12px;
+
     padding:15px;
+
     margin-top:12px;
+
     min-height:50px;
+
 }
 
-/* CALCULATOR */
+
+/* =========================================================
+   CALCULADORA
+========================================================= */
 
 .calculator{
+
     max-width:350px;
+
 }
 
 .calc-display{
+
     width:100%;
+
     height:65px;
+
     background:#0f172a;
+
     color:white;
+
     border-radius:12px;
+
     border:0;
+
     padding:15px;
+
     font-size:25px;
+
     text-align:right;
+
     margin-bottom:12px;
+
 }
 
 .calc-grid{
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:8px;
+
 }
 
 .calc-grid button{
+
     border:0;
+
     height:55px;
+
     border-radius:12px;
+
     background:var(--card);
+
     color:var(--text);
+
     border:1px solid var(--border);
+
     font-size:16px;
+
     font-weight:700;
+
 }
 
 .calc-grid button:hover{
+
     background:var(--primary);
+
     color:white;
+
 }
 
-/* RESOURCES */
+
+/* =========================================================
+   RECURSOS
+========================================================= */
 
 .resources{
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:20px;
+
 }
 
 .resource{
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     padding:22px;
+
     border-radius:18px;
+
     transition:.2s;
+
 }
 
 .resource:hover{
+
     transform:translateY(-5px);
+
 }
 
 .resource i{
+
     font-size:28px;
+
     color:var(--primary);
+
     margin-bottom:15px;
+
 }
 
 .resource h3{
+
     margin-bottom:7px;
+
 }
 
 .resource p{
+
     color:var(--muted);
+
     font-size:13px;
+
     margin-bottom:15px;
+
 }
 
 .resource a{
+
     color:var(--primary);
+
     font-weight:700;
+
     font-size:14px;
+
 }
 
-/* BANNER */
+
+/* =========================================================
+   BANNER
+========================================================= */
 
 .cta{
+
     padding:70px 0;
+
 }
 
 .cta-box{
+
     border-radius:28px;
+
     padding:55px;
+
     color:white;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:30px;
+
 }
 
 .cta-box h2{
+
     font-size:clamp(28px,4vw,42px);
+
     margin-bottom:10px;
+
 }
 
 .cta-box p{
+
     opacity:.85;
+
 }
 
 .cta-box .btn{
+
     background:white;
+
     color:#1d4ed8;
+
     white-space:nowrap;
+
 }
 
-/* CONTACT */
+
+/* =========================================================
+   CONTACTO
+========================================================= */
 
 .contact-grid{
+
     display:grid;
+
     grid-template-columns:.8fr 1.2fr;
+
     gap:30px;
+
 }
 
 .contact-info,
 .contact-form{
+
     background:var(--card);
+
     border:1px solid var(--border);
+
     border-radius:20px;
+
     padding:30px;
+
 }
 
-.contact-info p{
+.contact-info > p{
+
     color:var(--muted);
+
     margin:10px 0 25px;
+
 }
 
 .contact-item{
+
     display:flex;
+
     gap:15px;
+
     margin:20px 0;
+
 }
 
 .contact-item i{
+
     width:40px;
     height:40px;
+
+    flex-shrink:0;
+
     display:grid;
+
     place-items:center;
+
     background:#dbeafe;
+
     color:var(--primary);
+
     border-radius:10px;
+
 }
 
 body.dark .contact-item i{
+
     background:#1e3a8a;
+
 }
 
-/* FOOTER */
+.contact-item p{
+
+    color:var(--muted);
+
+    margin:2px 0 0;
+
+}
+
+.contact-item a{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.contact-item a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
+
     background:#0b1120;
+
     color:#cbd5e1;
+
     padding:55px 0 25px;
+
 }
 
 .footer-grid{
+
     display:grid;
+
     grid-template-columns:2fr 1fr 1fr 1fr;
+
     gap:35px;
+
 }
 
 .footer-logo{
+
     color:white;
+
     font-size:22px;
+
     font-weight:800;
+
     margin-bottom:15px;
+
 }
 
 .footer-about{
+
     color:#94a3b8;
+
     max-width:400px;
+
 }
 
 .footer-col h4{
+
     color:white;
+
     margin-bottom:15px;
+
 }
 
 .footer-col a{
+
     display:block;
+
     color:#94a3b8;
+
     margin:10px 0;
+
 }
 
 .footer-col a:hover{
+
     color:white;
+
 }
 
 .socials{
+
     display:flex;
+
     gap:10px;
+
     margin-top:20px;
+
 }
 
 .socials a{
+
     width:40px;
     height:40px;
+
     display:grid;
+
     place-items:center;
+
     border-radius:10px;
+
     background:#172033;
+
 }
 
 .copyright{
+
     border-top:1px solid #1e293b;
+
     margin-top:40px;
+
     padding-top:20px;
+
     text-align:center;
+
     color:#64748b;
+
     font-size:13px;
+
 }
 
-/* MODAL */
+
+/* =========================================================
+   MODAL
+========================================================= */
 
 .modal{
+
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,.65);
+
     display:none;
+
     align-items:center;
+
     justify-content:center;
+
     padding:20px;
+
     z-index:2000;
+
 }
 
 .modal.active{
+
     display:flex;
+
 }
 
 .modal-box{
+
     width:min(850px,100%);
+
     max-height:90vh;
+
     overflow:auto;
+
     background:var(--card);
+
     border-radius:25px;
+
     padding:30px;
+
     position:relative;
+
 }
 
 .modal-close{
+
     position:absolute;
+
     right:20px;
+
     top:20px;
+
     width:40px;
     height:40px;
+
     border:0;
+
     border-radius:10px;
+
     background:var(--bg);
+
     color:var(--text);
+
     font-size:20px;
+
 }
 
 .app-screen{
+
     margin-top:20px;
+
 }
 
 .editor{
+
     width:100%;
+
     min-height:300px;
+
     border:1px solid var(--border);
+
     border-radius:15px;
+
     padding:20px;
+
     outline:none;
+
     background:var(--bg);
+
     color:var(--text);
+
 }
 
 .sheet{
+
     width:100%;
+
     border-collapse:collapse;
+
     margin-top:15px;
+
 }
 
 .sheet th,
 .sheet td{
+
     border:1px solid var(--border);
+
     padding:8px;
+
     min-width:90px;
+
 }
 
 .sheet th{
+
     background:var(--bg);
+
 }
 
 .sheet td{
+
     outline:none;
+
 }
 
-/* TOAST */
+
+/* =========================================================
+   NOTIFICACIONES
+========================================================= */
 
 .toast{
+
     position:fixed;
+
     bottom:25px;
+
     right:25px;
+
     background:#111827;
+
     color:white;
+
     padding:14px 18px;
+
     border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
     transform:translateY(100px);
+
     opacity:0;
+
     transition:.3s;
+
     z-index:3000;
+
 }
 
 .toast.show{
+
     transform:translateY(0);
+
     opacity:1;
+
 }
 
-/* MOBILE */
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:900px){
 
     .nav-links{
+
         display:none;
+
         position:absolute;
+
         top:76px;
+
         left:0;
+
         right:0;
+
         background:var(--card);
+
         padding:20px;
+
         border-bottom:1px solid var(--border);
+
         flex-direction:column;
+
     }
 
     .nav-links.active{
+
         display:flex;
+
     }
 
     .menu-btn{
+
         display:grid;
+
     }
 
     .hero-grid,
     .contact-grid{
+
         grid-template-columns:1fr;
+
     }
 
     .apps-grid,
     .tutorial-grid{
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
     .features-grid{
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
     .resources{
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
     .footer-grid{
+
         grid-template-columns:repeat(2,1fr);
+
     }
 
     .cta-box{
+
         flex-direction:column;
+
         align-items:flex-start;
+
     }
+
 }
+
 
 @media(max-width:600px){
 
     .hero{
+
         padding:60px 0;
+
     }
 
     .hero h1{
+
         font-size:42px;
+
     }
 
     .dashboard-body{
+
         grid-template-columns:1fr;
+
     }
 
     .sidebar{
+
         display:none;
+
     }
 
     .apps-grid,
@@ -1024,64 +1768,113 @@ footer{
     .features-grid,
     .resources,
     .footer-grid{
+
         grid-template-columns:1fr;
+
     }
 
     .preview-content{
+
         grid-template-columns:1fr;
+
     }
 
     .cta-box{
+
         padding:35px 25px;
+
     }
 
     .hero-buttons{
+
         flex-direction:column;
+
     }
 
     .hero-buttons .btn{
+
         width:100%;
+
     }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
 <div class="container navbar">
 
-<a href="#inicio" class="logo">
-    <div class="logo-icon">
-        <i class="fa-solid fa-file-lines"></i>
-    </div>
 
-    Ofimática <span>Pro</span>
+<a href="#inicio" class="logo">
+
+<div class="logo-icon">
+
+<i class="fa-solid fa-file-lines"></i>
+
+</div>
+
+Ofimática <span>Pro</span>
+
 </a>
+
 
 <ul class="nav-links" id="navLinks">
 
-<li><a href="#inicio">Inicio</a></li>
-<li><a href="#aplicaciones">Aplicaciones</a></li>
-<li><a href="#tutoriales">Tutoriales</a></li>
-<li><a href="#herramientas">Herramientas</a></li>
-<li><a href="#recursos">Recursos</a></li>
-<li><a href="#contacto">Contacto</a></li>
+<li>
+<a href="#inicio">Inicio</a>
+</li>
+
+<li>
+<a href="#aplicaciones">Aplicaciones</a>
+</li>
+
+<li>
+<a href="#tutoriales">Tutoriales</a>
+</li>
+
+<li>
+<a href="#herramientas">Herramientas</a>
+</li>
+
+<li>
+<a href="#recursos">Recursos</a>
+</li>
+
+<li>
+<a href="#contacto">Contacto</a>
+</li>
 
 </ul>
 
+
 <div class="nav-actions">
 
-<button class="icon-btn" id="themeBtn" title="Cambiar tema">
-    <i class="fa-solid fa-moon"></i>
+<button
+class="icon-btn"
+id="themeBtn"
+title="Cambiar tema">
+
+<i class="fa-solid fa-moon"></i>
+
 </button>
 
-<button class="icon-btn menu-btn" id="menuBtn">
-    <i class="fa-solid fa-bars"></i>
+
+<button
+class="icon-btn menu-btn"
+id="menuBtn">
+
+<i class="fa-solid fa-bars"></i>
+
 </button>
 
 </div>
@@ -1091,119 +1884,224 @@ footer{
 </header>
 
 
-<!-- ================= HERO ================= -->
+
+<!-- =========================================================
+     CONTENIDO PRINCIPAL
+========================================================= -->
 
 <main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero" id="inicio">
 
 <div class="container hero-grid">
 
+
 <div>
 
+
 <div class="badge">
-    <i class="fa-solid fa-bolt"></i>
-    PRODUCTIVIDAD DIGITAL
+
+<i class="fa-solid fa-bolt"></i>
+
+PRODUCTIVIDAD DIGITAL
+
 </div>
 
+
 <h1>
-    Todo lo que necesitas para
-    <span class="gradient-text">trabajar mejor.</span>
+
+Todo lo que necesitas para
+
+<span class="gradient-text">
+trabajar mejor.
+</span>
+
 </h1>
 
+
 <p>
-    Bienvenido a Ofimática Pro, un espacio completo para aprender,
-    utilizar y descubrir herramientas de ofimática y productividad
-    digital.
+
+Bienvenido a Ofimática Pro, un espacio completo para aprender,
+utilizar y descubrir herramientas de ofimática y productividad
+digital.
+
 </p>
+
 
 <div class="hero-buttons">
 
-<a href="#aplicaciones" class="btn btn-primary">
-    <i class="fa-solid fa-rocket"></i>
-    Explorar aplicaciones
+
+<a
+href="#aplicaciones"
+class="btn btn-primary">
+
+<i class="fa-solid fa-rocket"></i>
+
+Explorar aplicaciones
+
 </a>
 
-<a href="#tutoriales" class="btn btn-secondary">
-    <i class="fa-solid fa-play"></i>
-    Ver tutoriales
+
+<a
+href="#tutoriales"
+class="btn btn-secondary">
+
+<i class="fa-solid fa-play"></i>
+
+Ver tutoriales
+
 </a>
+
 
 </div>
 
 </div>
+
 
 
 <div class="dashboard">
 
+
 <div class="dashboard-top">
 
+
 <div class="window-dots">
-    <i></i>
-    <i></i>
-    <i></i>
+
+<i></i>
+<i></i>
+<i></i>
+
 </div>
+
 
 <div class="fake-search"></div>
 
+
 </div>
+
 
 <div class="dashboard-body">
 
+
 <div class="sidebar">
 
-<div>
-    <i class="fa-solid fa-house"></i>
-    Inicio
-</div>
 
 <div>
-    <i class="fa-solid fa-file"></i>
-    Documentos
+
+<i class="fa-solid fa-house"></i>
+
+Inicio
+
 </div>
+
 
 <div>
-    <i class="fa-solid fa-table"></i>
-    Hojas
+
+<i class="fa-solid fa-file"></i>
+
+Documentos
+
 </div>
+
 
 <div>
-    <i class="fa-solid fa-chart-column"></i>
-    Datos
+
+<i class="fa-solid fa-table"></i>
+
+Hojas
+
 </div>
+
 
 <div>
-    <i class="fa-solid fa-video"></i>
-    Tutoriales
-</div>
+
+<i class="fa-solid fa-chart-column"></i>
+
+Datos
 
 </div>
+
+
+<div>
+
+<i class="fa-solid fa-video"></i>
+
+Tutoriales
+
+</div>
+
+
+</div>
+
+
 
 <div class="preview-content">
 
-<div class="preview-card">
-    <i class="fa-solid fa-file-word"></i>
-    <strong>Documentos</strong>
-    <small>Crear y editar textos</small>
-</div>
 
 <div class="preview-card">
-    <i class="fa-solid fa-table-cells"></i>
-    <strong>Hojas de cálculo</strong>
-    <small>Trabajar con datos</small>
+
+<i class="fa-solid fa-file-word"></i>
+
+<strong>
+Documentos
+</strong>
+
+<small>
+Crear y editar textos
+</small>
+
 </div>
 
-<div class="preview-card">
-    <i class="fa-solid fa-display"></i>
-    <strong>Presentaciones</strong>
-    <small>Crear presentaciones</small>
-</div>
 
 <div class="preview-card">
-    <i class="fa-solid fa-calculator"></i>
-    <strong>Calculadora</strong>
-    <small>Operaciones rápidas</small>
+
+<i class="fa-solid fa-table-cells"></i>
+
+<strong>
+Hojas de cálculo
+</strong>
+
+<small>
+Trabajar con datos
+</small>
+
 </div>
+
+
+<div class="preview-card">
+
+<i class="fa-solid fa-display"></i>
+
+<strong>
+Presentaciones
+</strong>
+
+<small>
+Crear presentaciones
+</small>
+
+</div>
+
+
+<div class="preview-card">
+
+<i class="fa-solid fa-calculator"></i>
+
+<strong>
+Calculadora
+</strong>
+
+<small>
+Operaciones rápidas
+</small>
+
+</div>
+
 
 </div>
 
@@ -1216,17 +2114,25 @@ footer{
 </section>
 
 
-<!-- ================= APLICACIONES ================= -->
+
+<!-- =========================================================
+     APLICACIONES
+========================================================= -->
 
 <section id="aplicaciones">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<span>Aplicaciones</span>
+<span>
+Aplicaciones
+</span>
 
-<h2>Tus herramientas ofimáticas</h2>
+<h2>
+Tus herramientas ofimáticas
+</h2>
 
 <p>
 Accede rápidamente a diferentes herramientas para estudiar,
@@ -1249,27 +2155,48 @@ placeholder="Buscar una aplicación..."
 </div>
 
 
-<div class="apps-grid" id="appsGrid">
+<div
+class="apps-grid"
+id="appsGrid">
 
 
-<div class="app-card" data-name="documentos word texto">
+<!-- DOCUMENTOS -->
+
+<div
+class="app-card"
+data-name="documentos word texto">
+
 
 <div class="app-icon blue">
+
 <i class="fa-solid fa-file-word"></i>
+
 </div>
 
-<h3>Documentos</h3>
+
+<h3>
+Documentos
+</h3>
+
 
 <p>
 Crea y edita documentos de texto directamente desde tu navegador.
 </p>
 
+
 <div class="app-footer">
 
-<span>Editor de texto</span>
+<span>
+Editor de texto
+</span>
 
-<button class="app-link" onclick="openApp('documentos')">
+
+<button
+class="app-link"
+onclick="openApp('documentos')">
+
 Abrir →
+
 </button>
 
 </div>
@@ -1277,24 +2204,44 @@ Abrir →
 </div>
 
 
-<div class="app-card" data-name="excel hojas calculo spreadsheet">
+
+<!-- EXCEL -->
+
+<div
+class="app-card"
+data-name="excel hojas calculo spreadsheet">
+
 
 <div class="app-icon green">
+
 <i class="fa-solid fa-table-cells"></i>
+
 </div>
 
-<h3>Hoja de cálculo</h3>
+
+<h3>
+Hoja de cálculo
+</h3>
+
 
 <p>
 Trabaja con tablas, datos y operaciones básicas.
 </p>
 
+
 <div class="app-footer">
 
-<span>Datos y tablas</span>
+<span>
+Datos y tablas
+</span>
 
-<button class="app-link" onclick="openApp('hoja')">
+
+<button
+class="app-link"
+onclick="openApp('hoja')">
+
 Abrir →
+
 </button>
 
 </div>
@@ -1302,24 +2249,44 @@ Abrir →
 </div>
 
 
-<div class="app-card" data-name="powerpoint presentaciones">
+
+<!-- PRESENTACIONES -->
+
+<div
+class="app-card"
+data-name="powerpoint presentaciones">
+
 
 <div class="app-icon orange">
+
 <i class="fa-solid fa-display"></i>
+
 </div>
 
-<h3>Presentaciones</h3>
+
+<h3>
+Presentaciones
+</h3>
+
 
 <p>
 Crea presentaciones profesionales con herramientas externas.
 </p>
 
+
 <div class="app-footer">
 
-<span>Presentaciones</span>
+<span>
+Presentaciones
+</span>
 
-<button class="app-link" onclick="openApp('presentaciones')">
+
+<button
+class="app-link"
+onclick="openApp('presentaciones')">
+
 Abrir →
+
 </button>
 
 </div>
@@ -1327,24 +2294,44 @@ Abrir →
 </div>
 
 
-<div class="app-card" data-name="notas apuntes">
+
+<!-- NOTAS -->
+
+<div
+class="app-card"
+data-name="notas apuntes">
+
 
 <div class="app-icon purple">
+
 <i class="fa-solid fa-note-sticky"></i>
+
 </div>
 
-<h3>Mis notas</h3>
+
+<h3>
+Mis notas
+</h3>
+
 
 <p>
 Guarda tus apuntes directamente en el navegador.
 </p>
 
+
 <div class="app-footer">
 
-<span>Notas personales</span>
+<span>
+Notas personales
+</span>
 
-<button class="app-link" onclick="openApp('notas')">
+
+<button
+class="app-link"
+onclick="openApp('notas')">
+
 Abrir →
+
 </button>
 
 </div>
@@ -1352,24 +2339,44 @@ Abrir →
 </div>
 
 
-<div class="app-card" data-name="calculadora matematicas">
+
+<!-- CALCULADORA -->
+
+<div
+class="app-card"
+data-name="calculadora matematicas">
+
 
 <div class="app-icon cyan">
+
 <i class="fa-solid fa-calculator"></i>
+
 </div>
 
-<h3>Calculadora</h3>
+
+<h3>
+Calculadora
+</h3>
+
 
 <p>
 Realiza operaciones matemáticas de forma rápida.
 </p>
 
+
 <div class="app-footer">
 
-<span>Matemáticas</span>
+<span>
+Matemáticas
+</span>
 
-<button class="app-link" onclick="openApp('calculadora')">
+
+<button
+class="app-link"
+onclick="openApp('calculadora')">
+
 Abrir →
+
 </button>
 
 </div>
@@ -1377,24 +2384,44 @@ Abrir →
 </div>
 
 
-<div class="app-card" data-name="conversor unidades kilometros metros">
+
+<!-- CONVERSOR -->
+
+<div
+class="app-card"
+data-name="conversor unidades kilometros metros">
+
 
 <div class="app-icon red">
+
 <i class="fa-solid fa-arrows-left-right"></i>
+
 </div>
 
-<h3>Conversor</h3>
+
+<h3>
+Conversor
+</h3>
+
 
 <p>
 Convierte kilómetros, metros y centímetros fácilmente.
 </p>
 
+
 <div class="app-footer">
 
-<span>Unidades</span>
+<span>
+Unidades
+</span>
 
-<button class="app-link" onclick="openApp('conversor')">
+
+<button
+class="app-link"
+onclick="openApp('conversor')">
+
 Abrir →
+
 </button>
 
 </div>
@@ -1409,17 +2436,25 @@ Abrir →
 </section>
 
 
-<!-- ================= CARACTERÍSTICAS ================= -->
+
+<!-- =========================================================
+     CARACTERÍSTICAS
+========================================================= -->
 
 <section class="features">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<span>Ventajas</span>
+<span>
+Ventajas
+</span>
 
-<h2>Todo en un solo sitio</h2>
+<h2>
+Todo en un solo sitio
+</h2>
 
 <p>
 Herramientas pensadas para que tengas una experiencia sencilla,
@@ -1431,11 +2466,14 @@ rápida y cómoda.
 
 <div class="features-grid">
 
+
 <div class="feature">
 
 <i class="fa-solid fa-bolt"></i>
 
-<h3>Rápido</h3>
+<h3>
+Rápido
+</h3>
 
 <p>
 Accede rápidamente a tus herramientas.
@@ -1448,7 +2486,9 @@ Accede rápidamente a tus herramientas.
 
 <i class="fa-solid fa-mobile-screen"></i>
 
-<h3>Responsive</h3>
+<h3>
+Responsive
+</h3>
 
 <p>
 Funciona en ordenador, tablet y móvil.
@@ -1461,7 +2501,9 @@ Funciona en ordenador, tablet y móvil.
 
 <i class="fa-solid fa-cloud"></i>
 
-<h3>Sin instalación</h3>
+<h3>
+Sin instalación
+</h3>
 
 <p>
 Utiliza muchas herramientas directamente desde el navegador.
@@ -1474,13 +2516,16 @@ Utiliza muchas herramientas directamente desde el navegador.
 
 <i class="fa-solid fa-shield-halved"></i>
 
-<h3>Privado</h3>
+<h3>
+Privado
+</h3>
 
 <p>
-Las notas y documentos de esta web se guardan localmente.
+Las notas y documentos se guardan localmente.
 </p>
 
 </div>
+
 
 </div>
 
@@ -1489,17 +2534,25 @@ Las notas y documentos de esta web se guardan localmente.
 </section>
 
 
-<!-- ================= TUTORIALES ================= -->
+
+<!-- =========================================================
+     TUTORIALES
+========================================================= -->
 
 <section id="tutoriales">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<span>Aprende</span>
+<span>
+Aprende
+</span>
 
-<h2>Tutoriales de ofimática</h2>
+<h2>
+Tutoriales de ofimática
+</h2>
 
 <p>
 Vídeos y recursos para aprender a utilizar las principales
@@ -1514,6 +2567,7 @@ herramientas ofimáticas.
 
 <div class="video-card">
 
+
 <div class="video-frame">
 
 <iframe
@@ -1524,11 +2578,16 @@ allowfullscreen>
 
 </div>
 
+
 <div class="video-content">
 
-<span>WORD</span>
+<span>
+WORD
+</span>
 
-<h3>Aprende a utilizar Word</h3>
+<h3>
+Aprende a utilizar Word
+</h3>
 
 <p>
 Introducción a documentos, formato y edición de textos.
@@ -1539,7 +2598,9 @@ Introducción a documentos, formato y edición de textos.
 </div>
 
 
+
 <div class="video-card">
+
 
 <div class="video-frame">
 
@@ -1551,11 +2612,16 @@ allowfullscreen>
 
 </div>
 
+
 <div class="video-content">
 
-<span>EXCEL</span>
+<span>
+EXCEL
+</span>
 
-<h3>Aprende Excel desde cero</h3>
+<h3>
+Aprende Excel desde cero
+</h3>
 
 <p>
 Conoce hojas de cálculo, fórmulas y organización de datos.
@@ -1566,7 +2632,9 @@ Conoce hojas de cálculo, fórmulas y organización de datos.
 </div>
 
 
+
 <div class="video-card">
+
 
 <div class="video-frame">
 
@@ -1578,11 +2646,16 @@ allowfullscreen>
 
 </div>
 
+
 <div class="video-content">
 
-<span>POWERPOINT</span>
+<span>
+POWERPOINT
+</span>
 
-<h3>Crea presentaciones</h3>
+<h3>
+Crea presentaciones
+</h3>
 
 <p>
 Aprende los conceptos básicos para crear presentaciones.
@@ -1600,17 +2673,27 @@ Aprende los conceptos básicos para crear presentaciones.
 </section>
 
 
-<!-- ================= HERRAMIENTAS ================= -->
 
-<section class="tools-section" id="herramientas">
+<!-- =========================================================
+     HERRAMIENTAS
+========================================================= -->
+
+<section
+class="tools-section"
+id="herramientas">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<span>Herramientas</span>
+<span>
+Herramientas
+</span>
 
-<h2>Pequeñas aplicaciones útiles</h2>
+<h2>
+Pequeñas aplicaciones útiles
+</h2>
 
 <p>
 Utiliza estas herramientas sin instalar ningún programa.
@@ -1627,30 +2710,52 @@ Utiliza estas herramientas sin instalar ningún programa.
 <div class="tool">
 
 <h3>
+
 <i class="fa-solid fa-note-sticky"></i>
+
 Bloc de notas
+
 </h3>
+
 
 <p>
 Escribe tus apuntes y guárdalos en este dispositivo.
 </p>
 
-<textarea id="quickNotes" placeholder="Escribe aquí tus notas..."></textarea>
+
+<textarea
+id="quickNotes"
+placeholder="Escribe aquí tus notas...">
+</textarea>
+
 
 <div class="tool-buttons">
 
-<button class="btn btn-primary" onclick="saveNotes()">
+
+<button
+class="btn btn-primary"
+onclick="saveNotes()">
+
 <i class="fa-solid fa-save"></i>
+
 Guardar
+
 </button>
 
-<button class="btn btn-secondary" onclick="clearNotes()">
+
+<button
+class="btn btn-secondary"
+onclick="clearNotes()">
+
 Limpiar
+
 </button>
 
+
 </div>
 
 </div>
+
 
 
 <!-- CONVERSOR -->
@@ -1658,13 +2763,18 @@ Limpiar
 <div class="tool">
 
 <h3>
+
 <i class="fa-solid fa-arrows-left-right"></i>
+
 Conversor de unidades
+
 </h3>
+
 
 <p>
 Convierte entre kilómetros, metros y centímetros.
 </p>
+
 
 <input
 class="text-input"
@@ -1673,31 +2783,60 @@ type="number"
 placeholder="Cantidad"
 >
 
+
 <select id="fromUnit">
 
-<option value="km">Kilómetros</option>
-<option value="m">Metros</option>
-<option value="cm">Centímetros</option>
+<option value="km">
+Kilómetros
+</option>
+
+<option value="m">
+Metros
+</option>
+
+<option value="cm">
+Centímetros
+</option>
 
 </select>
+
 
 <select id="toUnit">
 
-<option value="m">Metros</option>
-<option value="km">Kilómetros</option>
-<option value="cm">Centímetros</option>
+<option value="m">
+Metros
+</option>
+
+<option value="km">
+Kilómetros
+</option>
+
+<option value="cm">
+Centímetros
+</option>
 
 </select>
 
-<button class="btn btn-primary" onclick="convertUnits()">
+
+<button
+class="btn btn-primary"
+onclick="convertUnits()">
+
 Convertir
+
 </button>
 
-<div class="result" id="conversionResult">
+
+<div
+class="result"
+id="conversionResult">
+
 Resultado aparecerá aquí
+
 </div>
 
 </div>
+
 
 
 <!-- CALCULADORA -->
@@ -1705,13 +2844,18 @@ Resultado aparecerá aquí
 <div class="tool calculator">
 
 <h3>
+
 <i class="fa-solid fa-calculator"></i>
+
 Calculadora
+
 </h3>
+
 
 <p>
 Calculadora básica.
 </p>
+
 
 <input
 class="calc-display"
@@ -1719,35 +2863,91 @@ id="calcDisplay"
 readonly
 >
 
+
 <div class="calc-grid">
 
-<button onclick="calcInput('7')">7</button>
-<button onclick="calcInput('8')">8</button>
-<button onclick="calcInput('9')">9</button>
-<button onclick="calcInput('/')">÷</button>
 
-<button onclick="calcInput('4')">4</button>
-<button onclick="calcInput('5')">5</button>
-<button onclick="calcInput('6')">6</button>
-<button onclick="calcInput('*')">×</button>
-
-<button onclick="calcInput('1')">1</button>
-<button onclick="calcInput('2')">2</button>
-<button onclick="calcInput('3')">3</button>
-<button onclick="calcInput('-')">−</button>
-
-<button onclick="calcInput('0')">0</button>
-<button onclick="calcInput('.')">.</button>
-<button onclick="calculate()">=</button>
-<button onclick="calcInput('+')">+</button>
-
-<button onclick="clearCalculator()" style="grid-column:span 4">
-C
+<button onclick="calcInput('7')">
+7
 </button>
 
+<button onclick="calcInput('8')">
+8
+</button>
+
+<button onclick="calcInput('9')">
+9
+</button>
+
+<button onclick="calcInput('/')">
+÷
+</button>
+
+
+<button onclick="calcInput('4')">
+4
+</button>
+
+<button onclick="calcInput('5')">
+5
+</button>
+
+<button onclick="calcInput('6')">
+6
+</button>
+
+<button onclick="calcInput('*')">
+×
+</button>
+
+
+<button onclick="calcInput('1')">
+1
+</button>
+
+<button onclick="calcInput('2')">
+2
+</button>
+
+<button onclick="calcInput('3')">
+3
+</button>
+
+<button onclick="calcInput('-')">
+−
+</button>
+
+
+<button onclick="calcInput('0')">
+0
+</button>
+
+<button onclick="calcInput('.')">
+.
+</button>
+
+<button onclick="calculate()">
+=
+</button>
+
+<button onclick="calcInput('+')">
++
+</button>
+
+
+<button
+onclick="clearCalculator()"
+style="grid-column:span 4">
+
+C
+
+</button>
+
+
 </div>
 
 </div>
+
 
 
 <!-- GENERADOR -->
@@ -1755,30 +2955,54 @@ C
 <div class="tool">
 
 <h3>
+
 <i class="fa-solid fa-wand-magic-sparkles"></i>
+
 Generador de texto
+
 </h3>
 
+
 <p>
-Escribe un texto y conviértelo rápidamente a mayúsculas,
-minúsculas o formato de título.
+Escribe un texto y conviértelo rápidamente a diferentes formatos.
 </p>
 
-<textarea id="generatorText" placeholder="Escribe un texto..."></textarea>
+
+<textarea
+id="generatorText"
+placeholder="Escribe un texto...">
+</textarea>
+
 
 <div class="tool-buttons">
 
-<button class="btn btn-secondary" onclick="uppercaseText()">
+
+<button
+class="btn btn-secondary"
+onclick="uppercaseText()">
+
 MAYÚSCULAS
+
 </button>
 
-<button class="btn btn-secondary" onclick="lowercaseText()">
+
+<button
+class="btn btn-secondary"
+onclick="lowercaseText()">
+
 minúsculas
+
 </button>
 
-<button class="btn btn-primary" onclick="titleText()">
+
+<button
+class="btn btn-primary"
+onclick="titleText()">
+
 Título
+
 </button>
+
 
 </div>
 
@@ -1792,17 +3016,25 @@ Título
 </section>
 
 
-<!-- ================= RECURSOS ================= -->
+
+<!-- =========================================================
+     RECURSOS
+========================================================= -->
 
 <section id="recursos">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<span>Recursos</span>
+<span>
+Recursos
+</span>
 
-<h2>Aprende con plataformas oficiales</h2>
+<h2>
+Aprende con plataformas oficiales
+</h2>
 
 <p>
 Accede a documentación y recursos de algunas de las principales
@@ -1819,7 +3051,9 @@ plataformas de productividad.
 
 <i class="fa-brands fa-microsoft"></i>
 
-<h3>Microsoft 365</h3>
+<h3>
+Microsoft 365
+</h3>
 
 <p>
 Word, Excel, PowerPoint, Outlook y otras herramientas.
@@ -1829,17 +3063,22 @@ Word, Excel, PowerPoint, Outlook y otras herramientas.
 href="https://www.microsoft.com/microsoft-365"
 target="_blank"
 rel="noopener">
+
 Visitar sitio →
+
 </a>
 
 </div>
+
 
 
 <div class="resource">
 
 <i class="fa-brands fa-google"></i>
 
-<h3>Google Workspace</h3>
+<h3>
+Google Workspace
+</h3>
 
 <p>
 Documentos, hojas de cálculo, presentaciones y Drive.
@@ -1849,17 +3088,22 @@ Documentos, hojas de cálculo, presentaciones y Drive.
 href="https://workspace.google.com/"
 target="_blank"
 rel="noopener">
+
 Visitar sitio →
+
 </a>
 
 </div>
+
 
 
 <div class="resource">
 
 <i class="fa-solid fa-graduation-cap"></i>
 
-<h3>Microsoft Learn</h3>
+<h3>
+Microsoft Learn
+</h3>
 
 <p>
 Material educativo y documentación para aprender.
@@ -1869,17 +3113,22 @@ Material educativo y documentación para aprender.
 href="https://learn.microsoft.com/"
 target="_blank"
 rel="noopener">
+
 Aprender →
+
 </a>
 
 </div>
+
 
 
 <div class="resource">
 
 <i class="fa-solid fa-book"></i>
 
-<h3>Google Learning</h3>
+<h3>
+Google Learning
+</h3>
 
 <p>
 Cursos y recursos para mejorar tus habilidades digitales.
@@ -1889,7 +3138,9 @@ Cursos y recursos para mejorar tus habilidades digitales.
 href="https://grow.google/"
 target="_blank"
 rel="noopener">
+
 Aprender →
+
 </a>
 
 </div>
@@ -1902,17 +3153,24 @@ Aprender →
 </section>
 
 
-<!-- ================= CTA ================= -->
+
+<!-- =========================================================
+     BANNER
+========================================================= -->
 
 <section class="cta">
 
 <div class="container">
 
+
 <div class="cta-box">
+
 
 <div>
 
-<h2>Mejora tu productividad digital</h2>
+<h2>
+Mejora tu productividad digital
+</h2>
 
 <p>
 Aprende nuevas herramientas y organiza mejor tu trabajo.
@@ -1920,10 +3178,17 @@ Aprende nuevas herramientas y organiza mejor tu trabajo.
 
 </div>
 
-<a href="#aplicaciones" class="btn">
+
+<a
+href="#aplicaciones"
+class="btn">
+
 Explorar herramientas
+
 <i class="fa-solid fa-arrow-right"></i>
+
 </a>
+
 
 </div>
 
@@ -1932,20 +3197,28 @@ Explorar herramientas
 </section>
 
 
-<!-- ================= CONTACTO ================= -->
+
+<!-- =========================================================
+     CONTACTO
+========================================================= -->
 
 <section id="contacto">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<span>Contacto</span>
+<span>
+Contacto
+</span>
 
-<h2>¿Tienes alguna pregunta?</h2>
+<h2>
+¿Tienes alguna pregunta?
+</h2>
 
 <p>
-Puedes utilizar este formulario como sección de contacto de tu proyecto.
+Puedes ponerte en contacto conmigo utilizando mi correo electrónico.
 </p>
 
 </div>
@@ -1954,67 +3227,107 @@ Puedes utilizar este formulario como sección de contacto de tu proyecto.
 <div class="contact-grid">
 
 
+<!-- INFORMACIÓN DE CONTACTO -->
+
 <div class="contact-info">
 
-<h3>Ofimática Pro</h3>
+
+<h3>
+Ofimática Pro
+</h3>
+
 
 <p>
-Portal educativo dedicado a la productividad, herramientas
-ofimáticas y aprendizaje digital.
+Portal educativo dedicado a la productividad,
+herramientas ofimáticas y aprendizaje digital.
 </p>
 
 
+
 <div class="contact-item">
+
 
 <i class="fa-solid fa-envelope"></i>
 
+
 <div>
 
-<strong>Email</strong>
+<strong>
+Email
+</strong>
 
-<p>contacto@ofimaticapro.com</p>
+
+<p>
+
+<a
+href="mailto:mohammedlamkadem12@gmail.com">
+
+mohammedlamkadem12@gmail.com
+
+</a>
+
+</p>
 
 </div>
 
 </div>
+
 
 
 <div class="contact-item">
+
 
 <i class="fa-solid fa-globe"></i>
 
+
 <div>
 
-<strong>Web</strong>
+<strong>
+Web
+</strong>
 
-<p>GitHub Pages</p>
+<p>
+GitHub Pages
+</p>
 
 </div>
 
 </div>
+
 
 
 <div class="contact-item">
 
-<i class="fa-solid fa-location-dot"></i>
+
+<i class="fa-solid fa-user"></i>
+
 
 <div>
 
-<strong>Proyecto</strong>
+<strong>
+Autor
+</strong>
 
-<p>Web educativa de ofimática</p>
+<p>
+Mohammed Lamkadem
+</p>
 
 </div>
 
 </div>
 
+
+
 </div>
 
+
+
+<!-- FORMULARIO -->
 
 <form
 class="contact-form"
-onsubmit="sendContact(event)"
->
+onsubmit="sendContact(event)">
+
 
 <input
 class="text-input"
@@ -2024,6 +3337,7 @@ placeholder="Tu nombre"
 required
 >
 
+
 <input
 class="text-input"
 type="email"
@@ -2031,6 +3345,7 @@ id="contactEmail"
 placeholder="Tu correo electrónico"
 required
 >
+
 
 <input
 class="text-input"
@@ -2040,19 +3355,26 @@ placeholder="Asunto"
 required
 >
 
+
 <textarea
 id="contactMessage"
 placeholder="Escribe tu mensaje..."
-required
-></textarea>
+required>
+</textarea>
 
-<button class="btn btn-primary" type="submit">
+
+<button
+class="btn btn-primary"
+type="submit">
+
 
 <i class="fa-solid fa-paper-plane"></i>
 
 Enviar mensaje
 
+
 </button>
+
 
 </form>
 
@@ -2063,80 +3385,149 @@ Enviar mensaje
 
 </section>
 
+
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
 <div class="container">
+
 
 <div class="footer-grid">
 
 
 <div>
 
+
 <div class="footer-logo">
+
 Ofimática Pro
+
 </div>
 
+
 <p class="footer-about">
+
 Una web educativa para descubrir aplicaciones ofimáticas,
 herramientas digitales y recursos de productividad.
+
 </p>
+
 
 <div class="socials">
 
-<a href="https://github.com/" target="_blank" rel="noopener">
+
+<a
+href="https://github.com/"
+target="_blank"
+rel="noopener">
+
 <i class="fa-brands fa-github"></i>
+
 </a>
 
-<a href="https://www.youtube.com/" target="_blank" rel="noopener">
+
+<a
+href="https://www.youtube.com/"
+target="_blank"
+rel="noopener">
+
 <i class="fa-brands fa-youtube"></i>
+
 </a>
 
-<a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+
+<a
+href="https://www.linkedin.com/"
+target="_blank"
+rel="noopener">
+
 <i class="fa-brands fa-linkedin"></i>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+
+<div class="footer-col">
+
+<h4>
+Web
+</h4>
+
+<a href="#inicio">
+Inicio
+</a>
+
+<a href="#aplicaciones">
+Aplicaciones
+</a>
+
+<a href="#tutoriales">
+Tutoriales
+</a>
+
+<a href="#recursos">
+Recursos
 </a>
 
 </div>
 
-</div>
 
 
 <div class="footer-col">
 
-<h4>Web</h4>
+<h4>
+Aplicaciones
+</h4>
 
-<a href="#inicio">Inicio</a>
-<a href="#aplicaciones">Aplicaciones</a>
-<a href="#tutoriales">Tutoriales</a>
-<a href="#recursos">Recursos</a>
+<a href="#aplicaciones">
+Documentos
+</a>
+
+<a href="#aplicaciones">
+Hojas de cálculo
+</a>
+
+<a href="#aplicaciones">
+Presentaciones
+</a>
+
+<a href="#herramientas">
+Calculadora
+</a>
 
 </div>
 
 
-<div class="footer-col">
-
-<h4>Aplicaciones</h4>
-
-<a href="#aplicaciones">Documentos</a>
-<a href="#aplicaciones">Hojas de cálculo</a>
-<a href="#aplicaciones">Presentaciones</a>
-<a href="#herramientas">Calculadora</a>
-
-</div>
-
 
 <div class="footer-col">
 
-<h4>Información</h4>
+<h4>
+Información
+</h4>
 
-<a href="#contacto">Contacto</a>
-<a href="#">Privacidad</a>
-<a href="#">Aviso legal</a>
-<a href="#">GitHub</a>
+<a href="#contacto">
+Contacto
+</a>
+
+<a href="mailto:mohammedlamkadem12@gmail.com">
+Email
+</a>
+
+<a href="#inicio">
+Volver arriba
+</a>
 
 </div>
 
@@ -2146,64 +3537,109 @@ herramientas digitales y recursos de productividad.
 
 <div class="copyright">
 
-© <span id="year"></span> Ofimática Pro — Proyecto educativo.
+© <span id="year"></span>
+
+Ofimática Pro — Proyecto de Mohammed Lamkadem.
 
 </div>
+
 
 </div>
 
 </footer>
 
 
-<!-- ================= MODAL ================= -->
 
-<div class="modal" id="appModal">
+<!-- =========================================================
+     MODAL
+========================================================= -->
+
+<div
+class="modal"
+id="appModal">
+
 
 <div class="modal-box">
 
-<button class="modal-close" onclick="closeModal()">
+
+<button
+class="modal-close"
+onclick="closeModal()">
+
 <i class="fa-solid fa-xmark"></i>
+
 </button>
 
+
 <h2 id="modalTitle">
+
 Aplicación
+
 </h2>
 
-<div class="app-screen" id="modalContent">
+
+<div
+class="app-screen"
+id="modalContent">
+
 </div>
+
 
 </div>
 
 </div>
+
 
 
 <!-- TOAST -->
 
-<div class="toast" id="toast">
+<div
+class="toast"
+id="toast">
+
 Guardado correctamente
+
 </div>
+
 
 
 <script>
 
-/* ================= VARIABLES ================= */
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-const modal = document.getElementById("appModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalContent = document.getElementById("modalContent");
-const toast = document.getElementById("toast");
+const modal =
+document.getElementById("appModal");
+
+const modalTitle =
+document.getElementById("modalTitle");
+
+const modalContent =
+document.getElementById("modalContent");
+
+const toast =
+document.getElementById("toast");
 
 
-/* ================= AÑO ================= */
+/* =========================================================
+   AÑO
+========================================================= */
 
 document.getElementById("year").textContent =
 new Date().getFullYear();
 
 
-/* ================= MENÚ MÓVIL ================= */
+/* =========================================================
+   MENÚ MÓVIL
+========================================================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
 
 menuBtn.addEventListener("click", () => {
 
@@ -2212,7 +3648,9 @@ menuBtn.addEventListener("click", () => {
 });
 
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
 
     link.addEventListener("click", () => {
 
@@ -2223,11 +3661,19 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 });
 
 
-/* ================= MODO OSCURO ================= */
+/* =========================================================
+   MODO OSCURO
+========================================================= */
 
-const themeBtn = document.getElementById("themeBtn");
+const themeBtn =
+document.getElementById("themeBtn");
 
-if(localStorage.getItem("ofimatica-theme") === "dark"){
+
+if(
+    localStorage.getItem("ofimatica-theme")
+    ===
+    "dark"
+){
 
     document.body.classList.add("dark");
 
@@ -2236,6 +3682,7 @@ if(localStorage.getItem("ofimatica-theme") === "dark"){
 
 }
 
+
 themeBtn.addEventListener("click", () => {
 
     document.body.classList.toggle("dark");
@@ -2243,86 +3690,130 @@ themeBtn.addEventListener("click", () => {
     const dark =
     document.body.classList.contains("dark");
 
+
     localStorage.setItem(
         "ofimatica-theme",
-        dark ? "dark" : "light"
+        dark
+        ? "dark"
+        : "light"
     );
 
-    themeBtn.innerHTML = dark
-        ? '<i class="fa-solid fa-sun"></i>'
-        : '<i class="fa-solid fa-moon"></i>';
+
+    themeBtn.innerHTML =
+    dark
+    ?
+    '<i class="fa-solid fa-sun"></i>'
+    :
+    '<i class="fa-solid fa-moon"></i>';
 
 });
 
 
-/* ================= BUSCADOR ================= */
+/* =========================================================
+   BUSCADOR DE APLICACIONES
+========================================================= */
 
-document.getElementById("appSearch").addEventListener(
+document
+.getElementById("appSearch")
+.addEventListener(
 "input",
 function(){
 
-    const search = this.value.toLowerCase();
+    const search =
+    this.value.toLowerCase();
 
-    document.querySelectorAll(".app-card").forEach(card => {
+
+    document
+    .querySelectorAll(".app-card")
+    .forEach(card => {
 
         const name =
         card.dataset.name.toLowerCase();
 
+
         card.style.display =
         name.includes(search)
-        ? ""
-        : "none";
+        ?
+        ""
+        :
+        "none";
 
     });
 
 });
 
 
-/* ================= MODAL ================= */
+/* =========================================================
+   ABRIR APLICACIONES
+========================================================= */
 
 function openApp(type){
 
     modal.classList.add("active");
+
+
+    /* DOCUMENTOS */
 
     if(type === "documentos"){
 
         modalTitle.textContent =
         "Editor de documentos";
 
+
         modalContent.innerHTML = `
 
-            <p style="color:var(--muted);margin-bottom:15px">
-            Escribe tu documento. Puedes guardarlo en el navegador
-            o descargarlo como archivo de texto.
-            </p>
+        <p style="color:var(--muted);margin-bottom:15px">
 
-            <textarea
-            class="editor"
-            id="documentEditor"
-            placeholder="Comienza a escribir tu documento..."
-            ></textarea>
+        Escribe tu documento. Puedes guardarlo en el navegador
+        o descargarlo como archivo de texto.
 
-            <div class="tool-buttons" style="margin-top:15px">
+        </p>
 
-                <button
-                class="btn btn-primary"
-                onclick="saveDocument()">
-                <i class="fa-solid fa-save"></i>
-                Guardar
-                </button>
 
-                <button
-                class="btn btn-secondary"
-                onclick="downloadDocument()">
-                <i class="fa-solid fa-download"></i>
-                Descargar
-                </button>
+        <textarea
+        class="editor"
+        id="documentEditor"
+        placeholder="Comienza a escribir tu documento..."
+        ></textarea>
 
-            </div>
+
+        <div
+        class="tool-buttons"
+        style="margin-top:15px">
+
+
+        <button
+        class="btn btn-primary"
+        onclick="saveDocument()">
+
+        <i class="fa-solid fa-save"></i>
+
+        Guardar
+
+        </button>
+
+
+        <button
+        class="btn btn-secondary"
+        onclick="downloadDocument()">
+
+        <i class="fa-solid fa-download"></i>
+
+        Descargar
+
+        </button>
+
+
+        </div>
+
         `;
 
+
         const saved =
-        localStorage.getItem("ofimatica-document");
+        localStorage.getItem(
+            "ofimatica-document"
+        );
+
 
         if(saved){
 
@@ -2335,30 +3826,44 @@ function openApp(type){
     }
 
 
+
+    /* HOJA DE CÁLCULO */
+
     if(type === "hoja"){
 
         modalTitle.textContent =
         "Hoja de cálculo";
 
+
         modalContent.innerHTML = `
 
         <p style="color:var(--muted)">
+
         Puedes escribir directamente dentro de las celdas.
+
         </p>
+
 
         <table class="sheet">
 
         <thead>
 
         <tr>
+
         <th></th>
+
         <th>A</th>
+
         <th>B</th>
+
         <th>C</th>
+
         <th>D</th>
+
         </tr>
 
         </thead>
+
 
         <tbody>
 
@@ -2368,38 +3873,53 @@ function openApp(type){
 
         </table>
 
+
         <br>
+
 
         <button
         class="btn btn-primary"
         onclick="calculateSheet()">
 
-        Calcular suma de B2:B6
+        Calcular suma de columna B
 
         </button>
+
 
         <div
         class="result"
         id="sheetResult">
+
         Resultado aparecerá aquí
+
         </div>
+
         `;
 
     }
 
+
+
+    /* PRESENTACIONES */
 
     if(type === "presentaciones"){
 
         modalTitle.textContent =
         "Presentaciones";
 
+
         modalContent.innerHTML = `
 
-        <p style="color:var(--muted);margin-bottom:20px">
+        <p
+        style="color:var(--muted);margin-bottom:20px">
+
         Utiliza estas plataformas para crear presentaciones.
+
         </p>
 
+
         <div class="tool-buttons">
+
 
         <a
         class="btn btn-primary"
@@ -2407,8 +3927,11 @@ function openApp(type){
         target="_blank"
         rel="noopener">
 
+
         <i class="fa-brands fa-google"></i>
+
         Google Slides
+
 
         </a>
 
@@ -2419,10 +3942,14 @@ function openApp(type){
         target="_blank"
         rel="noopener">
 
+
         <i class="fa-brands fa-microsoft"></i>
+
         Microsoft PowerPoint
 
+
         </a>
+
 
         </div>
 
@@ -2431,16 +3958,24 @@ function openApp(type){
     }
 
 
+
+    /* NOTAS */
+
     if(type === "notas"){
 
         modalTitle.textContent =
         "Mis notas";
 
+
         modalContent.innerHTML = `
 
-        <p style="color:var(--muted);margin-bottom:15px">
+        <p
+        style="color:var(--muted);margin-bottom:15px">
+
         Tus notas se guardan en el almacenamiento local del navegador.
+
         </p>
+
 
         <textarea
         class="editor"
@@ -2448,18 +3983,22 @@ function openApp(type){
         placeholder="Escribe tus notas..."
         ></textarea>
 
+
         <div
         class="tool-buttons"
         style="margin-top:15px">
+
 
         <button
         class="btn btn-primary"
         onclick="saveModalNotes()">
 
         <i class="fa-solid fa-save"></i>
+
         Guardar notas
 
         </button>
+
 
         <button
         class="btn btn-secondary"
@@ -2469,12 +4008,17 @@ function openApp(type){
 
         </button>
 
+
         </div>
 
         `;
 
+
         const notes =
-        localStorage.getItem("ofimatica-notas");
+        localStorage.getItem(
+            "ofimatica-notas"
+        );
+
 
         if(notes){
 
@@ -2487,14 +4031,19 @@ function openApp(type){
     }
 
 
+
+    /* CALCULADORA */
+
     if(type === "calculadora"){
 
         modalTitle.textContent =
         "Calculadora";
 
+
         modalContent.innerHTML = `
 
         <div class="calculator">
+
 
         <input
         class="calc-display"
@@ -2502,35 +4051,88 @@ function openApp(type){
         readonly
         >
 
+
         <div class="calc-grid">
 
-        <button onclick="modalCalc('7')">7</button>
-        <button onclick="modalCalc('8')">8</button>
-        <button onclick="modalCalc('9')">9</button>
-        <button onclick="modalCalc('/')">÷</button>
 
-        <button onclick="modalCalc('4')">4</button>
-        <button onclick="modalCalc('5')">5</button>
-        <button onclick="modalCalc('6')">6</button>
-        <button onclick="modalCalc('*')">×</button>
+        <button onclick="modalCalc('7')">
+        7
+        </button>
 
-        <button onclick="modalCalc('1')">1</button>
-        <button onclick="modalCalc('2')">2</button>
-        <button onclick="modalCalc('3')">3</button>
-        <button onclick="modalCalc('-')">−</button>
+        <button onclick="modalCalc('8')">
+        8
+        </button>
 
-        <button onclick="modalCalc('0')">0</button>
-        <button onclick="modalCalc('.')">.</button>
-        <button onclick="modalCalculate()">=</button>
-        <button onclick="modalCalc('+')">+</button>
+        <button onclick="modalCalc('9')">
+        9
+        </button>
+
+        <button onclick="modalCalc('/')">
+        ÷
+        </button>
+
+
+        <button onclick="modalCalc('4')">
+        4
+        </button>
+
+        <button onclick="modalCalc('5')">
+        5
+        </button>
+
+        <button onclick="modalCalc('6')">
+        6
+        </button>
+
+        <button onclick="modalCalc('*')">
+        ×
+        </button>
+
+
+        <button onclick="modalCalc('1')">
+        1
+        </button>
+
+        <button onclick="modalCalc('2')">
+        2
+        </button>
+
+        <button onclick="modalCalc('3')">
+        3
+        </button>
+
+        <button onclick="modalCalc('-')">
+        −
+        </button>
+
+
+        <button onclick="modalCalc('0')">
+        0
+        </button>
+
+        <button onclick="modalCalc('.')">
+        .
+        </button>
+
+        <button onclick="modalCalculate()">
+        =
+        </button>
+
+        <button onclick="modalCalc('+')">
+        +
+        </button>
+
 
         <button
-        onclick="document.getElementById('modalCalc').value=''"
+        onclick="
+        document.getElementById('modalCalc').value=''
+        "
         style="grid-column:span 4">
 
         C
 
         </button>
+
 
         </div>
 
@@ -2541,10 +4143,14 @@ function openApp(type){
     }
 
 
+
+    /* CONVERSOR */
+
     if(type === "conversor"){
 
         modalTitle.textContent =
         "Conversor de unidades";
+
 
         modalContent.innerHTML = `
 
@@ -2555,25 +4161,52 @@ function openApp(type){
         placeholder="Cantidad"
         >
 
+
         <select
         id="modalFrom"
         class="tool select">
 
-        <option value="km">Kilómetros</option>
-        <option value="m">Metros</option>
-        <option value="cm">Centímetros</option>
+
+        <option value="km">
+        Kilómetros
+        </option>
+
+
+        <option value="m">
+        Metros
+        </option>
+
+
+        <option value="cm">
+        Centímetros
+        </option>
+
 
         </select>
+
 
         <select
         id="modalTo"
         class="tool select">
 
-        <option value="m">Metros</option>
-        <option value="km">Kilómetros</option>
-        <option value="cm">Centímetros</option>
+
+        <option value="m">
+        Metros
+        </option>
+
+
+        <option value="km">
+        Kilómetros
+        </option>
+
+
+        <option value="cm">
+        Centímetros
+        </option>
+
 
         </select>
+
 
         <button
         class="btn btn-primary"
@@ -2582,6 +4215,7 @@ function openApp(type){
         Convertir
 
         </button>
+
 
         <div
         class="result"
@@ -2598,13 +4232,20 @@ function openApp(type){
 }
 
 
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
+
 function closeModal(){
 
     modal.classList.remove("active");
 
 }
 
-modal.addEventListener("click", event => {
+
+modal.addEventListener(
+"click",
+event => {
 
     if(event.target === modal){
 
@@ -2615,7 +4256,9 @@ modal.addEventListener("click", event => {
 });
 
 
-/* ================= DOCUMENTOS ================= */
+/* =========================================================
+   DOCUMENTOS
+========================================================= */
 
 function saveDocument(){
 
@@ -2624,12 +4267,16 @@ function saveDocument(){
         "documentEditor"
     ).value;
 
+
     localStorage.setItem(
         "ofimatica-document",
         value
     );
 
-    showToast("Documento guardado");
+
+    showToast(
+        "Documento guardado"
+    );
 
 }
 
@@ -2641,52 +4288,97 @@ function downloadDocument(){
         "documentEditor"
     ).value;
 
+
     const blob =
-    new Blob([text], {
-        type:"text/plain;charset=utf-8"
-    });
+    new Blob(
+        [text],
+        {
+            type:
+            "text/plain;charset=utf-8"
+        }
+    );
+
 
     const url =
     URL.createObjectURL(blob);
 
+
     const a =
     document.createElement("a");
 
+
     a.href = url;
-    a.download = "mi-documento.txt";
+
+    a.download =
+    "mi-documento.txt";
+
 
     a.click();
+
 
     URL.revokeObjectURL(url);
 
 }
 
 
-/* ================= HOJA DE CÁLCULO ================= */
+/* =========================================================
+   HOJA DE CÁLCULO
+========================================================= */
 
 function createSpreadsheetRows(){
 
     let html = "";
 
-    for(let row=1; row<=8; row++){
+
+    for(
+        let row=1;
+        row<=8;
+        row++
+    ){
 
         html += `
+
         <tr>
 
-        <th>${row}</th>
+        <th>
+        ${row}
+        </th>
 
-        <td contenteditable="true" data-row="${row}" data-col="A"></td>
 
-        <td contenteditable="true" data-row="${row}" data-col="B"></td>
+        <td
+        contenteditable="true"
+        data-row="${row}"
+        data-col="A">
+        </td>
 
-        <td contenteditable="true" data-row="${row}" data-col="C"></td>
 
-        <td contenteditable="true" data-row="${row}" data-col="D"></td>
+        <td
+        contenteditable="true"
+        data-row="${row}"
+        data-col="B">
+        </td>
+
+
+        <td
+        contenteditable="true"
+        data-row="${row}"
+        data-col="C">
+        </td>
+
+
+        <td
+        contenteditable="true"
+        data-row="${row}"
+        data-col="D">
+        </td>
+
 
         </tr>
+
         `;
 
     }
+
 
     return html;
 
@@ -2700,12 +4392,17 @@ function calculateSheet(){
         'td[data-col="B"]'
     );
 
+
     let total = 0;
+
 
     cells.forEach(cell => {
 
         const value =
-        parseFloat(cell.textContent);
+        parseFloat(
+            cell.textContent
+        );
+
 
         if(!isNaN(value)){
 
@@ -2715,6 +4412,7 @@ function calculateSheet(){
 
     });
 
+
     document.getElementById(
         "sheetResult"
     ).textContent =
@@ -2723,7 +4421,9 @@ function calculateSheet(){
 }
 
 
-/* ================= NOTAS ================= */
+/* =========================================================
+   NOTAS
+========================================================= */
 
 function saveNotes(){
 
@@ -2732,12 +4432,16 @@ function saveNotes(){
         "quickNotes"
     ).value;
 
+
     localStorage.setItem(
         "quick-notes",
         notes
     );
 
-    showToast("Notas guardadas");
+
+    showToast(
+        "Notas guardadas"
+    );
 
 }
 
@@ -2752,13 +4456,17 @@ function clearNotes(){
 
 
 const savedQuickNotes =
-localStorage.getItem("quick-notes");
+localStorage.getItem(
+    "quick-notes"
+);
+
 
 if(savedQuickNotes){
 
     document.getElementById(
         "quickNotes"
-    ).value = savedQuickNotes;
+    ).value =
+    savedQuickNotes;
 
 }
 
@@ -2770,12 +4478,16 @@ function saveModalNotes(){
         "modalNotes"
     ).value;
 
+
     localStorage.setItem(
         "ofimatica-notas",
         value
     );
 
-    showToast("Notas guardadas");
+
+    showToast(
+        "Notas guardadas"
+    );
 
 }
 
@@ -2789,7 +4501,9 @@ function clearModalNotes(){
 }
 
 
-/* ================= CALCULADORA ================= */
+/* =========================================================
+   CALCULADORA
+========================================================= */
 
 function calcInput(value){
 
@@ -2797,6 +4511,7 @@ function calcInput(value){
     document.getElementById(
         "calcDisplay"
     );
+
 
     display.value += value;
 
@@ -2819,32 +4534,39 @@ function calculate(){
         "calcDisplay"
     );
 
+
     try{
 
         display.value =
-        safeCalculate(display.value);
+        safeCalculate(
+            display.value
+        );
 
-    }catch{
+    }
 
-        display.value = "Error";
+    catch{
+
+        display.value =
+        "Error";
 
     }
 
 }
 
 
-/*
-    Calculadora básica.
-    Solo acepta números y operadores matemáticos.
-*/
-
 function safeCalculate(expression){
 
-    if(!/^[0-9+\-*/().\s]+$/.test(expression)){
+    if(
+        !/^[0-9+\-*/().\s]+$/
+        .test(expression)
+    ){
 
-        throw new Error("Entrada inválida");
+        throw new Error(
+            "Entrada inválida"
+        );
 
     }
+
 
     return Function(
         '"use strict"; return (' +
@@ -2855,7 +4577,9 @@ function safeCalculate(expression){
 }
 
 
-/* ================= CALCULADORA MODAL ================= */
+/* =========================================================
+   CALCULADORA MODAL
+========================================================= */
 
 function modalCalc(value){
 
@@ -2863,6 +4587,7 @@ function modalCalc(value){
     document.getElementById(
         "modalCalc"
     );
+
 
     display.value += value;
 
@@ -2876,21 +4601,29 @@ function modalCalculate(){
         "modalCalc"
     );
 
+
     try{
 
         display.value =
-        safeCalculate(display.value);
+        safeCalculate(
+            display.value
+        );
 
-    }catch{
+    }
 
-        display.value = "Error";
+    catch{
+
+        display.value =
+        "Error";
 
     }
 
 }
 
 
-/* ================= CONVERSOR ================= */
+/* =========================================================
+   CONVERSOR
+========================================================= */
 
 function convertUnits(){
 
@@ -2901,15 +4634,18 @@ function convertUnits(){
         ).value
     );
 
+
     const from =
     document.getElementById(
         "fromUnit"
     ).value;
 
+
     const to =
     document.getElementById(
         "toUnit"
     ).value;
+
 
     if(isNaN(value)){
 
@@ -2922,33 +4658,44 @@ function convertUnits(){
 
     }
 
+
     const meters = {
 
-        km: value * 1000,
-        m: value,
-        cm: value / 100
+        km:value * 1000,
+
+        m:value,
+
+        cm:value / 100
 
     };
 
+
     let result;
+
 
     if(to === "km"){
 
-        result = meters[from] / 1000;
+        result =
+        meters[from] / 1000;
 
     }
+
 
     if(to === "m"){
 
-        result = meters[from];
+        result =
+        meters[from];
 
     }
+
 
     if(to === "cm"){
 
-        result = meters[from] * 100;
+        result =
+        meters[from] * 100;
 
     }
+
 
     document.getElementById(
         "conversionResult"
@@ -2967,15 +4714,18 @@ function modalConvert(){
         ).value
     );
 
+
     const from =
     document.getElementById(
         "modalFrom"
     ).value;
 
+
     const to =
     document.getElementById(
         "modalTo"
     ).value;
+
 
     if(isNaN(value)){
 
@@ -2988,24 +4738,35 @@ function modalConvert(){
 
     }
 
+
     const meters = {
 
         km:value * 1000,
+
         m:value,
+
         cm:value / 100
 
     };
 
+
     let result;
 
+
     if(to === "km")
-        result = meters[from] / 1000;
+        result =
+        meters[from] / 1000;
+
 
     if(to === "m")
-        result = meters[from];
+        result =
+        meters[from];
+
 
     if(to === "cm")
-        result = meters[from] * 100;
+        result =
+        meters[from] * 100;
+
 
     document.getElementById(
         "modalResult"
@@ -3015,7 +4776,9 @@ function modalConvert(){
 }
 
 
-/* ================= GENERADOR DE TEXTO ================= */
+/* =========================================================
+   GENERADOR DE TEXTO
+========================================================= */
 
 function uppercaseText(){
 
@@ -3023,6 +4786,7 @@ function uppercaseText(){
     document.getElementById(
         "generatorText"
     );
+
 
     element.value =
     element.value.toUpperCase();
@@ -3037,6 +4801,7 @@ function lowercaseText(){
         "generatorText"
     );
 
+
     element.value =
     element.value.toLowerCase();
 
@@ -3050,80 +4815,149 @@ function titleText(){
         "generatorText"
     );
 
+
     element.value =
     element.value
     .toLowerCase()
-    .replace(/\b\w/g, char =>
+    .replace(
+        /\b\w/g,
+        char =>
         char.toUpperCase()
     );
 
 }
 
 
-/* ================= CONTACTO ================= */
+/* =========================================================
+   FORMULARIO DE CONTACTO
+========================================================= */
 
 function sendContact(event){
 
     event.preventDefault();
+
 
     const name =
     document.getElementById(
         "contactName"
     ).value;
 
-    showToast(
-        "Gracias " + name +
-        ". El mensaje está preparado."
+
+    const email =
+    document.getElementById(
+        "contactEmail"
+    ).value;
+
+
+    const subject =
+    document.getElementById(
+        "contactSubject"
+    ).value;
+
+
+    const message =
+    document.getElementById(
+        "contactMessage"
+    ).value;
+
+
+    const mailto =
+    "mailto:mohammedlamkadem12@gmail.com"
+    +
+    "?subject="
+    +
+    encodeURIComponent(
+        subject
+    )
+    +
+    "&body="
+    +
+    encodeURIComponent(
+        "Nombre: " +
+        name +
+        "\n\n" +
+        "Email: " +
+        email +
+        "\n\n" +
+        message
     );
 
-    event.target.reset();
+
+    window.location.href =
+    mailto;
+
 
 }
 
 
-/* ================= TOAST ================= */
+/* =========================================================
+   NOTIFICACIÓN
+========================================================= */
 
 function showToast(message){
 
-    toast.textContent = message;
+    toast.textContent =
+    message;
 
-    toast.classList.add("show");
+
+    toast.classList.add(
+        "show"
+    );
+
 
     setTimeout(() => {
 
-        toast.classList.remove("show");
+        toast.classList.remove(
+            "show"
+        );
 
     },3000);
 
 }
 
 
-/* ================= TECLADO CALCULADORA ================= */
+/* =========================================================
+   TECLADO DE CALCULADORA
+========================================================= */
 
-document.addEventListener("keydown", event => {
+document.addEventListener(
+"keydown",
+event => {
+
 
     const allowed =
     "0123456789+-*/().";
 
-    if(allowed.includes(event.key)){
+
+    if(
+        allowed.includes(
+            event.key
+        )
+    ){
 
         const display =
         document.getElementById(
             "calcDisplay"
         );
 
+
         if(
-            document.activeElement.tagName !==
-            "INPUT" &&
-            document.activeElement.tagName !==
+            document.activeElement.tagName
+            !==
+            "INPUT"
+            &&
+            document.activeElement.tagName
+            !==
             "TEXTAREA"
         ){
 
-            display.value += event.key;
+            display.value +=
+            event.key;
 
         }
 
     }
+
 
     if(event.key === "Enter"){
 
@@ -3132,16 +4966,27 @@ document.addEventListener("keydown", event => {
             "calcDisplay"
         );
 
+
         if(
-            document.activeElement.tagName !==
-            "INPUT" &&
-            document.activeElement.tagName !==
+            document.activeElement.tagName
+            !==
+            "INPUT"
+            &&
+            document.activeElement.tagName
+            !==
             "TEXTAREA"
         ){
 
             calculate();
 
         }
+
+    }
+
+
+    if(event.key === "Escape"){
+
+        closeModal();
 
     }
 
@@ -3152,3 +4997,4 @@ document.addEventListener("keydown", event => {
 
 </body>
 </html>
+
